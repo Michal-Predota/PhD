@@ -1,0 +1,637 @@
+
+Wyjazd do Niemiec
+
+1)  Funkcja liczona w LCMS z cięciami na hity, DPhi DTheta i DCA nie działa przy braku warunku na krotność eventu
+2)  Dodanie Z vertex do hashowania eventów nie poprawiło otrzymanej funkcji korelacyjnej a liczy się znacznie dłużej
+3)  Funkcja korealcyjna dla pi+ pi+ z cutem na hity wygląda zdrowo	
+4)  UrQMD jakoś dziwnie koduje rozpady, prawie wszystkie piony mają 20 jako status?
+5)  Funkcja korelacyjna w LCMS z warunkiem na hity i nTracks>=2 wygląda w sumie całkiem dobrze???
+6)  Z warunkiem na hity funkcje korelacyjne są zgodne we wszystkich klasach nTracks
+7)  Lambda oraz R rosną wraz z x przy nTrackGT>x przy cięciu na hity i DPhi DTheta
+8)  Cuty na topologię (tylko sailors) wycięły prawie całą statystykę i funkcja wygląda bardzo słabo - pomylone stopnie i radiany? 
+    Na pewno źle fillowane były histogramy DPhi vs DCosTheta
+    Funkcja licząca czy track jest SA czy CB też miała błąd
+9)  Liczby tracków z HGeantKine i z HParticleCandSim są bardzo różne (nawet po sprawdzeniu isInAcceptanceBit()...)
+10) Po naprawieniu liczenia sailors/cowboy i w połączeniu z HITS oraz nTracks>5 funkcja korelacyjna wygląda w sumie całkiem spoko
+11) Bez cięcia na ilość tracków (GT1) też wydaje się być ok, sprawdzić większą statystykę	
+12) Po sprawdzeniu większej statystyki (50k plików) funkcja też wydaje się być ok, lambda ~0.6
+13) Double ratio (zwykłe i Jędrzejowe) średnio działają w przypadku cutów na topologię
+14) Pary pi+ pi- mają silny spadek przy niskich q_inv (z cutem na hity), chyba nie ma innego wytłumaczenia niż merging?
+	-Sprawdzić bez warunku na krotność
+		-Bez warunku na krotność nie pojawia się żaden pik korelacyjny przy małych q_inv, sprawdzić DThetaDPhi
+15) Pary pi- pi- z hitami, topologią i DPhi DTheta - wygląda obiecująco, sprawdzić dla większej statystyki
+16  W przypadku unlikesign double ratio powoduje że praktycznie nic nie widać (w przypadku na cut na hity, zarówno nTracksGT1 i nTracksGT5)
+
+
+
+~~~~~~~Symulacje~~~~~~~~
+1)  Sprawdzając warunek CandSim->getMechanism()==5 || CandSim->getGeneratorInf()>10000 dostaje że ~22.5% pi- pochodzi z rozpadów
+	Ale z tym samym warunkiem tylko ~11.5% pi+ pochodzi z rozpadów...
+	pi+ jest prawie dwa razy więcej niż pi-??? - Zarówno z HGeantKine i HParticleCandSim
+	W doktoracje Roberta relacja jest odwrotna, więcej jest pi-, sprawdzić dla eksperymentu
+	W eksperymencie pi - jest też ~2 razy mniej niż pi++...
+2)  Z symulacji wynikałoby że oprócz mergingu mam też splitting, widoczny jako pik kiedy mam zaimplementowane cięcia na 
+	hity i topologię, oraz hity, topologię i DPhi>4, DTheta>2
+	Żeglarze powodują splitting - do sprawdzenia - sprawdzone, nie powodują
+	Ale w sumie to pierwsze punkty mają bardzo duże niepewności, funkcja idzie do góry ale czy faktycznie coś tam jest...?
+3)  Splitting nie zależy od konfiguracji cutów, wygląda tak samo z: same hity, hity+topologia, hity+topologia+DPhiDTheta, hity+DPhiDTheta, hity+topologia+DCA
+	A przynajmniej tak jest przy nTracksGT1
+	Splitting jest też niezależny od DPhi i DTheta, zarówno przy DPhi4DTheta2 i DPhi10DTheta5 wygląda bardzo podobnie
+4)  Cut na hity powoduje że jest ten "splitting" czy jest to problem dla danych eksperymentalnych?
+
+
+TODO
+1)  Sprawdzić jak dużo jest splittingu/mergingu (może jakaś metoda w HParticleCandSim/HGeantKine?)
+2)  Ogarnąć UniGen dla plików f16 z UrQMD
+3)  Restrace na f15?
+4)  Sprawdzić topologię par, cowboy i sailor (doktorat Roberta) - 8)^, 10)^
+5)  Sprawdzić rozkład krotności z HGeantKine - 9)^
+6)  Hity+Topologia+DPhi+DTheta
+7)  Wygenerować z HALa funkcje z samym coulombem dla R podobnego do tego z fitów (~1.4-1.6 fm)
+8)  Sprawdzić czy w symulacji są cząstki o tym samym getGeantTrack(), zwraca to numer cząstki ze smasha, jeśli są takie same
+    to mamy splitting - wyszło że w całej statystyce są łącznie 3 takie przypadki, błąd w kodzie?
+9)  Czy merging zależy od ilości tracków?
+10) Dodać warunek na x i y primary vertex (4.29 w doktoracie Roberta)
+11) Dokładnie przeanalizować double ratio bez cutu na hity (czy wtedy usuwam merging i nie ma tego dziwnego piku od "splittingu")
+12) NmetaCells = N TOF + N RPC?
+13) Zrobić coś a'la purity correction (str. 187 w monografi Hani)
+14) Funkcja korelacyjna tylko z pionów pochodzących z rozpadów (symulacja)
+15) Czy cut na hity to na pewno jest cut na parę????????????????
+16) Czym dokładnie jest SegInd? Czy nie jest to może jakaś tablica? Czy index uwzględnia jakoś to w którą warstwę MDC track uderzył
+
+
+O double ratio
+1) Wydaje się że nie ma sensu w to brnąć
+2) Statystyka nie jest najlepsza więc z automatu błędy są spore
+3) Dopasowania też są średnie, pierwsze dwa/trzy punkty mają duże niepewności i mogą się wychylić mocno do góry lub do dołu przez co 
+   dopasowana funkcja się wywija
+4) Po zrobieniu double (lub Jędrzej) ratio pik korelacyjny znika, pojawiaja się duże niepewności a całość zaczyna mieć slope typu -x
+
+
+
+
+
+
+
+
+
+
+TODO 11.08
+1)  Wygenerować sobie trochę smasha i sprawdzić jak wygląda CF z czystej symulacji
+2)  Sprawdzić co będzie jak wywalę warunek na ilość tracków w miksowaniu eventów?
+3)  Sprawdzić czy powtarzają się geant track w parach (wtedy z definicji splitting)
+4)  unlike sign dla symulacji
+5)  czy coulomb z HAL'a jest na pewno w LCMS i na pewno w q_inv
+6)  unlike sign bez cutu na hity (dphi dtheta)
+7)  porównać czy funkcje korelacyjne z czystego monte carlo dla smasha i dla urqmd będą podobne
+8)  rQMD??? Jaki jest zakres energii dla UrQMD i jego prekursorów?
+9)  Jaki był model w tej starej publikacji ze zderzeń proton proton? - LIPS, Lorentz-invariant phase space
+10) PhQMD?
+
+
+
+1) Double ratio unlikeSign_2sigma_noRing_nTracksGT1_LCMS_DPhi4_DTheta2_50k/analysisSmashUnlikeSign_2sigma_noRing_nTracksGT1_DPhi4_DTheta2 wygląda ok?
+   Jest dosyć gładkie i ładnie idzie do góry dla nieskich wartości q zarówno przy zwykłym jak i przy Jędrzej ratio
+2) Po dodaniu warunku na -145<VertexZ<-100 i VertexX^2+VertexY^2<25 oraz mixowanie z VertexZ co 3 mm ogon funkcji korelacyjnej jest delikatniejszy przy DPhi4, DTheta2 i nTracks>1
+3) UrQMD z hashowaniem ale bez cutów na pary idzie lekko do dołu dla mały q_inv (chociaż są duże błędy) oraz lekko do góry wraz ze zwiększającym się q_inv, po czym 
+   gwałtownie spada (statystyka?)
+4) W smashu hashowania i bez cutów jest dosyć duży spadek do dołu dla małych q_inv
+5) W sumie UrQMD ma tak samo...
+6) Czysty smash wygląda identycznie niezależnie czy jest hashowanie na pary/event/oba czy nie
+
+Też ma warunek na liczbę tracków >=6:
+Hyperon-Production Studies in p+p->Λ+KS+ p +π+ at 4.5 GeV with HADES at GSI
+XLVI. HADES Collaboration Meeting
+17th April, 2024
+
+
+
+
+
+
+
+TODO 22.08
+Do przeczytania:
+	publikacja stara p+p 200GeV pion correlations
+	publikacja z alicji dla niskich krotności?
+
+	SMASH jest liniowy dla czystego monte carlo więc jest ok?
+	Jak ta funkcja wygląda po rekonstrukcji? Porównać pure monte carlo z tym po rekonstrukcji, popatrzeć rozkłady jednocząstkowe
+	Sprawdzić czy dopasowanie funkcji liniowej (bez wyrazu wolnego) da podobny slope dla UrQMD i SMASH'a
+
+
+Przy dopasowywaniu funkcji liniowej do czystego smasha i czystego urqmd od 0 do 150 współczynniki kierunkowe są praktycznie identyczne
+Dodanie Cand->setMomentum(Cand->getCorrectedMomentum()) naprawiło problem z tym, że rozkład energii wyglądał źle (kilka nałożonych na siebie)
+Nie ma sensu liczyć energii z einsteina
+Dodanie tego sprawdzania na hity w MDC i META na poziomie selekcji tracków (zanim pójdą do fEvent jeśli coś się powtarza to jest odrzucane) powoduje
+splitting w symulacji podobnie jak patrzenie na hity na poziomie funkcji do cutów dla par - zła implementacja isSharedInner/OuterSeg()?
+
+Porównać jak wygląda funkcja z odrzucaniem cząstek po hitach i bez odrzucania
+
+Może samo odrzucanie samych pi- w ten sposób ma sens?
+
+
+
+
+
+
+
+
+
+Sposób na mixowanie: mianownik liczony na podstawie odwracania pędów (w czystym smashu) -> "idealne tło" <-to do
+
+
+
+analysis_2sigma_noRing_wires_nTracksGT1_HarshVertexCut_-1VertexZ3mmMix_sharedWiresLt2_10k.root - płaskie na bardzo dużym zakresie (praktycznie do 1 GeV), mała 
+statystyka -> sprawdzić dla większej ilości plików, cut na shared wires wygląda obiecująco, trzeba dodać sprawdzanie IsSameSector()
+
+Joby liczą się okropnie wolno, wina zmian w kodzie czy klaster?
+
+Sprawdzić czy w odwracaniu pędów nie trzeba przeskalować q_inv przez 2 (po prostu podzielić przed filowaniem)
+	-jest lepiej ale nadal szersze niż sygnał
+Może odwracać tylko jedną zmienną?
+	-obracanie px i py bez pz dało tło podobne do sygnału
+	-wydaje się że jest gites
+funkcja korelacyjna kiedy hity w różnych sektorach
+	-w przypadku z 50k eventów wygląda bardzo sensownie, idzie dosyć wysoko i ma bardzo słaby ogon z dalekozasięgowych korealcji
+	-chyba można fitować bez coulomba?
+Sprawdzić cięcia na ilość tracków od góry
+przeczytać publikacje o smoothness approximaion, Pratt i może Sinyukov
+
+
+
+Czemu mam ładny sygnal korelacyjny kiedy odrzucam pary z tego samego sektora?
+Dodanie warunku na 100<p<1500 praktycznie nie zmienia funkcji korelacyjnej
+Niepewności nie rosną aż tak szybko bo mimo zwiększania minimalnej liczby tracków nadal jest sporo wejść w sygnal (~2.3 miliona przy GT5 i fullstat)
+Niepewności w samym sygnale i tle są bardzo małe
+Czemu w histogramie odległości od vertexu tracku 1 vs odległość od vertexu tracku 2 widać liniową zależność?
+Usunięcie z mixowania całkowitej energii i całkowitego pędu powoduje że dalekozasięgowe korelacje są słabsze? Sprawdzić dla większej statystyki
+Liczba tracków jest mocno zawyżona, trzeba patrzeć ile tracków przechodzi kIsUsed?
+
+Raczej i tak trzeba patrzeć na nTracks, kIsUsed to tracki które dobrze przeszły rekonstrukcję, ale z punktu widzenia fizyki nTracks jest jak najbardziej ok
+Zmienić mixowanie na MetaHits
+
+Coś nie tak jak się patrzy na kwantyle, cut od averagemomentum zawsze daje 7?
+Był błąd, po poprawieniu i z warunkiem nTracksGT1 zniknął sygnał korelacyjny a slope od LRC zrobił się jeszcze silniejszy
+
+Symulacja: kwantyle na średni pęd, energię, metaHits oraz vertexZ co 3 mm - slope do dołu od 500 MeV
+		   kwantyle na verteX, Y, metaHits i vertexZ co 3 mm - slope do góry taki jak zazwyczaj + coś a'la splitting?
+		   
+		   
+Vertex Z w eksperymencie w eventach z conajmniej 2 pionami wygląda conajmniej dziwnie
+Sumowanie kwantyli da mi gausa???? (centralne twierdzenie graniczne)
+Z symulacji wychodziłoby że nie... (dodawanie rozkładów jednorodnych na 3 różne sposoby)
+Dodanie mixowania po średnim pędzie powoduje że sygnał korelacyjny znika? - sprawdzone na mixowaniu po jednym parametrze
+Ale za to rozkład hashy jest dość płaski
+W przypadku mixownaia tlyko po kwantylach średniej energii sygnał korelacyjny też praktycznie znika
+Znowu rozkład hashy płaski
+
+Podsumowując, rozkłady hashy dla vertexZ i metaHits nie są płaskie (mimo korzystania z kwantyli), ale funckje korelacyjne mają jakikolwiek pik korelacyjny
+W przypadku średniego pędu rozkład hashy płaski, praktycznie brak piku
+W przypadku średniej energii, rozkład hashy znowu pładki, minimalny pik
+
+Ale wszystko to wyżej jest dla bardzo małej statystyki, sprawdzić większą
+
+Dla plików z 20k eventów CF z vertexZ i MetaHits jest bardzo podobne w przypadku z kwantylami i "zwykłym"
+Dla 100k plików są identyczne
+W obu przypadkach rozkład hashy wygląda identycznie, coś nie działa?
+Funkcje korelacyjne są różne więc chyba w jednym były robione kwantyle a w drugim nie
+
+
+Hashowanie korzystające z kwantyli metaHits nie będzie płaskie, za mała rozdzielczość (sprawdzone przez h->GetRandom())
+
+
+Boal - sprawdzić zależność funkcji korelacyjnej od cięć na ilość naładowanych cząstek
+
+
+Empty target daje calkiem ładną funkcję korelacyjną (ale duże błedy bo mała statystyka)
+	De facto zderzenia z mylarem (C10H8O4) i węglem (włókno węglowe) - doktorat jakiejś Rayane ABOU YASSINE
+
+
+Dodałem beam tilt correction, sprawdzić czy coś zmieni w funkcji korelacyjnej
+Porównując przy mixowaniu na kwantyle z vertexZ i metaHits nie widać żadnej różnicy w funkcji korelacyjnej
+
+Sprawdzić dokładnie jak różne cięcia na eventy zmieniają liczby zaakceptowanych, bardzo dużo wydaje się być odrzuconych
+
+Dni 32 i 33 nie dają żadnego wkładu do korelacji, z analizy dzień po dniu wyszły puste funkcje korelacyjne
+
+
+beamtilt przed czy po momentum correction?
+Momentum correction czasami zwracało NaNy, czy jeśli najpierw się zrobi beamtilt a potem momCorr to dalej tak będzie?
+
+isGoodEvent() - albo ludzie nic o nim nie piszą, albo używają kGoodStart i kGoodTrigger
+
+Po wywaleniu wszystkich isGoodEvent(...) całość analizy (przy nTracks>=1) przechodzi około 13% eventów
+Największa strata jest przy cięciu na vertexZ, procent eventów spada z ~85% do ~13%
+Wynika to z tego, że bardzo duża część eventów ma vertexZ=-1000
+Jest jakiś dziwny "schodek" w jednocząstkowym rozkładzie energii około 400 MeV
+Tak samo jest schodek w Pz około 360 MeV
+
+W energii z ToF nie widać żadnych anomalii, za to w energii z RPC jest też schodek w ~1010 MeV
+Dlaczego energia przy warunku na system(ToF/RPC) jest dużo wyższa niż jak wypełniam histogram bez tych warunków?
+hEne ma więcej wejść niż hTOFEne i hRPCEne łącznie
+Część cząstek ma system=2, czym to jest? iToF?
+Z jakiegoś powodu particleCand->getEnergy() przed utworzeniem trackCandidate zwraca małe wartości, a po utworzeniu już około 1000 i więcej
+Pędy się nie zmieniają, zmienia się tylko energia
+
+W trackCandidate.h było calc4VectorProperties(14), przeliczało z pionów na proton? (calc4VectorProperties było wywoływane i tak prze tworzeniem TrackCandidate)
+Po usunięciu calc4VectorProperties z konstruktora trackCandidate energie są takie same przed i po tworzeniu (co ma sens)
+Po poprawieniu tego błędu funkcja korelacyjna dla nTracksGT1 całkowicie zniknęła (nawet dla nTracksGT5)
+Zarówno przy cięciach na meta hits i wire'y jak i na different sectors nie ma żadnego sygnału korelacyjnego
+double ratio chyba też nie pomaga
+
+Dodanie całkowitego pędu i energii do mixowania nie poprawia CF, jest jeszcze większy spadek dla mały q_inv
+
+Makro mniej więcej działa dla ag+ag (nie udało się odpalić jobów ale odpalone rootem dało w miarę ok wyglądającą funkcję korelacyjną)
+Po odpaleniu dla 10k plików wygląda dobrze, problem jest z danymi a nie z makrem
+
+Coś zmnieniłem i dla nTracksGT5 jest teraz sygnał korelacyjny, niestety także w symulacji
+Ale dla GT1 nadal nic nie widać, splitting?
+Sprawdzić od GT1 do GT5
+
+Jeśli nie robię cięcia na vertexZ to widać w rozkładzie że są dane z hitami w osłonę targetu
+
+Sprawdzić czy po naprawieniu clac4VectorProperties nadal jest sygnał korelacyjny w przypadku gdy wymagam żeby hity były w różne sektory
+	Jest
+
+Nie da się ze SMASH'a łatwo dostać wag femtoskopowych (1+cos(qr)) bo HYDRA nie zapisuje położeń
+
+
+Selekcja na pi+ jak robi Daniel do UrQMD
+rapidity -1;1 (cząstki)
+pT 0.4;2 
+
+Sygnał i tło z UrQMD wyglądają bardzo różnie, czemu?
+Jest to wina cięcia na tracki, jeśli wybieram zgodnie z selekcją na pi+ jak Daniel (wyżej) to tło i sygnał są bardzo różne
+
+
+Double ratio w przypadku odrzucania par z tym samym sektorem nadal pozostawia ok wyglądającą funkcję korelacyjną
+
+Jeśli wymagam odwrotnego warunku czyli do analizy biorę tylko pary w których oba piony uderzyły w ten sam sektor to 
+nie dostaje żadnej sensownej funkcji korelacyjnej
+Po zrobieniu doulbe ratio rozkład w przyblizeniu płaski, nadal gigantyczne błędy (bug w kodzie?)
+
+Zarówno w przypadku nTrackGT1 i nTracksGT5, z cutem na wire'y oraz bez funkcje korealcyjne z pionów uderzających w ten
+sam sektor mają bardzo gwałtowny spadek ze wzrostem q i nie wypłaszczają się nigdzie
+Tło jest nieco wyżej dla dużych q_inv a nie sygnał, odwrotnie niż by wynikało z zasad zachowania?
+
+Niepewności w double ratio chyba nie biorą się ze złego ich liczenia, po prostu błędy w CF ze SMASHa są tak duże
+że propagują się na stosunkowo duże niepewności w parametrach fitu
+
+
+Normalizacja UrQMD : 0.7-0.8 GeV dla k* albo qinv (do sprawdzenia)
+-1 do 1 to rapidity czy pseudorapidity?
+
+Sprawdzić jak się zrobi tło nie przez mixowanie tylko rotacje (px i py)
+
+Z rozkładu transverse sphericity wynikałoby że praktycznie wszystkie eventy są mocno rozciągnięte (w większości St = 0)
+
+W przydaku nTracksEQ4, nTracksEQ6 nie widać sygnału korelacyjnego przy cucie na SharedWiresLT2 i NoSharedMeta
+Ale przy nTracksEQ4 i warunku differentSectors widać ładny sygnał korelacyjny
+
+nTracks GT1, brak cutów, rotated background - brak sygnału korelacyjnego
+nTracks GT1, różne sektory, rotated background - brak sygnału korelacyjnego, funkcja dość mocno schodzi do zera
+
+Niecałe 5 procent pionów ma flagę isAtAnyMdcEdge
+
+
+Po kolizji nie musi być para protonów, jeden albo nawet oba mogą zamienić się w neutrony: https://arxiv.org/pdf/0906.3087
+
+Delta produkowana w takich zderzeniach to tak na prawdę chwilowe wzbudzenie protonu przed emisją pionu
+
+Rozważając przypadki z liczbą tracków ściśle równą jakiejś liczbie, w przypadku nTracks=2 i differentSectors nie widać sygnału
+korelacyjnego, ale przy nTracks = 4 (i więcej) i tym samym cięciu na pary już jest ok
+
+Porównując rozkłady transverse Sphericity nPim>1 dla przypadków ze ściśle równą ilością tracków w evencie oraz differentSectors
+widać, że dla nTracks=2 rozkład wygląda inaczej, jest dużo więcej wejść w zerze niż w pozostałych przypadkach
+Ale pozostałe przypadki są do siebie bardzo podobne
+
+Spróbować dać transverse sphericity jako klasa do mixowania???
+
+Sprawdzić purity par!!!
+
+Wydaje się że odrzucanie cząstek na podstawie isAtAnyMdcEdge oraz isFlagDoubleHits poprawia funkcje korelacyjną
+
+Wraz z rosnącą liczbą cząstek w evencie purity pionów spada
+
+Praktycznie nie ma różnic w funkcji korelacyjnej bez względu na to czy miksuję eventy na podstawie vertexZ czy bez hashowania
+Całkowita energia i całkowity pęd wyglądają bardzo różnie w porównaniu do innych wersji mixowania
+W szczególności mixowanie po całkowitej energii powoduje że funkcja się nie wypłaszcza, rośnie a potem szybko spada
+nie ma charakterystycznego "brzuszka" w okolicach 700 MeV
+	
+Sprawdzić funkcje korelacyjne dla konkretnych sektorów
+Zdaje się że jest pewna zależność jak wygląda CF od sektora, różnice nie są duże, ale np sector0 jest nieco wyższy niż reszta
+a sector4 niższy, trzeba sprawdzić dla większej statystyki (na razie 10k), chociaż ogólnie przebiegi są bardzo podobne
+
+Sprawdzić "edgeworth expansion" - sposób na opisanie nie-gausowskiego źródła?
+Dodanie tego edgeworth expansion z uwzględnieniem wielomianów hermite'a do n=10 poprawiło jakość fitu gausowskiego
+Chociaż czasami wylatuje do nieskończoności dla małych q
+Przy ograniczeniu wielomianów do n=6 zdaje się nie być tego problemu?
+Błędnie przepisałem jeden wielomian, teraz jest git 
+https://journals.aps.org/prc/pdf/10.1103/PhysRevC.71.044906
+https://arxiv.org/pdf/hep-ph/9912220
+https://en.wikipedia.org/wiki/Edgeworth_series
+
+kGoodTRIGGER == PT3
+
+identyfikacja elektronów - calc4VectorProperties wywoływane dla masy pionu... przeliczyć jeszcze raz
+
+Czy w przypadku 1D nie trzeba może też uwzględnić wielomianu Hermite'a stopnia 3?
+
+
+Widać różnice przy sameSector dla konkretnych sektorów, sector0 odstaje od reszty, ma wyraźnie wyższy pik
+dla sektora 2 scrashowały się 2 joby, dla 4 trochę więcej
+
+Różnica odwrotnośći pędów przed i po rekonstrukcji dla symulacji jest praktycznie zerowa - jest dobrze, te różnice mają być minimalne
+
+Lepsze pytanie to czemu pphi_reco vs phi_kine wygląda tak dziwnie, czemu są dwa paski a nie jeden
+Wydać to też w phi_kine-phi_reco, jest jedna grupa wokół zera, i druga wokół 2pi
+
+Okazuje się że żeby zrobić konwersję z kine żeby się zgadzała z reco, nie odejmuje się pi, zamiast tego jeśli phi_kine>pi, odejmuje się 2pi (i tylko wtedy)
+
+
+z maszyny lxbk1134 widać wszystkie pliki, z lxbk1135 niektóre są niewidoczne
+Zmienienie virgo-vae na lxbk1134 w .ssh/config pozwala logować się na wybraną maszynę, logowanie trwa trochę dłużej ale działa
+
+Udało się do slice'ów 1/p_kine-1/p_reco vs p_kine dofitować crystall balla (od Mateusza), pierwszy bin nie ma statystyki, w ostatnim funkcja sobie średnio poradziła
+
+Sprawdzić czy zmienienie setupu detektora zmieni wygląd funkcji korelacyjnych (HDst::setupSpectrometer)
+
+Udało się wyznaczyć czynnik korekcji do momentum resolution, ogólnie oprócz pierwszych 2-3 binów jest na 1 (to dobrze, oznacza to że <w miarę> dobrze działa detektor)
+
+
+
+Zdaje się że dla cutu AcceptOnlyOneSector nie ma zależności CF w symulacji, przeciwnie dla tego jak w danych rzeczywistych, tam sektor 0 odstaje od reszty...
+	-zjebałem i skorzystałem z nie tych cutów co trzeba... jeszcze raz przeliczyć
+Po przeliczeniu w symulacji sektor 0 odstaje od reszty, tak samo jak w danych eksperymentalnych
+
+W makrze od symulacji nie było funkcji tnącej na same sector + noSharedWires + noSharedMeta, co ja puściłem...?
+Policzyć jeszcze raz...
+
+Akceptancja do momentum resolution:
+	Znormalizować histogramy
+	Podzielić eksperyment przez UrQMD
+	zrobić nowy histogram na wagi
+	Liczyć bin po binie w podzielonym h:
+		P = R/(1+R) (gdzie R to zawartość binu)
+		W histogramie wag ustawiać P jako p-stwo
+	Zapisać histogram wag
+	
+Coś pojebałem w rozsmarowywaniu funkcji, znowu jest dużo ujemnych mas kwadratowych, do porawki
+Stało się tak po zmianie rozsmarowywania na TLV, na podstawie którego potem ustawiane są pędy w TrackCandidate
+Całość wynika z pomysłu że do akceptancji powinny być brane piony już rozmyte...
+
+Naprawione, dodałem też zmienianie energii po rozmyciu pędów (też się w sumie zmienia)
+Po dodaniu tego korekcja praktycznie płaska, kwestia rozmycia energii czy akceptancji?
+Coś skopałem, po usunięciu akceptancji jest silny slope do góry...
+Zdaje się że jest to kwestia zmieniania energii?
+Po usunięciu przeliczania energii pojawia się pik w korekcji dla malych q
+
+Rozmywanie przy użyciu crystal ball'a jest silniejsze niż gausem (co ma sens bo crystal ball ma silniejsze ogony)
+
+Jak rozmywam crystal ballem i ustawiam energię zgodnie ze wzorem E^2 = p^2 + m^2 to poprawka od momentum resolution też jest na 1
+Ale z kolei jeśli tego nie robię to pojawiają się przypadki ze złamanym zachowaniem energii, nie daje się policzyć wag:
+	#getQuantumLCMS - negative mT, Etotal or whatever. Wtf dude?
+	
+Dlczego femtoWeight zwraca prawie 2 dla dużych qinv????
+	Może tak być? Wagi uśredniają się do zera, niekoniecznie muszą wszystkie być zerem
+	
+	
+Na debiana 12 chyba trzeba będzie jeszcze raz zainstalować unigena (skompilować z nowszym rootem)
+	-udało się
+Licząc masę z pędu i energii w UrQMD dostaje zawsze 0.138 GeV więc masa jest na sztywno (tak jak się spodziewałem)
+Licząc masę z pędu i energii na HParticleCand (dane eksperymentalne) dostaję 139.57 MeV więc też jest na sztywno (zgodnie z tym co myślałem)
+
+Smearing - TrackCandidate tworzony był po rozsmarowaniu tlv, oryginalne pędy były na start tymi rozmytymi...
+Nadal wychodzi tak samo...
+
+Joby się nie chcą całe policzyć bo nie ma longa... (time limit)
+
+Sygnały i tła rozmyte i nierozmyte są praktycznie identyczne
+
+Widać że dosyć mocno zmieniają się wartość qinv i biny do których trafiają (różne histogramy w rozmytych funkcjach korelacyjnych)
+
+Zmieniona akceptacja na vertexZ na -130 - -110
+
+Symulacje się nie policzyły... (do wpcf)
+Eksperymentalen nTracksGT1 to nTracksGT2...
+
+Między symulacją a eksperymentem będzie pewien rozjazd, w eksperymencie (do WPCF) vertexz jest z przedziału -130 - -110,
+w symulacji (SMASH) -140 - -110 (poprzednia wersja eksperymentu tak była robiona)
+
+Przy rozsmarowywaniu 5-cio krotnie większym niż należy poprawka na momentum resolution się zmieniła, nadal jednak nie ma dużego piku
+	sama zmiana jest raczej niewielka i zdecydowanie nie koncentruje się w mały q, coś jest skopane...
+	
+Może trzeba poprawić dofitowanie krzywych do rozmyć średnich i sigm, są dobrze dopasowane do wysokich pędów, ale średnio do niskich
+Może dlatego te rozmycia są raczej mocno słabe?
+	
+W CFKinematics w jednym miejscu zamiast brać oryginalną energię brałem rozmytą... Może to jest powód całej bolączki
+Po poprawieniu pojawia się lekki spadek w małych q_inv, sprawdzić dokładnie cały kod czy na pewno wszędzie gdzie trzeba korzystam z oryginalnych lub
+rozmytych elementów czterowektora pędu
+
+Różnice między rozmytym i nierozmytym q_inv są małe (dla małych q mniej niż 10 MeV), zależność q rozmyte vs nierozmyte jest liniowa
+
+
+SMASH bazowo nie uwzględnia rozpadu zwykłej (93122) lambdy
+
+Z czystego SMASHa wynika, że 98.9% pi- i 98.2% pochodzi z rozpadów
+Wynik nieco zaniżony przez fakt, że nie rozpada się lambda
+
+Lambdę "rozpadam" samemu, tzn jeśli znajdę lambdę to zwiększam (z odpowiednim prawdopodobieństwem) licznik pionów (łączny i z rozpadów)
+
+Zwiększająć wire distance funkcja korelacyjna z HParticleCandSim jest coraz bardziej płaska, ale wire distance GT 3 i GT 4 są już praktycznie identyczne
+Odrzucałem wszystkie pary które pochodziły z różnych sektorów (if(!pair->IsSameSector() return false;), przeliczyć jeszcze raz, tak że
+	IsSameSector sprawdzane jest jako suma w warunku logicznym z isBad
+Different sectors jest bardzo podobne do wire distance GT 3 i 4 (bez przeliczenia o którym pisałem wyżej)
+
+Czy wire distance GT0 to jest to samo co no shared wires? CF powinny wyglądać tak samo
+Są małe różnice dla tych dwóch cięć, w szczególności poniżej 50 MeV (dla wyższych są praktycznie identyczne)
+Przeliczenie na nowo nie poprawiło za bardzo jak wyglądają funkcje korelacyjne, nadal jest spadek w niskich q_inv (trendy z odległością wire'ów jak poprzednio)
+
+Porównując wireDistanceFT oraz nTrackGT okazuje się, że im większa minimalna liczba tracków, tym mniejszy jest merging, w przypadku 
+	nTracksGT5 i wireDistanceGT0 funckja z HParticleCandSim jest praktycznie płaska (przy wireDistanceGT3 fluktuuje, może statystyka?)
+	
+Sprawdzić jak zmienia się samo tło/sygnał w zależności od liczby tracków, może z jakiegoś powodu tło jest prefereowane do fillowania dla nieco wyższych q?
+Może z rosnącą ilością tracków ta preferencja znika?
+
+Policzyłem CF z szacowaniem tła poprzez obracanie tracków (jeden z tracków obracany o 60 stopni), dla niskich q_inv jest w sumie płaskie (liczone z HParticleCandSim)
+	Niby 50k ale jakieś problemy z klastrem spowodowały że niektóre z plików były niewidoczne więc w rzeczywistości dużo mniej plików
+	
+Problem: biorę tylko dwa pierwsze wejścia w wektorze cząstek, powinienem brać wszystkie
+Po ponownym przeliczeniu 50k plików i dodaniu liczenia funkcji korelacyjnym w przypadku z liczbą pionów większą niż 2, obrocie o 60 stopni i nTracksGT1
+	widać spadek poniżej 50 MeV
+Przy tych samych warunkach obrót o 180 i 60 stopni dają praktycznie tą samą funkcję korelacyjną
+
+Zwiększenie minimalnej liczby tracków do 6 nie poprawia jak wyglądają obracane funkcje korelacyjne
+Zdawałoby się że za równo dla nTracksGT0 i nTracksGT5 obroty o kąty 180 stopni i losowy dają nieco bardziej płaską CF niż obrót o 60 (ale efekt jest na prawdę mały)
+
+Ogólnie patrząc na przybliżone sygnały (analysis_2sigma_wires_Buffer10_NoIsGoodEvent_nTracksGT*_-130VertexZ-110_maxDistTo0XYis5_notMdcEdge_noDoubleHits_VertexZ1mmMetaHitsMix_SharedWiresLT1NoSharedMeta_beamTiltCorr_gen4_50k)
+zarówno w symulacji jak i w eksperymencie, widać dla niskich q, że wraz z rosnącą minimalną liczbą tracków sygnał (czysty, bez dzielenia) jest wyżej. Ten sam trend w 
+tle nie jest obserwowany (a na pewno jest dużo słabszy)
+
+Chciałem sprawdzić jak ta zależność wygląda w przypadkach rozłącznych (nTracksEQ* nie nTracksGT*), ale 20k plików z symulacji to za mało na tego typu analizę
+
+
+Sprawdzić dopasowywanie tak jak zalecał Csorgo (backup jego prezentacji na WPCF, edgeworth expansion)
+
+Wejście na wireDistanceGT10 nie powoduje jakiegoś szczególnego wypłaszczenia się funkcji korelacyjnej dla niskich q w porównaniu z np wireDistanceGT4
+	bardzo podobne do differentSectors
+	
+	
+Przy fitowaniu z użyciem edgworth expansion do H6 parametry fitu są ze sobą mocno skorelowane, nie jest to dobra funkcja do fitowania?	
+Ogólnie to wychodzi na to że fituje wielomian a nie gaussa przy rozwinięciu do H6, przy H4 problem jest mniejszy
+
+Można oszacować lambdę jako 1+(n_particles_core/n_particles)^2 - https://arxiv.org/pdf/hep-ph/9411307
+	cząstki z bezpośredniej produkcji i z rozpadu krótkożyciowych cząstek (rezonanse, mezony rho...) dają core (czyli silna korelacja)
+	długie rozpady (np. lambda) dają halo (czyli słaba korelacja)
+	
+Funkcje korelacyjne (z HParticleCandSim) policzone dla par pi+ pi+ wyglądają tragicznie...
+	czy może to być kwestia tego, że praktycznie wszystkie są z Delt?
+	
+Funkcja korelacyjna dla par pi+ bez żadnych cięć wygląda też okropnie (HParticleCandSim), czemu pi+ są tak problematyczne?
+Jeżeli ustawię nTracksGT5 i brak cutów dla analizy pi+ funkcja wygląda "lepiej"
+Widać pik korelacyjny podobny jak dla pi-, ale wzrost związany z zasadami zachowania zaczyna się wcześniej i jest wyższy niż w przypadku pi-
+Tylko że to wszystko to symulacja więc w idealnym przypadku powinno być raczej płaskie...
+
+We wszystkich CF z pi+ nie ma wejść w pierwszych binach kT i rapidity pary
+
+Cy pary pi+ mają średnio większe kT i rapidity niz pary pi-?
+
+
+Sprawdzić czy efekt "jak merging" znika z rosnącą minimalną liczbą tracków gdy robię funkcje korelacyjne z czystego smasha
+
+Czy jest szansa, że funkcje korelacyjne dla pi+ wyglądają dziwnie z powodu korelacji rezydualnych między protonami/deltami?
+
+
+Chciałem sprawdzić zależność od liczby tracków w iterowaniu po HGeantKine, problem jest taki że tracków jest ogromna ilość (kilkaset) - stany przejściowe i cząstki wirtualne?
+	cięcie nTracksGT1 i nTracksGT5 wycinają przez to praktycznie te same eventy
+	Przed zrobieniem cięcia należy policzyć ile jest "rzeczywistych" cząstek?
+
+Czemu ma  więcej wejść jak jest nRealTracksGT5 niż nRealTracksGT1???? (4.93 vs 4.89 *10^7)
+
+
+W badaniach pochodzenia pionów w SMASH, bardzo duża (~25%) część pi+ pochodzi z jakichś dziwnych rzeczy, które pid mają powyżej 10000 (jakieś wzbudzone rezonanse i
+	inne dziwne rzeczy).
+Może przepisać wszystkie pid z particles.txt do jakichś wektorów? Np:	
+	std::vector<std::pair<std::string, std::vector<int>>> pdgToName = {{"Delta+", {2214}}, {"Delta++", {2224}}, {"other Deltas", {2118, 11216, 22114, 21212, 11212, 12114},...  };
+	Dużo roboty ale dostałbym dosyć dokładny wgląd w to co się dzieje
+	Rozwiązane zastosowaniem std::map
+
+
+
+Ogólnie jest dosyć duży rozjazd jak wyglądają funkcję korelacyjne z czystego urqmd i HGeantKine, ale w ramach jednego modelu nie ma zależności od ilości tracków	
+	Wygenerować sobie sporą ilość smasha i z niego zrobić funkcje korelacyjne?
+	Ewentualnie może problem wynikający z tego, że są różne zakresy i ilości binów w CF - nie był to problem
+	
+A co jak do mixowania dołożę r = sqrt(vertexX*vertexX + vertexY*vertexY)
+
+
+Wygenerowałem sobie 400 000 000 eventów w smash'u, policzyłem z nich funkcję korelacyjną, okazuje się że jak jest nTracksGT1 to nadal widać wyraźny spadek
+	funkcji korelacyjnej w niskich q_inv oraz "garb" z dalekozasięgowych korelacji. Funkcja tak na prawdę nigdzie nie jest płaska (mixowanie po ilości tracków)
+	Dla nTracksGT5 nie jest wcale lepiej
+
+Ogólnie to też przebiego na HGeantKine nTracksGT* i pureSmashNtracksGT* się od siebie różnią, HGeantKine mają znacznie słabszy garb oraz mocniejszy spadek do zera
+	różnice w spadku do zera to kwestia statystyki? W sumie to wyglądają podobnie, zaczynają się silnie rozjeżdżać dopiero w okolicy 300 MeV, tam HGeantKine jest
+	mniej więcej płaskie za to wygnerowany SMASH zaczyna rosnąć
+	
+Mimo wszystko "czysty" SMASH jest bardziej podobny do HGeantKine niż do czystego UrQMD, UrQMD ma mocniejszy spadek w małych q i jeszcze większy wzrost w dużych
+	
+Z jakiegoś powodu nie ma 400 plików tylko 326, część jobów przy generowaniu danych się skopała?
+
+Test: do mixowania dodałem łączną ilość analizowanych pionów (np liczba pi-), dla pi- funkcja nadal spada do ~0.85 ale dla najniższych q rośnie do około 1.08
+
+Jeśli wyłączam event hashing, to funkcja korelacyjna rośnie dla małych q, aczkolwiek dłużej jest płaska na jedynce
+
+Mixowanie po ilości naładowanych tracków też powoduje, że funkcja korelacyjna jest płaska na obszarze 100-300 MeV, ale poniżej 100 MeV rośnie...
+	Pytanie czy ten wzrost to nie jest kwestia statystyki?	
+
+chwilowa przerwa w tej części analizy bo klaster nie działa
+	klaster niby postawiony ale większość jobów dostaje status "launch failed requeued held", poczekam jeszcze jeden dzień i dogeneruje drugie tyle smasha
+	
+Mixowanie HGeantKine po ilości naładowanych tracków nie daje płaskiej funkcji, od około 250 MeV widać wyraźne osłabienie w stronę niskich q_inv schodzące do 
+	nieco ponad 0.8
+Za to na obszarze 300-400 MeV jest w sumie dosyć płaskie
+
+Fitowanie:
+	dodawanie wyrazów aż do H6 jest przesadne, wartości kappa są duże i minimizer krzyczy, cały sens tego edgeworth expansion to opisywanie małych odstępstw od gaussa
+
+Jak na razie HGeantKine jest najbardziej płaskie, w przypadku wireDistanceGT4, noSharedMeta, allLayers, dla niskich q_inv jest nawet płaskie, problemy pojawiają
+	się dopiero w okolicach 50 MeV (pierwszee 3 biny), tam jest lekki wzrost a potem spadek, no ale to już chyba jest po prostu statystyka
+
+
+
+Ogólnie wydaje mi się że najzdrowiej byłoby korzystać po prostu z double ratio jeśli chodzi o fitowanie funkcji korelacyjnych, gen 4 ma na tyle dużo danych w symulacji
+	że błędy statystyczne po podzieleniu są na prawdę niewielkie, najlepiej byłoby chyba własnie wykorzystać fakt że podzielenie zdaje się niwelować efekty pochodzące z 
+	zasad zachowania energii i pędu
+
+W eksperymencie liczba naładowanych cząstek jest z reguły sporo mniejsza niż ogólna liczba cząstek
+	nawet w eventach z dwoma pionami tak jest
+Zmixować eventy w eksperymencie po charged tracks i vertex z
+Zrobiłem funkcję eksperymentalną dla pi- z wireDistanceGT4AllLayersNoSharedMeta, nTracksGT1, nChargedTracksMix i jest w sumie płaska dla niskich q_inv
+Po zrobieniu double ratio dostałem w sumie płaską funkcję, ale też statystyka jest dość mocno ograniczona 
+
+Sprawdzić co będzie jak będzie cut na wire'y ale nie na META cells
+
+Mixowanie czystego smasha po ilości naładowanych tracków daje de facto płaską funkcję korelacyjną w małych q, pierwsze dwa punkty idą do góry ale są spore błędy statystyczne
+	Dla dużych wartości q (>~350 MeV) znowu zaczyna rosnąć (pewnie zasady zachowania) 
+	Porównując z mixowaniem po po prostu ilości tracków widać znaczną różnicę, mixownaie po ilości naładowanych tracków daje duuuuużo bardziej płaski region mały q_inv
+	Tam oscyluje to w okół jedynki, dwa pierwsze punkty są wybite na 1.1, w mixowaniu po zwykłej ilości tracków widać gładki spadek do 0.85
+	Takie samo mixowanie powinno być zatem użyte też w smashu reco i w eksperymencie?
+
+W przypadku HParticleCandSim z cięciem na wireDistangeGT4, noSharedMeta i AllLayers mixowanie po ilości tracków i po ilości naładowanych tracków daje bardzo podobne funkcje
+	Ciężko powiedzieć które jest lepsze, może jednak mixowanie po naładowanych trackach bo te są bardziej płaskie w czystym smashu?
+
+Zwiększenie kategorii krotności do nTracksGT5 przy cięciach o których pisałem wyżej nie zmieniło funkcji korelacyjnej z HParticleCandSim
+
+
+
+
+
+
+
+
+proton-lambda:
+
+armanteros - podolanski plot - need to boost the momenta because of low values the plot gets smeared, plot used for the lambda quality monitoring
+	contribution of lambdas coming from decays is really small (we can ignore it) would be visible as residual correlation otherwise
+
+In HADES we don't use potentials (monachium group uses them), only Lednicky-Lyuboshitz
+
+Spin averaged works reasonably well for source sizes larger than the range of interactions, works well for heavy ion collisions
+	some people might try to convince me that it also works in p+p collisions
+	
+Advantages comapring to ALICE - working with heavy ions (above assumption is correct for sure), much lower contribution from feeddown particles (because 
+	of smaller energies), order of up to 2-3%, corrections used by ALICE are not trivial, there are uncertainties and exact contribution of it into
+	the systematics are not eagerly shown by them
+
+Spin separated - fit 5 parametrs (f01, d01, f02, d02, R) instead of 3(f0, d0, R)
+
+Plots would just be hades work in progress (without preliminary)
+
+Parameters in p-lambda are strongly correlated, but Narendra was recommended to put d0s to 0 (0.01 because of the minimizer), thats why there are no systematics
+	for it
+
+Slide 10, point is calculated as a simple weighted average, HADES result lies in the middle of nowhere, but if anyone asks me I will just say that this is 
+	the result that we got
+
+Narendra assumed the same interaction parameters for all centralities all the kT bins, checked within 3 centrality classes and 3 kT bins, the same within	
+	error bars, the same R fit results for integrated and differential, centrality integrated and kT integrated gives lower errors, fixed parameters, only R 
+	was released
+	
+lambda (as a parameter) - Narendra released it in the fit, captures the contribution from decays (Sigma zero, around 1/4 of lambdas come from these decays)
+	
+
+deuteron-lambda:
+
+Deuteron-lambda correlations can go very high
+
+First slide - theory predicitons
+
+In deuteron lambda when lambda (parameter) was released was very close to 1
+
+Slide 14 - parameters from fit, ONLY STATISTICAL UNCERTAINTIES (very important), much smaller uncertainties due to lack of systematics
+
+If anyone asks about why I show old results I should just say that the analysis is work in progress and this is current stable released
+
+Slide 15, f0 and d0 were fixed to the parameters from minimum bias (0-30%), R and lambda were released
+
