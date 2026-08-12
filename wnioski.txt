@@ -585,9 +585,13 @@ Zwiększenie kategorii krotności do nTracksGT5 przy cięciach o których pisał
 
 Przy zastosowaniu cięć wireDistanceGT4, noSharedMeta i allLayers praktycznie znika zależność od liczby tracków (w HParticleCandSim)
 	Nie mogę tylko porównać nTracksGT5 bo coś sie zjebało przy liczeniu na klastrze...
+	nTracksGT5 doliczone - nie odstaje od reszty
+	
+Problem (?) - mixowanie po liczbie naładowanych tracków daje płaską funkcję w czystym SMASH'u, ale w przypadku HParticleCandSim bardziej płaskie jest mixowanie po liczbie metaHits (przy tych samcyh cięciach na pary, wireDistanceGT4,
+	noSharedMeta, allLayers)
 
 
-
+analysisSmashPim_wires_Buffer20_NoIsGoodEvent_nTracksGT1_-130VertexZ-110_maxDistTo0XYis5_VertexZ1mmChargedTracksMix_wireDistanceGT4NoSharedMetaAllLayers_fullstat_gen4.root - do pobrania
 
 
 
