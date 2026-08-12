@@ -147,7 +147,7 @@ int compareFunctions()
 
 
 	TFile *differentSectorsSmash = new TFile("./jobs/smash/analysisSmashPim_wires_Buffer50_NoIsGoodEvent_nTracksGT0_-140VertexZ-100_maxDistTo0XYis5_VertexZ1mmMetaHitsMix_AllLayersDifferentSectors_20k_gen4.root","read");
-	
+
 	
 	
 //	TFile *sector0 = new TFile("./jobs/smash/analysisSmashPim_wires_Buffer50_NoIsGoodEvent_nTracksGT5_-140VertexZ-100_maxDistTo0XYis5_VertexZ1mmMetaHitsMix_OnlySector0Pairs_40k_gen4.root ","read");
@@ -180,10 +180,16 @@ int compareFunctions()
 	TFile *smashWireDistance3VertexzMetahits = new TFile("./jobs/smash/analysisSmashPim_wires_Buffer50_NoIsGoodEvent_nTracksGT1_-140VertexZ-100_maxDistTo0XYis5_VertexZ1mmMetaHitsMix_wireDistanceGT3AllLayersNoSharedMeta_50k_gen4.root ","read");
 	TFile *smashWireDistance3VertexzRMetahits = new TFile("./jobs/smash/analysisSmashPim_wires_Buffer50_NoIsGoodEvent_nTracksGT1_-140VertexZ-100_maxDistTo0XYis5_VertexZ1mmRadius05mmMetaHitsMix_wireDistanceGT3AllLayersNoSharedMeta_50k_gen4.root ","read");
 	TFile *smashWireDistance4VertexzRMetahits = new TFile("./jobs/smash/analysisSmashPim_wires_Buffer50_NoIsGoodEvent_nTracksGT1_-140VertexZ-100_maxDistTo0XYis5_VertexZ1mmRadius05mmMetaHitsMix_wireDistanceGT4AllLayersNoSharedMeta_50k_gen4.root ","read");
-	TFile *pureSmashNtracksGT1 = new TFile("./jobs/smash/pureSmash_pim_analysis4.5GeV_buffer20_nTracksMix_nTracksGT1.root");
-	TFile *pureSmashNtracksGT5 = new TFile("./jobs/smash/pureSmash_pim_analysis4.5GeV_buffer20_nTracksMix_nTracksGT5.root");
-	
 
+	
+	TFile *smashWireDistanceGT0NoSharedMetaAllLayers = new TFile("./jobs/smash/analysisSmashPim_wires_Buffer50_NoIsGoodEvent_nTracksGT1_-130VertexZ-110_maxDistTo0XYis5_VertexZ1mmRadius05mmChargedTracksMix_wireDistanceGT0NoSharedMetaAllLayers_fullstat_gen4.root","read");
+	TFile *smashWireDistanceGT1NoSharedMetaAllLayers = new TFile("./jobs/smash/analysisSmashPim_wires_Buffer50_NoIsGoodEvent_nTracksGT1_-130VertexZ-110_maxDistTo0XYis5_VertexZ1mmRadius05mmChargedTracksMix_wireDistanceGT1NoSharedMetaAllLayers_fullstat_gen4.root","read");
+	TFile *smashWireDistanceGT2NoSharedMetaAllLayers = new TFile("./jobs/smash/analysisSmashPim_wires_Buffer50_NoIsGoodEvent_nTracksGT1_-130VertexZ-110_maxDistTo0XYis5_VertexZ1mmRadius05mmChargedTracksMix_wireDistanceGT2NoSharedMetaAllLayers_fullstat_gen4.root","read");
+	TFile *smashWireDistanceGT3NoSharedMetaAllLayers = new TFile("./jobs/smash/analysisSmashPim_wires_Buffer50_NoIsGoodEvent_nTracksGT1_-130VertexZ-110_maxDistTo0XYis5_VertexZ1mmRadius05mmChargedTracksMix_wireDistanceGT3NoSharedMetaAllLayers_fullstat_gen4.root","read");
+	TFile *smashWireDistanceGT4NoSharedMetaAllLayers = new TFile("./jobs/smash/analysisSmashPim_wires_Buffer50_NoIsGoodEvent_nTracksGT1_-130VertexZ-110_maxDistTo0XYis5_VertexZ1mmRadius05mmChargedTracksMix_wireDistanceGT4NoSharedMetaAllLayers_fullstat_gen4.root","read");
+	
+	TFile *smashWireDistanceGT4nTracks = new TFile("./jobs/smash/analysisSmashPim_wires_Buffer50_NoIsGoodEvent_nTracksGT1_-130VertexZ-110_maxDistTo0XYis5_VertexZ1mmRadius05mmMetaHitssMix_wireDistanceGT4NoSharedMetaAllLayers_fullstat_gen4.root ","read");
+	TFile *smashWireDistanceGT4ChTracks = new TFile("./jobs/smash/analysisSmashPim_wires_Buffer50_NoIsGoodEvent_nTracksGT1_-130VertexZ-110_maxDistTo0XYis5_VertexZ1mmRadius05mmChargedTracksMix_wireDistanceGT4NoSharedMetaAllLayers_fullstat_gen4.root ","read");
 
 
 
@@ -194,8 +200,8 @@ int compareFunctions()
 //	vector<TFile *> files = {sector0,sector1,sector2,sector3,sector4,sector5};
 //	vector<TFile *> files = {urqmdFileGT1, urqmdFileGT5, smashFileGT1, smashFileGT5};
 //	vector<TFile *> files = {smashWireDistance3VertexzMetahits, smashWireDistance3VertexzRMetahits};
-//	vector<TFile *> files = {/*smashWireDistance3VertexzMetahits, smashWireDistance3VertexzRMetahits, smashWireDistance4VertexzRMetahits,*/ smashFileGT1, smashFileGT5, pureSmashNtracksGT1, pureSmashNtracksGT5};
-	vector<TFile *> files = {urqmdFileGT1, urqmdFileGT5, smashFileGT1, smashFileGT5, pureSmashNtracksGT1, pureSmashNtracksGT5};
+	vector<TFile *> files = {smashWireDistanceGT4nTracks, smashWireDistanceGT4ChTracks};
+//	vector<TFile *> files = {smashWireDistanceGT0NoSharedMetaAllLayers,smashWireDistanceGT1NoSharedMetaAllLayers,smashWireDistanceGT2NoSharedMetaAllLayers,smashWireDistanceGT3NoSharedMetaAllLayers,smashWireDistanceGT4NoSharedMetaAllLayers};
 //	vector<TFile *> files = {differentSectorsSmash, sharedWiresLT1Smash, wireDistanceGT0Smash, wireDistanceGT1Smash, wireDistanceGT2Smash, wireDistanceGT3Smash, wireDistanceGT4Smash, wireDistanceGT10Smash};
 //	vector<TFile *> files = {nTracksGT5WireDistanceGT0Smash, nTracksGT5WireDistanceGT3Smash, wireDistanceGT0Smash, wireDistanceGT3Smash};
 //	vector<TFile *> files = {nTracksGT1Rotate60Smash, nTracksGT1Rotate180Smash, nTracksGT5Rotate60Smash, nTracksGT5RotateRandomFrom0To360Smash};
@@ -206,18 +212,18 @@ int compareFunctions()
 	
 //	vector<char*> sigNames = {"sigsector0", "sigsector1","sigsector2","sigsector3","sigsector4","sigsector5"};
 //	vector<char*> sigNames = {"sigUrqmdGT1", "sigUrqmdGT5", "sigSmashGT1", "sigSmashGT5"};
-	vector<char*> sigNames = {"sig1","sig2","sig3","sig4","sig5","sig6","sig7"};
+	vector<char*> sigNames = {"sig1","sig2","sig3","sig4","sig5"};
 //	vector<char*> sigNames = {"sigDifferentSectorsSmash", "sigwireslt1", "wireDistanceGT0Smash", "wireDistanceGT1Smash", "wireDistanceGT2Smash", "wireDistanceGT3Smash", "wireDistanceGT4Smash", "wireDistanceGT10Smash"};
 //	vector<char*> sigNames = {"signTracksGT1Rotate60", "signTracksGT1Rotate180", "signTracksGT5Rotate60", "signTracksGT5RotateRandom"};
 //	vector<char*> bckgNames = {"bckgsector0","bckgsector1","bckgsector2","bckgsector3","bckgsector4","bckgsector5"};
 //	vector<char*> bckgNames = {"bckgUrqmdGT1", "bckgUrqmdGT5", "bckgSmashGT1", "bckgSmashGT5"};
-	vector<char*> bckgNames = {"bckg1", "bckg2","bckg3","bckg4","bckg5","bckg6","bckg7"};
+	vector<char*> bckgNames = {"bckg1", "bckg2","bckg3","bckg4","bckg5"};
 //	vector<char*> bckgNames = {"bckgDifferentSectorsSmash", "bckgwireslt1", "bckgWireDistanceGT0Smash", "bckgWireDistanceGT1Smash", "bckgWireDistanceGT2Smash", "bckgWireDistanceGT3Smash", "bckgWireDistanceGT4Smash", "bckgWireDistanceGT10Smash"};
 //	vector<char*> bckgNames = {"bckgnTracksGT1Rotate60", "bckgnTracksGT1Rotate180", "bckgnTracksGT5Rotate60", "bckgnTracksGT5RotateRandom"};
 //	vector<char*> legNames = {"sector0","sector1","sector2","sector3","sector4","sector5"};
 //	vector<char*> legNames = {"nTracksGT1 UrQMD", "nTracksGT5 UrQMD", "nTracksGT1 SMASH", "nTracksGT5 SMASH"};
-//	vector<char*> legNames = {/*"wires 3 vertex z + meta hits mix", "wires 3 vertexZ  + meta hits + R mix", "wires 4 vertexZ  + meta hits + R mix",*/ "HGeant kine nTracksGT1", "HGeantKine nTracksGT5","pure smash nTrackGT1","pure smash nTracksGT5"};
-	vector<char*> legNames = {"UrQMD nTracksGT1","UrQMD nTracksGT5","HGeant kine nTracksGT1", "HGeantKine nTracksGT5","pure smash nTrackGT1","pure smash nTracksGT5"};
+	vector<char*> legNames = {"wire distance GT4 nTracks", "wire distance GT4 chargedTracks"};
+//	vector<char*> legNames = {"wire distance GT0","wire distance GT1","wire distance GT2","wire distance GT3","wire distance GT4"};
 //	vector<char*> legNames = {"different sectors", "no shared wires", "wire distance GT0", "wire distance GT1", "wire distance GT2", "wire distance GT3", "wire distance GT4", "wire distance GT10"};
 //	vector<char*> legNames = {"nTracksGT5WireDistanceGT0Smash", "nTracksGT5WireDistanceGT3Smash", "nTracksGT0WireDistanceGT0Smash", "nTracksGT0WireDistanceGT3Smash"};
 //	vector<char*> legNames = {"ntracksGT1 rotate 60", "nTracksGT1 rotate 180", "ntracksGT5 rotate 60", "nTracksGT5 rotate random	"};

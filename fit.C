@@ -505,12 +505,8 @@ int fit()
 //	TFile *f = new TFile("./jobs/wires/analysis_2sigma_wires_Buffer10_NoIsGoodEvent_nTracksGT4_-130VertexZ-110_maxDistTo0XYis5_notMdcEdge_noDoubleHits_VertexZ1mmMetaHitsMix_SharedWiresLT1NoSharedMeta_beamTiltCorr_gen4_50k.root","read");
 //	TFile *f = new TFile("./jobs/wires/analysis_2sigma_wires_Buffer10_NoIsGoodEvent_nTracksGT5_-130VertexZ-110_maxDistTo0XYis5_notMdcEdge_noDoubleHits_VertexZ1mmMetaHitsMix_SharedWiresLT1NoSharedMeta_beamTiltCorr_gen4_50k.root","read");
 
-	//problems with cluster, only like 50 files
-//	TFile *f = new TFile("./jobs/wires/analysisPim_2sigma_wires_Buffer10_NoIsGoodEvent_nTracksGT1_-130VertexZ-110_maxDistTo0XYis5_notMdcEdge_noDoubleHits_ChargedTracksMix_WireDistanceGT4NoSharedMetaAllLayers_beamTiltCorr_gen4_50k.root","read");
-
 
 //	TFile *f = new TFile("./jobs/wires/analysisPim_2sigma_wires_Buffer10_NoIsGoodEvent_nTracksGT1_-130VertexZ-110_maxDistTo0XYis5_notMdcEdge_noDoubleHits_vertexZ1mmRadius05mmMetaHitsMix_WireDistanceGT4NoSharedMetaAllLayers_beamTiltCorr_gen4_fullstat.root","read");
-//	TFile *f = new TFile("./jobs/wires/analysisPim_2sigma_wires_Buffer10_NoIsGoodEvent_nTracksGT1_-130VertexZ-110_maxDistTo0XYis5_notMdcEdge_noDoubleHits_vertexZ1mmRadius05mmChargedTracksMix_WireDistanceGT4NoSharedMetaAllLayers_beamTiltCorr_gen4_fullstat.root","read");
 
 
 /*************Unlike sign experimental data**************/
@@ -703,9 +699,17 @@ int fit()
 //	TFile *f = new TFile("./jobs/smash/analysisSmashPim_wires_Buffer50_NoIsGoodEvent_nTracksGT1_-140VertexZ-100_maxDistTo0XYis5_VertexZ1mmRadius05mmMetaHitsMix_wireDistanceGT4AllLayersNoSharedMeta_50k_gen4.root ","read");
 
 
-//	TFile *f = new TFile("./jobs/smash/analysisSmashPim_wires_Buffer50_NoIsGoodEvent_nTracksGT1_-130VertexZ-110_maxDistTo0XYis5_VertexZ1mmRadius05mmMetaHitssMix_wireDistanceGT4NoSharedMetaAllLayers_fullstat_gen4.root","read");
-	TFile *f = new TFile("./jobs/smash/analysisSmashPim_wires_Buffer50_NoIsGoodEvent_nTracksGT1_-130VertexZ-110_maxDistTo0XYis5_VertexZ1mmRadius05mmChargedTracksMix_wireDistanceGT4NoSharedMetaAllLayers_fullstat_gen4.root","read");
-//	TFile *f = new TFile("./jobs/smash/analysisSmashPim_wires_Buffer50_NoIsGoodEvent_nTracksGT5_-130VertexZ-110_maxDistTo0XYis5_VertexZ1mmRadius05mmChargedTracksMix_wireDistanceGT4NoSharedMetaAllLayers_fullstat_gen4.root","read");
+//	TFile *f = new TFile("./jobs/smash/analysisSmashPim_wires_Buffer50_NoIsGoodEvent_nTracksGT1_-140VertexZ-100_maxDistTo0XYis5_VertexZ1mmRadius05mmChargedTracksMix_wireDistanceGT0AllLayers_50k_gen4.root ","read");
+//	TFile *f = new TFile("./jobs/smash/analysisSmashPim_wires_Buffer50_NoIsGoodEvent_nTracksGT5_-140VertexZ-110_maxDistTo0XYis5_VertexZ1mmRadius05mmChargedTracksMix_wireDistanceGT0AllLayers_50k_gen4.root ","read");
+//	TFile *f = new TFile("./jobs/smash/analysisSmashPim_wires_Buffer50_NoIsGoodEvent_nTracksGT1_-140VertexZ-110_maxDistTo0XYis5_VertexZ1mmRadius05mmChargedTracksMix_wireDistanceGT0NoSharedMetaAllLayers_50k_gen4.root ","read");
+
+
+//	TFile *f = new TFile("./jobs/smash/analysisSmashPim_wires_Buffer50_NoIsGoodEvent_nTracksGT1_-130VertexZ-110_maxDistTo0XYis5_VertexZ1mmRadius05mmMetaHitssMix_wireDistanceGT4NoSharedMetaAllLayers_fullstat_gen4.root ","read");
+//	TFile *f = new TFile("./jobs/smash/analysisSmashPim_wires_Buffer50_NoIsGoodEvent_nTracksGT1_-130VertexZ-110_maxDistTo0XYis5_VertexZ1mmRadius05mmChargedTracksMix_wireDistanceGT4NoSharedMetaAllLayers_fullstat_gen4.root ","read");
+	TFile *f = new TFile("./jobs/smash/analysisSmashPim_wires_Buffer50_NoIsGoodEvent_nTracksGT1_-130VertexZ-110_maxDistTo0XYis5_VertexZ1mmRadius05mmChargedTracksMix_wireDistanceGT4NoSharedMetaAllLayers_fullstat_gen4.root ","read");
+//	TFile *f = new TFile("./jobs/smash/analysisSmashPim_wires_Buffer50_NoIsGoodEvent_nTracksGT2_-130VertexZ-110_maxDistTo0XYis5_VertexZ1mmRadius05mmChargedTracksMix_wireDistanceGT4NoSharedMetaAllLayers_fullstat_gen4.root ","read");
+//	TFile *f = new TFile("./jobs/smash/analysisSmashPim_wires_Buffer50_NoIsGoodEvent_nTracksGT3_-130VertexZ-110_maxDistTo0XYis5_VertexZ1mmRadius05mmChargedTracksMix_wireDistanceGT4NoSharedMetaAllLayers_fullstat_gen4.root ","read");
+//	TFile *f = new TFile("./jobs/smash/analysisSmashPim_wires_Buffer50_NoIsGoodEvent_nTracksGT4_-130VertexZ-110_maxDistTo0XYis5_VertexZ1mmRadius05mmChargedTracksMix_wireDistanceGT4NoSharedMetaAllLayers_fullstat_gen4.root ","read");
 
 
 
@@ -747,14 +751,8 @@ int fit()
 
 //	TFile *f = new TFile("./jobs/smash/analysisPureKinePim_nRealTracksGT1_noCut_nTracksEventHash_kTyPairHash.root ","read");
 //	TFile *f = new TFile("./jobs/smash/analysisPureKinePim_nRealTracksGT5_noCut_nTracksEventHash_kTyPairHash.root ","read");
-
-//	TFile *f = new TFile("./jobs/smash/analysisPureKinePim_buffer20_nRealTracksGT1_noCut_nCharedTracksEventHash_kTyPairHash_50k.root ","read");
-	
-	
-	
 //	TFile *f = new TFile("./jobs/smash/UrQMD_pim_analysis4.5GeV_buffer20_nTracksMix_nTracksGT5.root ","read");
 //	TFile *f = new TFile("./jobs/smash/UrQMD_pim_analysis4.5GeV_buffer20_nTracksMix_nTracksGT1.root ","read");
-
 
 
 
@@ -842,25 +840,11 @@ int fit()
 //	TFile *f = new TFile("./jobs/urqmd/UrQMD_pim_analysis4.5GeV_nTracksMix_nTracksGT5.root ","read");
 	
 	
-	
-	
-	
-// *****************generated pure smash********************
-//	TFile *f = new TFile("./jobs/smash/pureSmash_pim_analysis4.5GeV_buffer20_nTracksMix_nTracksGT1.root");
-//	TFile *f = new TFile("./jobs/smash/pureSmash_pim_analysis4.5GeV_buffer20_nTracksMix_nTracksGT5.root");
-//	TFile *f = new TFile("./jobs/smash/pureSmash_pip_analysis4.5GeV_buffer20_nTracksMix_nTracksGT5.root");
-//	TFile *f = new TFile("./jobs/smash/pureSmash_pim_analysis4.5GeV_buffer20_nTracksMix_noPairHash_nTracksGT1.root");
-//	TFile *f = new TFile("./jobs/smash/pureSmash_pim_analysis4.5GeV_buffer20_nTracksnAnalyzedPionMix_noPairHash_nTracksGT1.root");
-//	TFile *f = new TFile("./jobs/smash/pureSmash_pim_analysis4.5GeV_buffer20_nTracksnAnalyzedPionMix_noPairHash_2pionEventsOnly_nTracksGT1.root");
-//	TFile *f = new TFile("./jobs/smash/pureSmash_pim_analysis4.5GeV_buffer20_noEventHashing_noPairHash_nTracksGT1.root");
-//	TFile *f = new TFile("./jobs/smash/pureSmash_pim_analysis4.5GeV_buffer20_nTracksMix_KtLT400_nTracksGT1.root");
-//	TFile *f = new TFile("./jobs/smash/pureSmash_pim_analysis4.5GeV_buffer20_nChargedTracksMix_nTracksGT1.root");
-	
-	//increased statistics
-//	TFile *f = new TFile("./jobs/smash/pureSmash_pim_analysis4.5GeV_buffer20_nChargedTracksMix_nTracksGT1.root", "read");
-//	TFile *f = new TFile("./jobs/smash/pureSmash_pim_analysis4.5GeV_buffer20_nTracksMix_nTracksGT1.root", "read");
+//################# pure SMASH #########################
 
-	
+//	TFile *f = new TFile("./jobs/smash/pureSmash_pim_analysis4.5GeV_buffer20_nChargedTracksMix_nTracksGT1.root","read");
+//	TFile *f = new TFile("./jobs/smash/pureSmash_pim_analysis4.5GeV_buffer20_nChargedTracksMix_nTracksGT1.root","read");
+//	TFile *f = new TFile("./jobs/smash/pureSmash_pim_analysis4.5GeV_buffer20_nTracksMix_nTracksGT1.root","read");
 	
 	
 	
@@ -1039,7 +1023,7 @@ int fit()
 	TF1 *fitGaus = new TF1("fitGaus", coulombGausFit, 0.04, 0.35, 3);
 //	TF1 *fitExp = new TF1("fitExp", coulombLinearExpFit, 0.05, 0.8, 5);
 //	TF1 *fitExp = new TF1("fitExp", coulombQuadraticExpFit, 0.05, 0.8, 6);
-	TF1 *fitExp = new TF1("fitExp", coulombExpFit, 0.03, 0.35, 3);
+//	TF1 *fitExp = new TF1("fitExp", expFit, 0.01, 0.15, 3);
 	
 	hermite6Gaus->SetParName(0, "lambda");
 	hermite6Gaus->SetParName(1, "R");
@@ -1080,18 +1064,6 @@ int fit()
 	fitGaus->SetParLimits(1,0.001,15);
 	fitGaus->SetParLimits(2,0.01,10);
 	fitGaus->SetParLimits(3,1,2);
-	
-	
-	fitExp->SetParName(0, "lambda");
-	fitExp->SetParName(1, "R");
-	fitExp->SetParName(2, "norm");
-	
-	fitExp->SetParameters(0.7,2,1,2);
-	
-	fitExp->SetParLimits(0,0,1);
-	fitExp->SetParLimits(1,0.001,15);
-	fitExp->SetParLimits(2,0.01,10);
-	fitExp->SetParLimits(3,1,2);
 	
 	
 	
@@ -1155,22 +1127,6 @@ int fit()
 	
 	
 	
-	cout<<endl<<endl<<"************ exp ************"<<endl;
-	hGeV->Fit(fitExp, "REM0", "");
-	double expLow=0;
-	double expTop=0;
-	fitExp->GetRange(expLow,expTop);
-	TF1 *expExtrapolated = new TF1("expExtrapolated", coulombExpFit, expTop, expTop+0.3, fitExp->GetNpar());
-	for(int i=0; i<fitExp->GetNpar(); i++)
-	{
-		expExtrapolated->SetParameter(i, fitExp->GetParameter(i));
-	}
-	cout<<endl<<endl<<"N_exp= "<<fitGaus->GetParameter(2)<<" ("<<fitExp->GetParError(2)<<")"<<endl;
-	cout<<"R_exp= "<<fitExp->GetParameter(1)<<" ("<<fitExp->GetParError(1)<<")"<<endl;
-	cout<<"lambda_exp= "<<fitExp->GetParameter(0)<<" ("<<fitExp->GetParError(0)<<")"<<endl;
-	
-	
-	
 	
 	hGeV->GetXaxis()->SetRangeUser(0.0,max({gausTop+0.4,hermite6GausTop+0.4}));
 	
@@ -1188,7 +1144,7 @@ int fit()
 	hGeV->Draw();
 	cout<<endl<<endl;
 	
-	
+	/*
 	coulombCorrection->SetLineColor(kGreen+1);
 //	coulombCorrection->Draw("same");
 	
@@ -1196,20 +1152,11 @@ int fit()
 	
 	cout<<"gaus chi2/ndf "<<fitGaus->GetChisquare()/fitGaus->GetNDF()<<endl;
 	fitGaus->SetLineColor(kRed);
-	fitGaus->Draw("same");
+//	fitGaus->Draw("same");
 	
 	gausExtrapolated->SetLineColor(fitGaus->GetLineColor());
 	gausExtrapolated->SetLineStyle(kDashed);
-	gausExtrapolated->Draw("same");
-	
-	
-	cout<<"exp chi2/ndf "<<fitExp->GetChisquare()/fitExp->GetNDF()<<endl;
-	fitExp->SetLineColor(kBlue+2);
-	fitExp->Draw("same");
-	
-	gausExtrapolated->SetLineColor(fitExp->GetLineColor());
-	gausExtrapolated->SetLineStyle(kDashed);
-	gausExtrapolated->Draw("same");
+//	gausExtrapolated->Draw("same");
 	
 	
 	cout<<"hermite6Gaus chi2/ndf "<<hermite6Gaus->GetChisquare()/hermite6Gaus->GetNDF()<<endl;
@@ -1241,7 +1188,6 @@ int fit()
 	leg->SetFillStyle(0);
 //	leg->AddEntry(coulombCorrection, "Coulomb potential, 1 fm", "lp");
 	leg->AddEntry(fitGaus, "Bowler-Sinyukov", "l");
-	leg->AddEntry(fitExp, "exponential fit", "l");
 	leg->AddEntry(hermite4Gaus, "Bowler-Sinyukov + H_{3} + H_{4}", "l");
 	leg->AddEntry(hermite6Gaus, "Bowler-Sinyukov + H_{3} + ... + H_{6}", "l");
 	leg->Draw();
@@ -1341,7 +1287,7 @@ int fit()
 	cout<<"hermite 6 correlation matrix"<<endl;
 	corr1.Print();
 
-	
+	*/
 
 	return 0;
 }

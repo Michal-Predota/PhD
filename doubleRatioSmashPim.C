@@ -147,8 +147,8 @@ int doubleRatioSmashPim()
 	
 	gStyle->SetOptStat(0000);
 	
-	TFile *f_exp = new TFile("./jobs/wires/analysisPim_2sigma_wires_Buffer10_NoIsGoodEvent_nTracksGT1_-130VertexZ-110_maxDistTo0XYis5_notMdcEdge_noDoubleHits_ChargedTracksMix_WireDistanceGT4NoSharedMetaAllLayers_beamTiltCorr_gen4_50k.root","read");//experiment
-	TFile *f_sim = new TFile("./jobs/smash/analysisSmashPim_wires_Buffer50_NoIsGoodEvent_nTracksGT1_-140VertexZ-100_maxDistTo0XYis5_VertexZ1mmRadius05mmMetaHitsMix_wireDistanceGT4AllLayersNoSharedMeta_50k_gen4.root","read");//simulation
+	TFile *f_exp = new TFile("./jobs/wires/analysisPim_2sigma_wires_Buffer10_NoIsGoodEvent_nTracksGT1_-130VertexZ-110_maxDistTo0XYis5_notMdcEdge_noDoubleHits_vertexZ1mmRadius05mmMetaHitsMix_WireDistanceGT4NoSharedMetaAllLayers_beamTiltCorr_gen4_fullstat.root","read");//experiment
+	TFile *f_sim = new TFile("./jobs/smash/analysisSmashPim_wires_Buffer50_NoIsGoodEvent_nTracksGT1_-130VertexZ-110_maxDistTo0XYis5_VertexZ1mmRadius05mmMetaHitssMix_wireDistanceGT4NoSharedMetaAllLayers_fullstat_gen4.root","read");//simulation
 	TFile *output = new TFile("./outputs/analysisWiresHarshVertexCut_nTracksGT5_-1VertexZ3mmMix_sharedWiresLT1NoSharedMetaSignals.root", "recreate");
 	
 	char SigName[20];
@@ -166,7 +166,7 @@ int doubleRatioSmashPim()
 	t->AddText("p+p at #sqrt{s} = 3.46 GeV");
 	t->AddText("HADES work in progress");
 	t->AddText("No shared wires");
-	t->AddText("nTrack#geq 6");
+	t->AddText("nTrack#geq 2");
 	t->SetBorderSize(0);
 	t->SetFillStyle(0);
 		
@@ -483,7 +483,7 @@ int doubleRatioSmashPim()
 	
 	TF1 *hermite6Gaus = new TF1("fitGausHermite6", modifiedGausFitHermiteUpTo6, 0.03, 0.4, 5);
 	
-	TF1 *fitGaus = new TF1("fitGaus", coulombGausFit, 0.02, 0.4, 3);
+	TF1 *fitGaus = new TF1("fitGaus", coulombGausFit, 0.05, 0.4, 3);
 	
 	hermite6Gaus->SetParName(0, "lambda");
 	hermite6Gaus->SetParName(1, "R");
