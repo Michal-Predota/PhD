@@ -583,6 +583,9 @@ W przypadku HParticleCandSim z cięciem na wireDistangeGT4, noSharedMeta i AllLa
 
 Zwiększenie kategorii krotności do nTracksGT5 przy cięciach o których pisałem wyżej nie zmieniło funkcji korelacyjnej z HParticleCandSim
 
+Przy zastosowaniu cięć wireDistanceGT4, noSharedMeta i allLayers praktycznie znika zależność od liczby tracków (w HParticleCandSim)
+	Nie mogę tylko porównać nTracksGT5 bo coś sie zjebało przy liczeniu na klastrze...
+
 
 
 

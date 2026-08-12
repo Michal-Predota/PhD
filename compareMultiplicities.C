@@ -60,11 +60,11 @@ int compareMultiplicities()
 
 
 
-	TFile *nTracksGT1 = new TFile("./jobs/smash/analysisSmashPim_wires_Buffer50_NoIsGoodEvent_nTracksGT1_-140VertexZ-100_maxDistTo0XYis5_VertexZ1mmMetaHitsMix_SharedWiresLT1NoSharedMeta_fullstat_gen4.root ","read");
-	TFile *nTracksGT2 = new TFile("./jobs/smash/analysisSmashPim_wires_Buffer50_NoIsGoodEvent_nTracksGT2_-140VertexZ-100_maxDistTo0XYis5_VertexZ1mmMetaHitsMix_SharedWiresLT1NoSharedMeta_fullstat_gen4.root ","read");
-	TFile *nTracksGT3 = new TFile("./jobs/smash/analysisSmashPim_wires_Buffer50_NoIsGoodEvent_nTracksGT3_-140VertexZ-100_maxDistTo0XYis5_VertexZ1mmMetaHitsMix_SharedWiresLT1NoSharedMeta_fullstat_gen4.root ","read");
-	TFile *nTracksGT4 = new TFile("./jobs/smash/analysisSmashPim_wires_Buffer50_NoIsGoodEvent_nTracksGT4_-140VertexZ-100_maxDistTo0XYis5_VertexZ1mmMetaHitsMix_SharedWiresLT1NoSharedMeta_fullstat_gen4.root ","read");
-	TFile *nTracksGT5 = new TFile("./jobs/smash/analysisSmashPim_wires_Buffer50_NoIsGoodEvent_nTracksGT5_-140VertexZ-100_maxDistTo0XYis5_VertexZ1mmMetaHitsMix_SharedWiresLT1NoSharedMeta_fullstat_gen4.root ","read");
+	TFile *nTracksGT1 = new TFile("./jobs/smash/analysisSmashPim_wires_Buffer50_NoIsGoodEvent_nTracksGT1_-130VertexZ-110_maxDistTo0XYis5_VertexZ1mmRadius05mmChargedTracksMix_wireDistanceGT4NoSharedMetaAllLayers_fullstat_gen4.root ","read");
+	TFile *nTracksGT2 = new TFile("./jobs/smash/analysisSmashPim_wires_Buffer50_NoIsGoodEvent_nTracksGT2_-130VertexZ-110_maxDistTo0XYis5_VertexZ1mmRadius05mmChargedTracksMix_wireDistanceGT4NoSharedMetaAllLayers_fullstat_gen4.root ","read");
+	TFile *nTracksGT3 = new TFile("./jobs/smash/analysisSmashPim_wires_Buffer50_NoIsGoodEvent_nTracksGT3_-130VertexZ-110_maxDistTo0XYis5_VertexZ1mmRadius05mmChargedTracksMix_wireDistanceGT4NoSharedMetaAllLayers_fullstat_gen4.root ","read");
+	TFile *nTracksGT4 = new TFile("./jobs/smash/analysisSmashPim_wires_Buffer50_NoIsGoodEvent_nTracksGT4_-130VertexZ-110_maxDistTo0XYis5_VertexZ1mmRadius05mmChargedTracksMix_wireDistanceGT4NoSharedMetaAllLayers_fullstat_gen4.root ","read");
+	TFile *nTracksGT5 = new TFile("./jobs/smash/analysisSmashPim_wires_Buffer50_NoIsGoodEvent_nTracksGT5_-130VertexZ-110_maxDistTo0XYis5_VertexZ1mmRadius05mmChargedTracksMix_wireDistanceGT4NoSharedMetaAllLayers_fullstat_gen4.root ","read");
 
 
 	
