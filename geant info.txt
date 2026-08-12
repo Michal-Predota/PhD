@@ -1,0 +1,120 @@
+ -3 artificial-     mass -1         chrg  -1 lepton chrg  -1 baryon chrg  -1 strangeness  -1 col 616 style   1
+ -2 fake+           mass -1         chrg   1 lepton chrg   1 baryon chrg   1 strangeness   1 col 616 style   1
+ -1 fake-           mass -1         chrg  -1 lepton chrg  -1 baryon chrg  -1 strangeness  -1 col 616 style   1
+  0 dummy           mass 0          chrg   0 lepton chrg   0 baryon chrg   0 strangeness   0 col 616 style   1
+  1 g               mass 0          chrg   0 lepton chrg   0 baryon chrg   0 strangeness   0 col   0 style   1
+  2 e+              mass 0.510999   chrg   1 lepton chrg  -1 baryon chrg   0 strangeness   0 col 632 style   1
+  3 e-              mass 0.510999   chrg  -1 lepton chrg   1 baryon chrg   0 strangeness   0 col 600 style   1
+  4 nu              mass 0          chrg   0 lepton chrg   1 baryon chrg   0 strangeness   0 col 616 style   1
+  5 mu+             mass 105.658    chrg   1 lepton chrg  -1 baryon chrg   0 strangeness   0 col 616 style   1
+  6 mu-             mass 105.658    chrg  -1 lepton chrg   1 baryon chrg   0 strangeness   0 col 616 style   1
+  7 pi0             mass 134.976    chrg   0 lepton chrg   0 baryon chrg   0 strangeness   0 col 400 style   1
+  8 pi+             mass 139.57     chrg   1 lepton chrg   0 baryon chrg   0 strangeness   0 col 623 style   1
+  9 pi-             mass 139.57     chrg  -1 lepton chrg   0 baryon chrg   0 strangeness   0 col 591 style   1
+ 10 K0L             mass 497.672    chrg   0 lepton chrg   0 baryon chrg   0 strangeness   1 col 416 style   1
+ 11 K+              mass 493.677    chrg   1 lepton chrg   0 baryon chrg   0 strangeness   1 col 409 style   1
+ 12 K-              mass 493.677    chrg  -1 lepton chrg   0 baryon chrg   0 strangeness  -1 col 410 style   1
+ 13 n               mass 939.566    chrg   0 lepton chrg   0 baryon chrg   1 strangeness   0 col 414 style   1
+ 14 p               mass 938.272    chrg   1 lepton chrg   0 baryon chrg   1 strangeness   0 col 920 style   1
+ 15 anti_p          mass 938.272    chrg  -1 lepton chrg   0 baryon chrg  -1 strangeness   0 col 616 style   1
+ 16 K0S             mass 497.672    chrg   0 lepton chrg   0 baryon chrg   0 strangeness   1 col 616 style   1
+ 17 eta             mass 547.45     chrg   0 lepton chrg   0 baryon chrg   0 strangeness   0 col 616 style   1
+ 18 Lambda          mass 1115.68    chrg   0 lepton chrg   0 baryon chrg   1 strangeness  -1 col 616 style   1
+ 19 Sigma+          mass 1189.37    chrg   1 lepton chrg   0 baryon chrg   1 strangeness  -1 col 616 style   1
+ 20 Sigma0          mass 1192.55    chrg   0 lepton chrg   0 baryon chrg   1 strangeness  -1 col 616 style   1
+ 21 Sigma-          mass 1197.44    chrg  -1 lepton chrg   0 baryon chrg   1 strangeness  -1 col 616 style   1
+ 22 Xi0             mass 1314.9     chrg   0 lepton chrg   0 baryon chrg   1 strangeness  -2 col 616 style   1
+ 23 Xi-             mass 1321.32    chrg  -1 lepton chrg   0 baryon chrg   1 strangeness  -2 col 616 style   1
+ 24 Omega           mass 1672.45    chrg  -1 lepton chrg   0 baryon chrg   1 strangeness  -3 col 616 style   1
+ 25 anti_n          mass 939.566    chrg   0 lepton chrg   0 baryon chrg  -1 strangeness   0 col 616 style   1
+ 26 anti_Lambda     mass 1115.68    chrg   0 lepton chrg   0 baryon chrg  -1 strangeness   1 col 616 style   1
+ 27 anti_Sigma-     mass 1189.37    chrg  -1 lepton chrg   0 baryon chrg  -1 strangeness   1 col 616 style   1
+ 28 anti_Sigma0     mass 1192.55    chrg   0 lepton chrg   0 baryon chrg  -1 strangeness   1 col 616 style   1
+ 29 anti_Sigma+     mass 1197.44    chrg   1 lepton chrg   0 baryon chrg  -1 strangeness   1 col 616 style   1
+ 30 anti_Xi0        mass 1314.9     chrg   0 lepton chrg   0 baryon chrg  -1 strangeness   2 col 616 style   1
+ 31 anti_Xi+        mass 1321.32    chrg   1 lepton chrg   0 baryon chrg  -1 strangeness   2 col 616 style   1
+ 32 anti_Omega+     mass 1672.45    chrg   1 lepton chrg   0 baryon chrg  -1 strangeness   3 col 616 style   1
+ 33 TC              mass 0          chrg   0 lepton chrg   0 baryon chrg   0 strangeness   0 col 616 style   1
+ 34 D0              mass 1232       chrg   0 lepton chrg   0 baryon chrg   1 strangeness   0 col 616 style   1
+ 35 D++             mass 1232       chrg   2 lepton chrg   0 baryon chrg   1 strangeness   0 col 616 style   1
+ 36 D+              mass 1232       chrg   1 lepton chrg   0 baryon chrg   1 strangeness   0 col 616 style   1
+ 37 D-              mass 1232       chrg  -1 lepton chrg   0 baryon chrg   1 strangeness   0 col 616 style   1
+ 38 NP11+           mass 1440       chrg   1 lepton chrg   0 baryon chrg   1 strangeness   0 col 616 style   1
+ 39 ND13+           mass 1520       chrg   1 lepton chrg   0 baryon chrg   1 strangeness   0 col 616 style   1
+ 40 NS11+           mass 1535       chrg   1 lepton chrg   0 baryon chrg   1 strangeness   0 col 616 style   1
+ 41 rho0            mass 769.9      chrg   0 lepton chrg   0 baryon chrg   0 strangeness   0 col 616 style   1
+ 42 rho+            mass 769.9      chrg   1 lepton chrg   0 baryon chrg   0 strangeness   0 col 616 style   1
+ 43 rho-            mass 769.9      chrg  -1 lepton chrg   0 baryon chrg   0 strangeness   0 col 616 style   1
+ 44 pion            mass 139.57     chrg   0 lepton chrg   0 baryon chrg   0 strangeness   0 col 616 style   1
+ 45 d               mass 1875.61    chrg   1 lepton chrg   0 baryon chrg   2 strangeness   0 col 800 style   1
+ 46 t               mass 2809.25    chrg   1 lepton chrg   0 baryon chrg   3 strangeness   0 col 797 style   1
+ 47 alpha           mass 3727.42    chrg   2 lepton chrg   0 baryon chrg   4 strangeness   0 col 616 style   1
+ 48 kaon            mass 493.677    chrg   0 lepton chrg   0 baryon chrg   0 strangeness   0 col 616 style   1
+ 49 He3             mass 2809.23    chrg   2 lepton chrg   0 baryon chrg   3 strangeness   0 col 616 style   1
+ 50 dimuon          mass 211.317    chrg   0 lepton chrg   0 baryon chrg   0 strangeness   0 col 616 style   1
+ 51 dilepton        mass 1.022      chrg   0 lepton chrg   0 baryon chrg   0 strangeness   0 col 616 style   1
+ 52 w               mass 781.94     chrg   0 lepton chrg   0 baryon chrg   0 strangeness   0 col 616 style   1
+ 53 eta'            mass 957.7      chrg   0 lepton chrg   0 baryon chrg   0 strangeness   0 col 616 style   1
+ 54 sigma           mass 600        chrg   0 lepton chrg   0 baryon chrg   0 strangeness   0 col 616 style   1
+ 55 phi             mass 1019.41    chrg   0 lepton chrg   0 baryon chrg   0 strangeness   0 col 616 style   1
+ 56 DP330           mass 1600       chrg   0 lepton chrg   0 baryon chrg   1 strangeness   0 col 616 style   1
+ 57 DP33++          mass 1600       chrg   2 lepton chrg   0 baryon chrg   1 strangeness   0 col 616 style   1
+ 58 DP33+           mass 1600       chrg   1 lepton chrg   0 baryon chrg   1 strangeness   0 col 616 style   1
+ 59 DP33-           mass 1600       chrg  -1 lepton chrg   0 baryon chrg   1 strangeness   0 col 616 style   1
+ 60 DS310           mass 1620       chrg   0 lepton chrg   0 baryon chrg   1 strangeness   0 col 616 style   1
+ 61 DS31++          mass 1620       chrg   2 lepton chrg   0 baryon chrg   1 strangeness   0 col 616 style   1
+ 62 DS31+           mass 1620       chrg   1 lepton chrg   0 baryon chrg   1 strangeness   0 col 616 style   1
+ 63 DS31-           mass 1620       chrg  -1 lepton chrg   0 baryon chrg   1 strangeness   0 col 616 style   1
+ 64 NP110           mass 1440       chrg   0 lepton chrg   0 baryon chrg   1 strangeness   0 col 616 style   1
+ 65 ND130           mass 1520       chrg   0 lepton chrg   0 baryon chrg   1 strangeness   0 col 616 style   1
+ 66 NS110           mass 1535       chrg   0 lepton chrg   0 baryon chrg   1 strangeness   0 col 616 style   1
+ 67 J/Psi           mass 3096.88    chrg   0 lepton chrg   0 baryon chrg   0 strangeness   0 col 616 style   1
+ 68 Psi'            mass 3685.96    chrg   0 lepton chrg   0 baryon chrg   0 strangeness   0 col 616 style   1
+ 69 pn              mass 2650       chrg   1 lepton chrg   0 baryon chrg   2 strangeness   0 col 616 style   1
+120 Hypertriton     mass 2991.13    chrg   1 lepton chrg   0 baryon chrg   3 strangeness   1 col 616 style   1
+121 Hyperhydrogen4  mass 3922.43    chrg   1 lepton chrg   0 baryon chrg   4 strangeness   1 col 616 style   1
+122 Hyperhelium4    mass 3921.73    chrg   2 lepton chrg   0 baryon chrg   4 strangeness   1 col 616 style   1
+
+HGEANT processes :
+  0 No Process
+  1 NEXT  : particle has reached the boundary of current volume
+  2 MULS  : multiple scattering
+  3 LOSS  : continuous energy loss
+  4 FIEL  : bending in magnetic field
+  5 DCAY  : particle decay
+  6 PAIR  : photon pair-production or muon direct pair production
+  7 COMP  : Compton scattering
+  8 PHOT  : photoelectric effect
+  9 BREM  : bremsstrahlung
+ 10 DRAY  : delta-ray production
+ 11 ANNI  : positron annihilation
+ 12 HADR  : hadronic interaction
+ 13 ECOH  : hadronic elastic coherent scattering
+ 14 EVAP  : nuclear evaporation
+ 15 FISS  : nuclear fission
+ 16 ABSO  : nuclear absorption
+ 17 ANNH  : anti-proton annihilation
+ 18 CAPT  : neutron capture
+ 19 EINC  : hadronic elastic incoherent scattering
+ 20 INHE  : hadronic inelastic scattering
+ 21 MUNU  : muon-nuclear interaction
+ 22 TOFM  : exceeded time of flight cut
+ 23 PFIS  : nuclear photo-fission
+ 24 SCUT  : the particle due to magnetic field was unexp. crossing vol. boundaries
+ 25 RAYL  : Rayleigh effect
+ 26 PARA  : parametrisation activated
+ 27 PRED  : error matrix computed (GEANE tracking)
+ 28 LOOP  : not used
+ 29 NULL  : no mechanism is active, usually at the entrance of a new volume
+ 30 STOP  : particle has fallen below energy threshold and tracking stops
+ 31 HADES : (pair creat. with immediate annihilation of stopped positron
+ 32 HADES : as 31, but electron also stopped
+101 LABS  : Cerenkov photon absorption
+102 LREF  : Cerenkov photon reflection/refraction
+103 SMAX  : step limited by STEMAX
+104 SCOR  : correction against loss of precision in boundary crossing
+105 CKOV  : Cerenkov photon generation
+106 REFL  : Cerenkov photon reflection
+107 REFR  : Cerenkov photon refraction
+108 SYNC  : synchrotron radiation generation
+109 STRA  : PAI or ASHO model used for energy loss fluctuations.

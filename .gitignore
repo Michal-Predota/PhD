@@ -1,0 +1,25 @@
+# ROOT/data files
+*.root
+
+# Analysis outputs
+jobs/
+outputs/
+
+# Compiled binaries
+outfile
+smash
+
+# Python cache
+__pycache__/
+*.pyc
+# VS Code
+.vscode/
+
+# FemtoMixer
+FemtoMixer/
+html/
+
+# Pictures
+*.png
+*.jpg
+*.pdf
