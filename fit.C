@@ -699,7 +699,7 @@ int fit()
 //	TFile *f = new TFile("./jobs/smash/analysisSmashPim_wires_Buffer50_NoIsGoodEvent_nTracksGT1_-140VertexZ-100_maxDistTo0XYis5_VertexZ1mmRadius05mmMetaHitsMix_wireDistanceGT4AllLayersNoSharedMeta_50k_gen4.root ","read");
 
 
-//	TFile *f = new TFile("./jobs/smash/analysisSmashPim_wires_Buffer50_NoIsGoodEvent_nTracksGT1_-140VertexZ-100_maxDistTo0XYis5_VertexZ1mmRadius05mmChargedTracksMix_wireDistanceGT0AllLayers_50k_gen4.root ","read");
+	TFile *f = new TFile("./jobs/smash/analysisSmashPim_wires_Buffer50_NoIsGoodEvent_nTracksGT1_-140VertexZ-100_maxDistTo0XYis5_VertexZ1mmRadius05mmChargedTracksMix_wireDistanceGT0AllLayers_50k_gen4.root ","read");
 //	TFile *f = new TFile("./jobs/smash/analysisSmashPim_wires_Buffer50_NoIsGoodEvent_nTracksGT5_-140VertexZ-110_maxDistTo0XYis5_VertexZ1mmRadius05mmChargedTracksMix_wireDistanceGT0AllLayers_50k_gen4.root ","read");
 //	TFile *f = new TFile("./jobs/smash/analysisSmashPim_wires_Buffer50_NoIsGoodEvent_nTracksGT1_-140VertexZ-110_maxDistTo0XYis5_VertexZ1mmRadius05mmChargedTracksMix_wireDistanceGT0NoSharedMetaAllLayers_50k_gen4.root ","read");
 
@@ -707,11 +707,16 @@ int fit()
 //	TFile *f = new TFile("./jobs/smash/analysisSmashPim_wires_Buffer50_NoIsGoodEvent_nTracksGT1_-130VertexZ-110_maxDistTo0XYis5_VertexZ1mmRadius05mmMetaHitssMix_wireDistanceGT4NoSharedMetaAllLayers_fullstat_gen4.root ","read");
 
 //	TFile *f = new TFile("./jobs/smash/analysisSmashPim_wires_Buffer50_NoIsGoodEvent_nTracksGT1_-130VertexZ-110_maxDistTo0XYis5_VertexZ1mmRadius05mmChargedTracksMix_wireDistanceGT4NoSharedMetaAllLayers_fullstat_gen4.root ","read");
-	TFile *f = new TFile("./jobs/smash/analysisSmashPim_wires_Buffer20_NoIsGoodEvent_nTracksGT1_-130VertexZ-110_maxDistTo0XYis5_VertexZ1mmRadius05mmChargedTracksMix_wireDistanceGT4NoSharedMetaAllLayers_fullstat_gen4.root ","read");
+//	TFile *f = new TFile("./jobs/smash/analysisSmashPim_wires_Buffer20_NoIsGoodEvent_nTracksGT1_-130VertexZ-110_maxDistTo0XYis5_VertexZ1mmRadius05mmChargedTracksMix_wireDistanceGT4NoSharedMetaAllLayers_fullstat_gen4.root ","read");
 //	TFile *f = new TFile("./jobs/smash/analysisSmashPim_wires_Buffer50_NoIsGoodEvent_nTracksGT1_-130VertexZ-110_maxDistTo0XYis5_VertexZ1mmRadius05mmChargedTracksMix_wireDistanceGT4NoSharedMetaAllLayers_fullstat_gen4.root ","read");
 //	TFile *f = new TFile("./jobs/smash/analysisSmashPim_wires_Buffer50_NoIsGoodEvent_nTracksGT2_-130VertexZ-110_maxDistTo0XYis5_VertexZ1mmRadius05mmChargedTracksMix_wireDistanceGT4NoSharedMetaAllLayers_fullstat_gen4.root ","read");
 //	TFile *f = new TFile("./jobs/smash/analysisSmashPim_wires_Buffer50_NoIsGoodEvent_nTracksGT3_-130VertexZ-110_maxDistTo0XYis5_VertexZ1mmRadius05mmChargedTracksMix_wireDistanceGT4NoSharedMetaAllLayers_fullstat_gen4.root ","read");
 //	TFile *f = new TFile("./jobs/smash/analysisSmashPim_wires_Buffer50_NoIsGoodEvent_nTracksGT4_-130VertexZ-110_maxDistTo0XYis5_VertexZ1mmRadius05mmChargedTracksMix_wireDistanceGT4NoSharedMetaAllLayers_fullstat_gen4.root ","read");
+
+//	TFile *f = new TFile("./jobs/smash/analysisSmashPim_wires_Buffer20_NoIsGoodEvent_nTracksGT1_-130VertexZ-110_maxDistTo0XYis5_VertexZ1mmChargedTracksMix_wireDistanceGT4NoSharedMetaAllLayers_fullstat_gen4.root ","read");
+
+//	TFile *f = new TFile("./jobs/smash/analysisSmashPim_wires_Buffer20_NoIsGoodEvent_nTracksGT1_-130VertexZ-110_maxDistTo0XYis5_VertexZ1mmMetaHitsMix_wireDistanceGT4NoSharedMetaAllLayers_50k_gen4.root ","read");
+//	TFile *f = new TFile("./jobs/smash/analysisSmashPim_wires_Buffer20_NoIsGoodEvent_nTracksGT1_-130VertexZ-110_maxDistTo0XYis5_VertexZ1mmChargedTracksMix_wireDistanceGT4NoSharedMetaAllLayers_50k_gen4.root ","read");
 
 
 

@@ -593,6 +593,33 @@ Problem (?) - mixowanie po liczbie naładowanych tracków daje płaską funkcję
 
 analysisSmashPim_wires_Buffer20_NoIsGoodEvent_nTracksGT1_-130VertexZ-110_maxDistTo0XYis5_VertexZ1mmChargedTracksMix_wireDistanceGT4NoSharedMetaAllLayers_fullstat_gen4.root - do pobrania
 
+Mixowanie po vertexZ, radius i chargedTracks vs vertexZ i chargedTracks - usunięcie promienia spowodowało że funkcja z symulacji się bardziej wypłaszczyła, jest bliższe vertez + radius + metaHits
+Sprawdzić mixowanie nChargedTracks + vertexZ z cutami na pary jak do tej pory
+
+Nie uwzględniając promienia mixowanie po metaHits i charged tracks daje praktycznie to samo (HParticleCandSim)
+
+vertex+radius+metaHits minimalnie lepsze niż vertex+metaHits (ale vertex+metaHits tylko na połowie statystyki)
+vertex+radius+chargedTracks też zdaje się być trochę lepsze niż vertex+chargedTracks (tu znowy vertex+chargedTracks ma mniejszą statystykę)
+
+Przedyskutować na spotkaniu grupy którą taktykę mixowania przyjąć, wszystkie wydają się być w miarę dobre (a przynajmniej lepsze niż to co do tej pory mialem)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
