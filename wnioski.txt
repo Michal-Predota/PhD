@@ -603,12 +603,19 @@ vertex+radius+chargedTracks też zdaje się być trochę lepsze niż vertex+char
 
 Przedyskutować na spotkaniu grupy którą taktykę mixowania przyjąć, wszystkie wydają się być w miarę dobre (a przynajmniej lepsze niż to co do tej pory mialem)
 
+Znowu coś siadło z klastrem...
 
+W przypadku mixowania po chargedTracks i vertexZ to czy w cutach na pary uwzględniam noSharedMeta czy nie nie wpływa na wygląd funkcji korelacyjnej
+	W obu przypadkach funkcja jest mniej więcej płaska od jakichś 50 MeV, poniżej tego jest spadek (oczywiście HParticleCandSim)
 
+Sprawdzam mixowanie w czystym (wygenerowanym przeze mnie) smashu dla pi+, okazuje się że nieważne czy mixuję po ilości tracków czy ilości naładowanych tracków, w obu przypadkach funkcja nie jest płaska na 1
+	dla niskich q_inv funkcja gładko spada do ~0.85
 
-
-
-
+Jest pewna zależność od liczby tracków w tych funkcjach, ogólnie przy nTrackGT5 funkcja korelacyjna czysty smash dla pi+ jest praktycznie liniowa w niskich q_inv, dl nTracksGT1 jest przegięcie i pewniem mniej-więcej płaski	
+	obszar pomiędzy 200 a 300 MeV
+Mixowanie po całkowitym ładunku w evencie daje coś nienajgorszego? Tylko że całkowity ładunek chyba zawsze powinien być równy 2...?
+	Tak też dokładnie jest, czyli de facto nie mixuję w ten sposób
+Sprawdziłem mixowanie po całkowitym dodatnim ładunku, też nie daje płaskiej funkcji
 
 
 

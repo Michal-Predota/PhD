@@ -507,6 +507,7 @@ int fit()
 
 
 //	TFile *f = new TFile("./jobs/wires/analysisPim_2sigma_wires_Buffer10_NoIsGoodEvent_nTracksGT1_-130VertexZ-110_maxDistTo0XYis5_notMdcEdge_noDoubleHits_vertexZ1mmRadius05mmMetaHitsMix_WireDistanceGT4NoSharedMetaAllLayers_beamTiltCorr_gen4_fullstat.root","read");
+//	TFile *f = new TFile("./jobs/wires/analysisPim_2sigma_wires_Buffer10_NoIsGoodEvent_nTracksGT1_-130VertexZ-110_maxDistTo0XYis5_notMdcEdge_noDoubleHits_vertexZ1mmMetaHitsMix_WireDistanceGT4NoSharedMetaAllLayers_beamTiltCorr_gen4_50k.root","read");
 
 
 /*************Unlike sign experimental data**************/
@@ -699,7 +700,7 @@ int fit()
 //	TFile *f = new TFile("./jobs/smash/analysisSmashPim_wires_Buffer50_NoIsGoodEvent_nTracksGT1_-140VertexZ-100_maxDistTo0XYis5_VertexZ1mmRadius05mmMetaHitsMix_wireDistanceGT4AllLayersNoSharedMeta_50k_gen4.root ","read");
 
 
-	TFile *f = new TFile("./jobs/smash/analysisSmashPim_wires_Buffer50_NoIsGoodEvent_nTracksGT1_-140VertexZ-100_maxDistTo0XYis5_VertexZ1mmRadius05mmChargedTracksMix_wireDistanceGT0AllLayers_50k_gen4.root ","read");
+//	TFile *f = new TFile("./jobs/smash/analysisSmashPim_wires_Buffer50_NoIsGoodEvent_nTracksGT1_-140VertexZ-100_maxDistTo0XYis5_VertexZ1mmRadius05mmChargedTracksMix_wireDistanceGT0AllLayers_50k_gen4.root ","read");
 //	TFile *f = new TFile("./jobs/smash/analysisSmashPim_wires_Buffer50_NoIsGoodEvent_nTracksGT5_-140VertexZ-110_maxDistTo0XYis5_VertexZ1mmRadius05mmChargedTracksMix_wireDistanceGT0AllLayers_50k_gen4.root ","read");
 //	TFile *f = new TFile("./jobs/smash/analysisSmashPim_wires_Buffer50_NoIsGoodEvent_nTracksGT1_-140VertexZ-110_maxDistTo0XYis5_VertexZ1mmRadius05mmChargedTracksMix_wireDistanceGT0NoSharedMetaAllLayers_50k_gen4.root ","read");
 
@@ -719,6 +720,9 @@ int fit()
 //	TFile *f = new TFile("./jobs/smash/analysisSmashPim_wires_Buffer20_NoIsGoodEvent_nTracksGT1_-130VertexZ-110_maxDistTo0XYis5_VertexZ1mmChargedTracksMix_wireDistanceGT4NoSharedMetaAllLayers_50k_gen4.root ","read");
 
 
+//	TFile *f = new TFile("./jobs/smash/analysisSmashPim_wires_Buffer20_NoIsGoodEvent_nTracksGT1_-130VertexZ-110_maxDistTo0XYis5_VertexZ1mmChargedTracksMix_wireDistanceGT4AllLayers_50k_gen4.root ","read");
+
+
 
 
 
@@ -736,6 +740,9 @@ int fit()
 //	TFile *f = new TFile("./jobs/smash/analysisSmashPip_Buffer20_NoIsGoodEvent_nTracksGT3_-140VertexZ-100_maxDistTo0XYis5_VertexZ1mmMetaHitsMix_NoPairCuts_20k_gen4.root ","read");
 //	TFile *f = new TFile("./jobs/smash/analysisSmashPip_Buffer20_NoIsGoodEvent_nTracksGT4_-140VertexZ-100_maxDistTo0XYis5_VertexZ1mmMetaHitsMix_NoPairCuts_20k_gen4.root ","read");
 //	TFile *f = new TFile("./jobs/smash/analysisSmashPip_Buffer20_NoIsGoodEvent_nTracksGT5_-140VertexZ-100_maxDistTo0XYis5_VertexZ1mmMetaHitsMix_NoPairCuts_20k_gen4.root ","read");
+
+
+//	TFile *f = new TFile("./jobs/smash/analysisSmashPip_Buffer20_NoIsGoodEvent_nTracksGT1_-130VertexZ-100_maxDistTo0XYis5_VertexZ1mmMetaHitsMix_WireDistanceGT4NoSharedMetaAllLayers_50k_gen4.root ","read");
 
 
 
@@ -847,11 +854,20 @@ int fit()
 //	TFile *f = new TFile("./jobs/urqmd/UrQMD_pim_analysis4.5GeV_nTracksMix_nTracksGT5.root ","read");
 	
 	
-//################# pure SMASH #########################
+//################# pure SMASH pi- #########################
 
 //	TFile *f = new TFile("./jobs/smash/pureSmash_pim_analysis4.5GeV_buffer20_nChargedTracksMix_nTracksGT1.root","read");
 //	TFile *f = new TFile("./jobs/smash/pureSmash_pim_analysis4.5GeV_buffer20_nChargedTracksMix_nTracksGT1.root","read");
 //	TFile *f = new TFile("./jobs/smash/pureSmash_pim_analysis4.5GeV_buffer20_nTracksMix_nTracksGT1.root","read");
+
+//################# pure SMASH pi+ #########################
+//	TFile *f = new TFile("./jobs/smash/pureSmash_pip_analysis4.5GeV_buffer20_nTracksMix_nTracksGT1.root","read");
+//	TFile *f = new TFile("./jobs/smash/pureSmash_pip_analysis4.5GeV_buffer20_chargedTracksMix_nTracksGT1.root","read");
+//	TFile *f = new TFile("./jobs/smash/pureSmash_pip_analysis4.5GeV_buffer20_chargedTracksMix_nTracksGT5.root","read");
+//	TFile *f = new TFile("./jobs/smash/pureSmash_pip_analysis4.5GeV_buffer20_chargedTracksMix_onlyPrimary_nTracksGT1.root","read");
+//	TFile *f = new TFile("./jobs/smash/pureSmash_pip_analysis4.5GeV_buffer20_totalChargeMix_nTracksGT1.root","read");
+//	TFile *f = new TFile("./jobs/smash/pureSmash_pip_analysis4.5GeV_buffer20_totalPositiveChargeMix_nTracksGT1.root","read");
+	TFile *f = new TFile("./jobs/smash/pureSmash_pip_analysis4.5GeV_buffer20_totalPositiveChargeMix_nTracksGT5.root","read");
 	
 	
 	
@@ -900,12 +916,12 @@ int fit()
 		bckgExpKtBin.push_back(new TH1D(BckgName, BckgName,1500,0,1500));
 		for(int j=1; j<10; j++)
 		{	
-			if(std::string(f->GetName()).find("Pim")!=string::npos)
+			if(std::string(f->GetName()).find("Pim")!=string::npos || std::string(f->GetName()).find("pim")!=string::npos)
 			{
 				sprintf(SigName, "PimSig_%d%d",i,j);
 				sprintf(BckgName, "PimBckg_%d%d",i,j);
 			}
-			else if(std::string(f->GetName()).find("Pip")!=string::npos)
+			else if(std::string(f->GetName()).find("Pip")!=string::npos || std::string(f->GetName()).find("pip")!=string::npos)
 			{
 				sprintf(SigName, "PipSig_%d%d",i,j);
 				sprintf(BckgName, "PipBckg_%d%d",i,j);
