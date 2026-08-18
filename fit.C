@@ -867,7 +867,11 @@ int fit()
 //	TFile *f = new TFile("./jobs/smash/pureSmash_pip_analysis4.5GeV_buffer20_chargedTracksMix_onlyPrimary_nTracksGT1.root","read");
 //	TFile *f = new TFile("./jobs/smash/pureSmash_pip_analysis4.5GeV_buffer20_totalChargeMix_nTracksGT1.root","read");
 //	TFile *f = new TFile("./jobs/smash/pureSmash_pip_analysis4.5GeV_buffer20_totalPositiveChargeMix_nTracksGT1.root","read");
-	TFile *f = new TFile("./jobs/smash/pureSmash_pip_analysis4.5GeV_buffer20_totalPositiveChargeMix_nTracksGT5.root","read");
+//	TFile *f = new TFile("./jobs/smash/pureSmash_pip_analysis4.5GeV_buffer20_totalPositiveChargeMix_nTracksGT5.root","read");
+//	TFile *f = new TFile("./jobs/smash/pureSmash_pip_analysis4.5GeV_buffer20_TotalPositiveAndNegativeChargeMix_nTracksGT1.root","read");
+//	TFile *f = new TFile("./jobs/smash/pureSmash_pip_analysis4.5GeV_buffer20_nPipMix_nTracksGT1.root","read");
+//	TFile *f = new TFile("./jobs/smash/pureSmash_pip_analysis4.5GeV_buffer20_positiveAndNegativePionsMix_nTracksGT1.root","read");
+	TFile *f = new TFile("./jobs/smash/pureSmash_pip_analysis4.5GeV_buffer20_totalMomentumMix_nTracksGT1.root","read");
 	
 	
 	

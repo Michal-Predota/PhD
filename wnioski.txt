@@ -617,11 +617,13 @@ Mixowanie po całkowitym ładunku w evencie daje coś nienajgorszego? Tylko że 
 	Tak też dokładnie jest, czyli de facto nie mixuję w ten sposób
 Sprawdziłem mixowanie po całkowitym dodatnim ładunku, też nie daje płaskiej funkcji
 
-
-
-
-
-
+Powoli przebijam się przez różne warianty mixowania czystego smasha dla pi+, na razie najlepszy (o ile to dobre słowo) wydaje się być wariant w którym mixuje po całkowitym ładunku	
+	ALE jest to to samo co brak mixowania, bo całkowity ładunek w SMASHu będzie zachowany czyli zawsze wyniesie 2
+Najgorsze jest mixowanie po zwykłej ilości tracków
+Po środku jest mixowanie po ilości naładowanych tracków, całkowitym dodatnim ładunku oraz całkowitym dodatnim i całkowitym ujemnym ładunku, te trzy warianty są praktycznie identyczne
+Mixowanie po ilości pi+ jest praktycznie identyczne jak po całkowitym łądunku, co nie jest dziwne ponieważ w jak już można policzyć funkcję korelacyjną to prawie zawsze są 2 piony
+Mixowanie po ilości pionów dodatnich i po ilości pionów ujemnych idzie razem z tą "środkową" grupą
+Tak samo w mixowaniu po całkowitym pędzie (klasy eventów od 1.5 GeV/c do 3.0 GeV/c co 0.1)
 
 
 
