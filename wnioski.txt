@@ -624,8 +624,10 @@ Po środku jest mixowanie po ilości naładowanych tracków, całkowitym dodatni
 Mixowanie po ilości pi+ jest praktycznie identyczne jak po całkowitym łądunku, co nie jest dziwne ponieważ w jak już można policzyć funkcję korelacyjną to prawie zawsze są 2 piony
 Mixowanie po ilości pionów dodatnich i po ilości pionów ujemnych idzie razem z tą "środkową" grupą
 Tak samo w mixowaniu po całkowitym pędzie (klasy eventów od 1.5 GeV/c do 3.0 GeV/c co 0.1)
-
-
+TotalMomentum+chargedTracks - spada nawet niżej niż nTracks mix, na razie najgorsza opcja
+TotalKtTotalRapidity - jeszcze niżej, spada do okolic 0.74
+TotalKt - schodzi do około 0.85 (jak duża część innych mixowań)
+TotalRapidity - niewiele lepsze niż totalKtTotalRapidity, drugie najgorsze
 
 
 
