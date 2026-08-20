@@ -630,6 +630,8 @@ TotalKt - schodzi do około 0.85 (jak duża część innych mixowań)
 TotalRapidity - niewiele lepsze niż totalKtTotalRapidity, drugie najgorsze
 
 
+Na chwile to zostawiłem, policzyłem funkcję korelacyjną (eksperymentalną) dla par pi+, mixowanie po metaHits i VertexZ, cuty na pary to wireDistanceGT4, noSharedMeta i allLayers, nTracksGT1
+	Nawet widać sygnał korelacyjny z czego jestem zadowolony
 
 
 

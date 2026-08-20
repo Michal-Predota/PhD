@@ -510,6 +510,24 @@ int fit()
 //	TFile *f = new TFile("./jobs/wires/analysisPim_2sigma_wires_Buffer10_NoIsGoodEvent_nTracksGT1_-130VertexZ-110_maxDistTo0XYis5_notMdcEdge_noDoubleHits_vertexZ1mmMetaHitsMix_WireDistanceGT4NoSharedMetaAllLayers_beamTiltCorr_gen4_50k.root","read");
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+//###################### pi+ ##################################
+
+	TFile* f = new TFile("./jobs/wires/analysisPip_2sigma_wires_Buffer10_NoIsGoodEvent_nTracksGT1_-130VertexZ-110_maxDistTo0XYis5_notMdcEdge_noDoubleHits_VertexZ1mmMetaHitsMix_WireDistanceGT4NoSharedMetaAllLayers_beamTiltCorr_gen4_50k.root","red");
+
+
 /*************Unlike sign experimental data**************/
 
 //	TFile *f = new TFile("./jobs/wires/analysis_unlikeSign_wires_Buffer10_NoIsGoodEvent_nTracksGT1_-140VertexZ-110_maxDistTo0XYis5_VertexZ1mmMetaHitsMix_SharedWiresLT2NoSharedMeta_beamTiltCorr_10k.root ","read");
@@ -874,7 +892,7 @@ int fit()
 //	TFile *f = new TFile("./jobs/smash/pureSmash_pip_analysis4.5GeV_buffer20_totalMomentumMix_nTracksGT1.root","read");
 //	TFile *f = new TFile("./jobs/smash/pureSmash_pip_analysis4.5GeV_buffer20_totalMomentumAndChargedTracksMix_nTracksGT1.root","read");
 //	TFile *f = new TFile("./jobs/smash/pureSmash_pip_analysis4.5GeV_buffer20_totalKtAndRapidityMix_nTracksGT1.root","read");
-	TFile *f = new TFile("./jobs/smash/pureSmash_pip_analysis4.5GeV_buffer20_totalKtMix_nTracksGT1.root","read");
+//	TFile *f = new TFile("./jobs/smash/pureSmash_pip_analysis4.5GeV_buffer20_totalKtMix_nTracksGT1.root","read");
 //	TFile *f = new TFile("./jobs/smash/pureSmash_pip_analysis4.5GeV_buffer20_totalRapidityMix_nTracksGT1.root","read");
 	
 	
