@@ -630,8 +630,19 @@ TotalKt - schodzi do około 0.85 (jak duża część innych mixowań)
 TotalRapidity - niewiele lepsze niż totalKtTotalRapidity, drugie najgorsze
 
 
-Na chwile to zostawiłem, policzyłem funkcję korelacyjną (eksperymentalną) dla par pi+, mixowanie po metaHits i VertexZ, cuty na pary to wireDistanceGT4, noSharedMeta i allLayers, nTracksGT1
-	Nawet widać sygnał korelacyjny z czego jestem zadowolony
+Policzona funkcja korelacyjna z eksperymentu dla pi+ (cuty jak dla pi-)
+	nTrackGT1: silny merging (?) funkcja spada do około 0.7, dwa pierwsze biny ~0.75
+	nTracksGT5: w ogóle praktycznie nie widać mergingu, tylko pierwszy bin idzie do dołu (coulomb?), mniej więcej płaskie na obszarze 75-250 MeV, pik do 1.1
+
+Podobnie jest dla pi-, tylko że spadek jest silniejszy, to dosyć dziwne bo dla HParticleCandSim nie widać zależności od liczby tracków...
+	Kwestia że HParticleCandSim mixowane po vertexZ1mmChargedTracks a eksperyment vertexZ1mmMetaHits?
+
+
+
+
+
+
+
 
 
 
