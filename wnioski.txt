@@ -639,6 +639,9 @@ Podobnie jest dla pi-, tylko że spadek jest silniejszy, to dosyć dziwne bo dla
 
 
 
+Czysty smash - dużo par pi+ pochodzi z Delta++. Czy możliwa jest częsta reakcja p+p->Delta0+Delta++->P+pi-+p+pi++pi+?
+Może fakt że oba piony pochodzą z rozpadu tej samej cząstki jakoś psuje funkcję korelacyjną?
+Chociaż więcej jest par Delta++ + Delta+? Ładunek mi się nie zgadza?
 
 
 
