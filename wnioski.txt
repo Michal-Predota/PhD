@@ -639,13 +639,17 @@ Podobnie jest dla pi-, tylko że spadek jest silniejszy, to dosyć dziwne bo dla
 
 
 
-Czysty smash - dużo par pi+ pochodzi z Delta++. Czy możliwa jest częsta reakcja p+p->Delta0+Delta++->P+pi-+p+pi++pi+?
+Czysty smash - dużo par pi+ pochodzi z Delta++. Czy możliwa jest częsta reakcja p+p->Delta0+Delta++->p+pi-+p+pi++pi+?
 Może fakt że oba piony pochodzą z rozpadu tej samej cząstki jakoś psuje funkcję korelacyjną?
 Chociaż więcej jest par Delta++ + Delta+? Ładunek mi się nie zgadza?
+Powstaje jeszcze dodatkowo jakaś cząstka ujemnie naładowana
 
 
 
-
+Double ratio dla par pi+ - widać ładny sygnał korelacyjny, ALE te korelacje dalekozasięgowe idą do dołu wtedy, w przypadku pi- się wypłaszczały, symulacja czegoś nie oddaje?
+	vertexZ1mmMetaHitsMix, wireDistanceGT4AllLayersNoSharedMeta
+	
+piony dodatnie mają duuuuuuuużo więcej możliwości jeśli chodzi o to jakie są matki w parze
 
 
 
