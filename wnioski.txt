@@ -652,6 +652,14 @@ Double ratio dla par pi+ - widać ładny sygnał korelacyjny, ALE te korelacje d
 piony dodatnie mają duuuuuuuużo więcej możliwości jeśli chodzi o to jakie są matki w parze
 
 
+Mixowanie czystego smasha dla pi+, sprawdziłem czy jest jakaś zależność od liczby tracków, ogólnie mixowanie po nChargedTracks wygląda tak samo dla nTracksGT1 i 
+	nTracksGT5...
+
+
+
+
+
+
 
 
 
