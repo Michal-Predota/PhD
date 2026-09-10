@@ -32,7 +32,10 @@ double coulombQuadraticGausFit(const double *x, const double *pars)
 	double exp = TMath::Exp(-pars[1]*x[0]*scale);
 	double kF = coulombCorrection->GetBinContent(coulombCorrection->FindBin(x[0]));
 	
-	return pars[2]*(1-pars[0]+pars[0]*kF*(1+gaus))+(pars[3]*x[0]*x[0]+pars[4]*x[0]+pars[5]);//pars[0]-lambda, pars[1]-R, pars[2]-normalization, ax^2+bx+c
+	//if(x[0]<0.4)
+	//	return pars[2]*(1-pars[0]+pars[0]*kF*(1+gaus));//pars[0]-lambda, pars[1]-R, pars[2]-normalization
+	//else	
+		return pars[2]*(1-pars[0]+pars[0]*kF*(1+gaus))+(pars[3]*x[0]*x[0]+pars[4]*x[0]+pars[5]);//pars[0]-lambda, pars[1]-R, pars[2]-normalization, ax^2+bx+c
 }
 
 
@@ -101,6 +104,7 @@ double expFit(const double *x, const double *pars)
 	
 	return pars[2]*(1+pars[0]*exp);//pars[0]-lambda, pars[1]-R, pars[2]-normalization
 }
+
 
 double hermite3(double x)
 {
@@ -510,7 +514,7 @@ int fit()
 //	TFile *f = new TFile("./jobs/wires/analysisPim_2sigma_wires_Buffer10_NoIsGoodEvent_nTracksGT1_-130VertexZ-110_maxDistTo0XYis5_notMdcEdge_noDoubleHits_vertexZ1mmMetaHitsMix_WireDistanceGT4NoSharedMetaAllLayers_beamTiltCorr_gen4_50k.root","read");
 //	TFile *f = new TFile("./jobs/wires/analysisPim_2sigma_wires_Buffer10_NoIsGoodEvent_nTracksGT5_-130VertexZ-110_maxDistTo0XYis5_notMdcEdge_noDoubleHits_vertexZ1mmMetaHitsMix_WireDistanceGT4NoSharedMetaAllLayers_beamTiltCorr_gen4_50k.root","read");
 //	TFile *f = new TFile("./jobs/wires/analysisPim_2sigma_wires_Buffer10_NoIsGoodEvent_nTracksGT5_-130VertexZ-110_maxDistTo0XYis5_notMdcEdge_noDoubleHits_vertexZ1mmChargedTracksMix_WireDistanceGT4NoSharedMetaAllLayers_beamTiltCorr_gen4_50k.root","read");
-	TFile *f = new TFile("./jobs/wires/analysisPim_2sigma_wires_Buffer10_NoIsGoodEvent_nTracksGT1_-130VertexZ-110_maxDistTo0XYis5_notMdcEdge_noDoubleHits_vertexZ1mmChargedTracksMix_WireDistanceGT4NoSharedMetaAllLayers_beamTiltCorr_gen4_50k.root","read");
+//	TFile *f = new TFile("./jobs/wires/analysisPim_2sigma_wires_Buffer10_NoIsGoodEvent_nTracksGT1_-130VertexZ-110_maxDistTo0XYis5_notMdcEdge_noDoubleHits_vertexZ1mmChargedTracksMix_WireDistanceGT4NoSharedMetaAllLayers_beamTiltCorr_gen4_50k.root","read");
 
 
 
@@ -733,8 +737,10 @@ int fit()
 //	TFile *f = new TFile("./jobs/smash/analysisSmashPim_wires_Buffer20_NoIsGoodEvent_nTracksGT1_-130VertexZ-110_maxDistTo0XYis5_VertexZ1mmMetaHitsMix_wireDistanceGT4NoSharedMetaAllLayers_50k_gen4.root ","read");
 //	TFile *f = new TFile("./jobs/smash/analysisSmashPim_wires_Buffer20_NoIsGoodEvent_nTracksGT1_-130VertexZ-110_maxDistTo0XYis5_VertexZ1mmChargedTracksMix_wireDistanceGT4NoSharedMetaAllLayers_50k_gen4.root ","read");
 
-
 //	TFile *f = new TFile("./jobs/smash/analysisSmashPim_wires_Buffer20_NoIsGoodEvent_nTracksGT1_-130VertexZ-110_maxDistTo0XYis5_VertexZ1mmChargedTracksMix_wireDistanceGT4AllLayers_50k_gen4.root ","read");
+
+//	TFile *f = new TFile("./jobs/smash/analysisSmashPim_wires_Buffer20_NoIsGoodEvent_nTracksGT1_-130VertexZ-110_maxDistTo0XYis5_VertexZ1mmChargedTracksMix_wireDistanceGT5NoSharedMetaAllLayers_50k_gen4.root","read");
+	TFile *f = new TFile("./jobs/smash/analysisSmashPim_wires_Buffer20_NoIsGoodEvent_nTracksGT1_-130VertexZ-110_maxDistTo0XYis5_VertexZ1mmChargedTracksMix_wireDistanceGT6NoSharedMetaAllLayers_50k_gen4.root","read");
 
 
 
@@ -1062,10 +1068,10 @@ int fit()
 //	TF1 *hermite6Gaus = new TF1("fitGausHermite6", modifiedGausFitHermiteUpTo6, 0.04, 0.3, 5);
 	TF1 *hermite6Gaus = new TF1("fitGausHermite6", hermiteFitFrom3To6, 0.04, 0.3, 7);
 //	TF1 *fitGaus = new TF1("fitGaus", coulombLinearGausFit, 0.02, 0.8, 5);
-//	TF1 *fitGaus = new TF1("fitGaus", coulombQuadraticGausFit, 0.02, 0.8, 6);
+	TF1 *fitGaus = new TF1("fitGaus", coulombQuadraticGausFit, 0.02, 0.4, 6);
 //	TF1 *fitGaus = new TF1("fitGaus", gausFit, 0.01, 0.15, 3);
 	
-	TF1 *fitGaus = new TF1("fitGaus", coulombGausFit, 0.04, 0.35, 3);
+//	TF1 *fitGaus = new TF1("fitGaus", coulombGausFit, 0.02, 0.35, 3);
 //	TF1 *fitExp = new TF1("fitExp", coulombLinearExpFit, 0.05, 0.8, 5);
 //	TF1 *fitExp = new TF1("fitExp", coulombQuadraticExpFit, 0.05, 0.8, 6);
 //	TF1 *fitExp = new TF1("fitExp", expFit, 0.01, 0.15, 3);
@@ -1103,7 +1109,7 @@ int fit()
 	fitGaus->SetParName(1, "R");
 	fitGaus->SetParName(2, "norm");
 	
-	fitGaus->SetParameters(0.7,2,1,2);
+	fitGaus->SetParameters(0.7,2,1,1,1,1);
 	
 	fitGaus->SetParLimits(0,0,1);
 	fitGaus->SetParLimits(1,0.001,15);
@@ -1189,16 +1195,16 @@ int fit()
 	hGeV->Draw();
 	cout<<endl<<endl;
 	
-	/*
+	
 	coulombCorrection->SetLineColor(kGreen+1);
 //	coulombCorrection->Draw("same");
 	
 	cCF->cd();
-	
+	/*
 	cout<<"gaus chi2/ndf "<<fitGaus->GetChisquare()/fitGaus->GetNDF()<<endl;
 	fitGaus->SetLineColor(kRed);
-//	fitGaus->Draw("same");
-	
+	fitGaus->Draw("same");
+
 	gausExtrapolated->SetLineColor(fitGaus->GetLineColor());
 	gausExtrapolated->SetLineStyle(kDashed);
 //	gausExtrapolated->Draw("same");
@@ -1333,7 +1339,13 @@ int fit()
 	corr1.Print();
 
 	*/
-
+	
+	
+	cout<<"gauss with quadratic function correlation matrix"<<endl;
+	TFitResultPtr rGausQuadratic = hGeV->Fit(fitGaus, "SREM0");
+	TMatrixDSym corrGaussQuadratic = rGausQuadratic->GetCorrelationMatrix();
+	corrGaussQuadratic.Print();
+	fitGaus->Draw("same");
 	return 0;
 }
 	

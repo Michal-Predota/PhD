@@ -656,10 +656,20 @@ Mixowanie czystego smasha dla pi+, sprawdziłem czy jest jakaś zależność od 
 	nTracksGT5...
 
 
+W przypadku HParticleCandSim dla pi- wykorzystanie cutów na pary wireDistanceGT4AllLayers i wireDistanceGT4AllLayersNoSharedMeta są bardzo podobne
 
 
+Fitowanie:
+	funkcja korelacyjna dla par pi- z cięciem na pary wireDistanceGT4NoSharedMetaAllLayers i mixowaniem po vertexZ1mmChargedTracks:
+	sprawdziłem fitowanie gausa pomnożonego przez funkcję kwadratową oraz z dodaną funkcją kwadratową, ogólnie funkcja fituje się nawet nieźle
+	(na przedziale od 0.05 do 0.6), ale nie jestem pewien sensu uzyskanych parametrów źródła, R~=0.69 i lambda~=0.28 (w przypadku dodania funkcji kwadratowej)
+	oraz R~=0.84 i lambda~=0.53 w przypadku pomnożenia
+	Mnożenie: mniejsze chi^2 niż dodawanie (4.58 vs 17.7)
+	Jednak parametr lambda jest podejrzanie wysoki, funkcja korelacyjna zdecydowanie nie idzie aż do 1.5...
+	W obu przypadkach dostaję też informację "Warning in <Fit>: Abnormal termination of minimization." nie do końca wiem czemu
+	
 
-
+Poszedłem z wireDistance aż do GT6, ogólnie funckja korelacyjna dla pi- z HParticleCandSim się wypłaszcza wraz ze wzrostem tej wartości, sprawdzić to samo cięcie dla eksperymentu
 
 
 
