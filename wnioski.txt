@@ -671,6 +671,19 @@ Fitowanie:
 
 Poszedłem z wireDistance aż do GT6, ogólnie funckja korelacyjna dla pi- z HParticleCandSim się wypłaszcza wraz ze wzrostem tej wartości, sprawdzić to samo cięcie dla eksperymentu
 
+Funkcja eksperymentalna: cut na pary wireDistanceGT6NoSharedMetaAllLayers, jest wyraźna różnica między nTracksGT1 i nTracksGT5, w przypadku wyższej krotności pik jest wyraźniejszy
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 proton-lambda:
