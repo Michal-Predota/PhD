@@ -313,7 +313,7 @@ int compareMultiplicities()
 	
 	c->cd();
 	leg->Draw();
-	t->Draw();
+//	t->Draw();
 	TLine *line = new TLine(0.02,1,0.8,1);
 	line->SetLineColor(kAzure-3);
 	line->SetLineStyle(9);
