@@ -673,7 +673,9 @@ Poszedłem z wireDistance aż do GT6, ogólnie funckja korelacyjna dla pi- z HPa
 
 Funkcja eksperymentalna: cut na pary wireDistanceGT6NoSharedMetaAllLayers, jest wyraźna różnica między nTracksGT1 i nTracksGT5, w przypadku wyższej krotności pik jest wyraźniejszy
 
-
+Protony z czystego SMASHa - sygnał wygląda zupełnie inaczej niż tło, tło wygląa "normalnie" jak dla pionów, ale protony w sumie cały czas rosną do 1500 MeV/c
+	trzeba sprawdzić warunek nTracksGT2? nTracksGT1 pozwala na wpływ protonów które są czysto spectatorami? Może dlatego aż taka chujnia?
+	Było to słuszne podejście, teraz mam pewność że te dwa protony w ogóle weszły w interakcje
 
 
 

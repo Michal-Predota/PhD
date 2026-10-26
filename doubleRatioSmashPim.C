@@ -147,8 +147,8 @@ int doubleRatioSmashPim()
 	
 	gStyle->SetOptStat(0000);
 	
-	TFile *f_exp = new TFile("./jobs/wires/analysisPim_2sigma_wires_Buffer10_NoIsGoodEvent_nTracksGT1_-130VertexZ-110_maxDistTo0XYis5_notMdcEdge_noDoubleHits_vertexZ1mmRadius05mmMetaHitsMix_WireDistanceGT4NoSharedMetaAllLayers_beamTiltCorr_gen4_fullstat.root","read");//experiment
-	TFile *f_sim = new TFile("./jobs/smash/analysisSmashPim_wires_Buffer50_NoIsGoodEvent_nTracksGT1_-130VertexZ-110_maxDistTo0XYis5_VertexZ1mmRadius05mmMetaHitssMix_wireDistanceGT4NoSharedMetaAllLayers_fullstat_gen4.root","read");//simulation
+	TFile *f_exp = new TFile("./jobs/wires/analysisPim_2sigma_wires_Buffer10_NoIsGoodEvent_nTracksGT5_-130VertexZ-110_maxDistTo0XYis5_notMdcEdge_noDoubleHits_vertexZ1mmChargedTracksMix_WireDistanceGT4NoSharedMetaAllLayers_beamTiltCorr_gen4_50k.root","read");//experiment
+	TFile *f_sim = new TFile("./jobs/smash/analysisSmashPim_wires_Buffer20_NoIsGoodEvent_nTracksGT5_-130VertexZ-110_maxDistTo0XYis5_VertexZ1mmChargedTracksMix_wireDistanceGT4NoSharedMetaAllLayers_50k_gen4.root","read");//simulation
 	TFile *output = new TFile("./outputs/analysisWiresHarshVertexCut_nTracksGT5_-1VertexZ3mmMix_sharedWiresLT1NoSharedMetaSignals.root", "recreate");
 	
 	char SigName[20];
@@ -602,7 +602,7 @@ int doubleRatioSmashPim()
 	hGeV->SetNameTitle("","");
 	hGeV->Draw();
 	
-	fitGaus->Draw("same");
+//	fitGaus->Draw("same");
 	fitExp->SetLineColor(kOrange+1);
 	
 	cout<<"gaus chi2/ndf "<<fitGaus->GetChisquare()/fitGaus->GetNDF()<<endl;
@@ -611,21 +611,21 @@ int doubleRatioSmashPim()
 	
 	gausExtrapolated->SetLineColor(fitGaus->GetLineColor());
 	gausExtrapolated->SetLineStyle(kDashed);
-	gausExtrapolated->Draw("same");
+//	gausExtrapolated->Draw("same");
 	
 	
 	cout<<"hermite6Gaus chi2/ndf "<<hermite6Gaus->GetChisquare()/hermite6Gaus->GetNDF()<<endl;
 	hermite6Gaus->SetLineColor(kOrange+1);
-	hermite6Gaus->Draw("same");
+//	hermite6Gaus->Draw("same");
 	
 	hermite6GausExtrapolated->SetLineColor(hermite6Gaus->GetLineColor());
 	hermite6GausExtrapolated->SetLineStyle(kDashed);
-	hermite6GausExtrapolated->Draw("same");
+//	hermite6GausExtrapolated->Draw("same");
 	
 	
 	cout<<"hermite4Gaus chi2/ndf "<<hermite4Gaus->GetChisquare()/hermite4Gaus->GetNDF()<<endl;
 	hermite4Gaus->SetLineColor(kMagenta+1);
-	hermite4Gaus->Draw("same");
+//	hermite4Gaus->Draw("same");
 	
 	hermite4GausExtrapolated->SetLineColor(hermite4Gaus->GetLineColor());
 	hermite4GausExtrapolated->SetLineStyle(kDashed);
@@ -645,8 +645,8 @@ int doubleRatioSmashPim()
 //	leg->AddEntry(fitExp, "Exponential fit", "l");
 	leg->SetBorderSize(0);
 	leg->SetFillStyle(0);
-	leg->Draw();
-	t->Draw();
+//	leg->Draw();
+//	t->Draw();
 	TLine *line = new TLine(0.02,1,0.8,1);
 	line->SetLineColor(kAzure-3);
 	line->SetLineStyle(9);

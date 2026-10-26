@@ -64,6 +64,17 @@ int compareFunctions()
 	
 	TFile* pipGT1 = new TFile("./jobs/wires/analysisPip_2sigma_wires_Buffer10_NoIsGoodEvent_nTracksGT1_-130VertexZ-110_maxDistTo0XYis5_notMdcEdge_noDoubleHits_VertexZ1mmMetaHitsMix_WireDistanceGT4NoSharedMetaAllLayers_beamTiltCorr_gen4_50k.root","red");
 	TFile* pipGT5 = new TFile("./jobs/wires/analysisPip_2sigma_wires_Buffer10_NoIsGoodEvent_nTracksGT5_-130VertexZ-110_maxDistTo0XYis5_notMdcEdge_noDoubleHits_VertexZ1mmMetaHitsMix_WireDistanceGT4NoSharedMetaAllLayers_beamTiltCorr_gen4_50k.root","red");
+	
+	
+	TFile* pipAnalysisMetaMixnTracksGT1 = new TFile("./jobs/wires/analysisPip_2sigma_wires_Buffer10_NoIsGoodEvent_nTracksGT1_-130VertexZ-110_maxDistTo0XYis5_notMdcEdge_noDoubleHits_VertexZ1mmMetaHitsMix_WireDistanceGT4NoSharedMetaAllLayers_beamTiltCorr_gen4_50k.root","red");
+	TFile* pipAnalysisMetaMixnTracksGT5 = new TFile("./jobs/wires/analysisPip_2sigma_wires_Buffer10_NoIsGoodEvent_nTracksGT5_-130VertexZ-110_maxDistTo0XYis5_notMdcEdge_noDoubleHits_VertexZ1mmMetaHitsMix_WireDistanceGT4NoSharedMetaAllLayers_beamTiltCorr_gen4_50k.root","red");
+
+
+	TFile* pipAnalysisChargedTracksMixnTracksGT1 = new TFile("./jobs/wires/analysisPip_2sigma_wires_Buffer10_NoIsGoodEvent_nTracksGT1_-130VertexZ-110_maxDistTo0XYis5_notMdcEdge_noDoubleHits_VertexZ1mmChargedTracksMix_WireDistanceGT4NoSharedMetaAllLayers_beamTiltCorr_gen4_50k.root","red");
+	TFile* pipAnalysisChargedTracksMixnTracksGT5 = new TFile("./jobs/wires/analysisPip_2sigma_wires_Buffer10_NoIsGoodEvent_nTracksGT5_-130VertexZ-110_maxDistTo0XYis5_notMdcEdge_noDoubleHits_VertexZ1mmChargedTracksMix_WireDistanceGT4NoSharedMetaAllLayers_beamTiltCorr_gen4_50k.root","red");
+
+	TFile *pipSimnTracksGT1 = new TFile("./jobs/smash/analysisSmashPip_Buffer20_NoIsGoodEvent_nTracksGT1_-130VertexZ-100_maxDistTo0XYis5_VertexZ1mmChargedTracksMix_WireDistanceGT4NoSharedMetaAllLayers_50k_gen4.root ","read");
+	TFile *pipSimnTracksGT5 = new TFile("./jobs/smash/analysisSmashPip_Buffer20_NoIsGoodEvent_nTracksGT5_-130VertexZ-100_maxDistTo0XYis5_VertexZ1mmChargedTracksMix_WireDistanceGT4NoSharedMetaAllLayers_50k_gen4.root ","read");
 
 
 
@@ -86,7 +97,11 @@ int compareFunctions()
 							 smashWireDistanceGT6NoSharedMetaAllLayers};*/
 //	vector<TFile *> files = {differentSectorsSmash, sharedWiresLT1Smash, wireDistanceGT0Smash, wireDistanceGT1Smash, wireDistanceGT2Smash, wireDistanceGT3Smash, wireDistanceGT4Smash, wireDistanceGT10Smash};
 //	vector<TFile *> files = {nTracksGT5WireDistanceGT0Smash, nTracksGT5WireDistanceGT3Smash, wireDistanceGT0Smash, wireDistanceGT3Smash};
-	vector<TFile *> files = {pipGT1, pipGT5};
+//	vector<TFile *> files = {pipGT1, pipGT5};
+//	vector<TFile *> files = {pipAnalysisMetaMixnTracksGT1, pipAnalysisMetaMixnTracksGT5};
+//	vector<TFile *> files = {pipAnalysisChargedTracksMixnTracksGT1, pipAnalysisChargedTracksMixnTracksGT5};
+//	vector<TFile *> files = {pipAnalysisMetaMixnTracksGT5, pipAnalysisChargedTracksMixnTracksGT5};
+	vector<TFile *> files = {pipSimnTracksGT1, pipSimnTracksGT5};
 	vector<TH1D *> signals = {};
 	vector<TH1D *> backgrounds = {};
 	vector<TH1D *> CF = {};
@@ -110,6 +125,7 @@ int compareFunctions()
 							   "nTracksMix nTracksGT5"};*/
 //	vector<char*> legNames = {"wireDistanceGT0", "wireDistanceGT1", "wireDistanceGT2", "wireDistanceGT3", "wireDistanceGT4", "wireDistanceGT5", "wireDistanceGT6"};
 	vector<char*> legNames = {"nTracksGT1", "nTracksGT5"};
+//	vector<char*> legNames = {"meta hits", "charged tracks"};
 							   
 //	vector<char*> legNames = {"wire distance GT0","wire distance GT1","wire distance GT2","wire distance GT3","wire distance GT4"};
 //	vector<char*> legNames = {"different sectors", "no shared wires", "wire distance GT0", "wire distance GT1", "wire distance GT2", "wire distance GT3", "wire distance GT4", "wire distance GT10"};

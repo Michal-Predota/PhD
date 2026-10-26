@@ -523,6 +523,10 @@ int fit()
 
 //	TFile *f = new TFile("./jobs/wires/analysisPim_2sigma_wires_Buffer10_NoIsGoodEvent_nTracksGT1_-130VertexZ-110_maxDistTo0XYis5_notMdcEdge_noDoubleHits_vertexZ1mmRadius05mmChargedTracksMix_WireDistanceGT4NoSharedMetaAllLayers_beamTiltCorr_gen4_50k.root","read");
 //	TFile *f = new TFile("./jobs/wires/analysisPim_2sigma_wires_Buffer10_NoIsGoodEvent_nTracksGT5_-130VertexZ-110_maxDistTo0XYis5_notMdcEdge_noDoubleHits_vertexZ1mmRadius05mmChargedTracksMix_WireDistanceGT4NoSharedMetaAllLayers_beamTiltCorr_gen4_50k.root","read");
+	
+	
+	
+//	TFile *f = new TFile("./jobs/wires/analysisPim_2sigma_wires_Buffer10_NoIsGoodEvent_nTracksGT1_-130VertexZ-110_maxDistTo0XYis5_notMdcEdge_noDoubleHits_vertexZ1mmRadius05mmChargedTracksMix_WireDistanceGT4NoSharedMetaAllLayers_beamTiltCorr_gen4_10k.root","read");
 
 
 
@@ -533,7 +537,11 @@ int fit()
 //###################### pi+ ##################################
 
 //	TFile* f = new TFile("./jobs/wires/analysisPip_2sigma_wires_Buffer10_NoIsGoodEvent_nTracksGT1_-130VertexZ-110_maxDistTo0XYis5_notMdcEdge_noDoubleHits_VertexZ1mmMetaHitsMix_WireDistanceGT4NoSharedMetaAllLayers_beamTiltCorr_gen4_50k.root","red");
-	TFile* f = new TFile("./jobs/wires/analysisPip_2sigma_wires_Buffer10_NoIsGoodEvent_nTracksGT5_-130VertexZ-110_maxDistTo0XYis5_notMdcEdge_noDoubleHits_VertexZ1mmMetaHitsMix_WireDistanceGT4NoSharedMetaAllLayers_beamTiltCorr_gen4_50k.root","red");
+//	TFile* f = new TFile("./jobs/wires/analysisPip_2sigma_wires_Buffer10_NoIsGoodEvent_nTracksGT5_-130VertexZ-110_maxDistTo0XYis5_notMdcEdge_noDoubleHits_VertexZ1mmMetaHitsMix_WireDistanceGT4NoSharedMetaAllLayers_beamTiltCorr_gen4_50k.root","red");
+
+
+//	TFile* f = new TFile("./jobs/wires/analysisPip_2sigma_wires_Buffer10_NoIsGoodEvent_nTracksGT1_-130VertexZ-110_maxDistTo0XYis5_notMdcEdge_noDoubleHits_VertexZ1mmChargedTracksMix_WireDistanceGT4NoSharedMetaAllLayers_beamTiltCorr_gen4_50k.root","red");
+//	TFile* f = new TFile("./jobs/wires/analysisPip_2sigma_wires_Buffer10_NoIsGoodEvent_nTracksGT5_-130VertexZ-110_maxDistTo0XYis5_notMdcEdge_noDoubleHits_VertexZ1mmChargedTracksMix_WireDistanceGT4NoSharedMetaAllLayers_beamTiltCorr_gen4_50k.root","red");
 
 
 /*************Unlike sign experimental data**************/
@@ -762,7 +770,7 @@ int fit()
 
 
 
-	//################################ pi+ ###############################//
+	//################################ pi+ SMASH ###############################//
 
 //	TFile *f = new TFile("./jobs/smash/analysisSmashPip_wires_Buffer50_NoIsGoodEvent_nTracksGT0_-140VertexZ-100_maxDistTo0XYis5_VertexZ1mmMetaHitsMix_wireDistanceGT10AllLayersNoSharedMeta_20k_gen4.root ","read");
 //	TFile *f = new TFile("./jobs/smash/analysisSmashPip_wires_Buffer20_NoIsGoodEvent_nTracksGT0_-140VertexZ-100_maxDistTo0XYis5_VertexZ1mmMetaHitsMix_NoSharedWiresNoSharedMeta_20k_gen4.root ","read");
@@ -778,6 +786,8 @@ int fit()
 
 
 //	TFile *f = new TFile("./jobs/smash/analysisSmashPip_Buffer20_NoIsGoodEvent_nTracksGT1_-130VertexZ-100_maxDistTo0XYis5_VertexZ1mmMetaHitsMix_WireDistanceGT4NoSharedMetaAllLayers_50k_gen4.root ","read");
+//	TFile *f = new TFile("./jobs/smash/analysisSmashPip_Buffer20_NoIsGoodEvent_nTracksGT1_-130VertexZ-100_maxDistTo0XYis5_VertexZ1mmChargedTracksMix_WireDistanceGT4NoSharedMetaAllLayers_50k_gen4.root ","read");
+//	TFile *f = new TFile("./jobs/smash/analysisSmashPip_Buffer20_NoIsGoodEvent_nTracksGT5_-130VertexZ-100_maxDistTo0XYis5_VertexZ1mmChargedTracksMix_WireDistanceGT4NoSharedMetaAllLayers_50k_gen4.root ","read");
 
 
 
@@ -914,6 +924,14 @@ int fit()
 	
 	
 	
+//################### pure SMASH protons ##########################	
+
+//	TFile *f = new TFile("./jobs/smash/pureSmash_proton_analysis4.5GeV_buffer20_nTracksMix_nTracksGT1.root","read");
+	TFile *f = new TFile("./jobs/smash/pureSmash_proton_analysis4.5GeV_buffer20_nTracksMix_nTracksGT2.root","read");
+	
+	
+
+	
 //	TFile *f = new TFile("./pimtest.root");
 //	TFile *f = new TFile("./simtest.root");
 //	TFile *f = new TFile("./unlikeSignTest.root");
@@ -970,6 +988,11 @@ int fit()
 			{
 				sprintf(SigName, "PipSig_%d%d",i,j);
 				sprintf(BckgName, "PipBckg_%d%d",i,j);
+			}
+			else if(std::string(f->GetName()).find("Proton")!=string::npos || std::string(f->GetName()).find("proton")!=string::npos)
+			{
+				sprintf(SigName, "ProtonSig_%d%d",i,j);
+				sprintf(BckgName, "ProtonBckg_%d%d",i,j);
 			}
 			else
 			{
@@ -1226,7 +1249,7 @@ int fit()
 	
 	cout<<"gaus chi2/ndf "<<fitGaus->GetChisquare()/fitGaus->GetNDF()<<endl;
 	fitGaus->SetLineColor(kRed);
-	fitGaus->Draw("same");
+//	fitGaus->Draw("same");
 
 	gausExtrapolated->SetLineColor(fitGaus->GetLineColor());
 	gausExtrapolated->SetLineStyle(kDashed);
@@ -1235,20 +1258,20 @@ int fit()
 	
 	cout<<"hermite6Gaus chi2/ndf "<<hermite6Gaus->GetChisquare()/hermite6Gaus->GetNDF()<<endl;
 	hermite6Gaus->SetLineColor(kOrange+1);
-	hermite6Gaus->Draw("same");
+//	hermite6Gaus->Draw("same");
 	
 	hermite6GausExtrapolated->SetLineColor(hermite6Gaus->GetLineColor());
 	hermite6GausExtrapolated->SetLineStyle(kDashed);
-	hermite6GausExtrapolated->Draw("same");
+//	hermite6GausExtrapolated->Draw("same");
 	
 	
 	cout<<"hermite4Gaus chi2/ndf "<<hermite4Gaus->GetChisquare()/hermite4Gaus->GetNDF()<<endl;
 	hermite4Gaus->SetLineColor(kMagenta+1);
-	hermite4Gaus->Draw("same");
+//	hermite4Gaus->Draw("same");
 	
 	hermite4GausExtrapolated->SetLineColor(hermite4Gaus->GetLineColor());
 	hermite4GausExtrapolated->SetLineStyle(kDashed);
-	hermite4GausExtrapolated->Draw("same");
+//	hermite4GausExtrapolated->Draw("same");
 	
 
 	cout<<endl<<endl<<endl;
@@ -1264,7 +1287,7 @@ int fit()
 	leg->AddEntry(fitGaus, "Bowler-Sinyukov ", "l");
 	leg->AddEntry(hermite4Gaus, "Bowler-Sinyukov + H_{3} + H_{4}", "l");
 	leg->AddEntry(hermite6Gaus, "Bowler-Sinyukov + H_{3} + ... + H_{6}", "l");
-	leg->Draw();
+//	leg->Draw();
 //	t->Draw();
 	
 	TLine *line = new TLine(0.02,1,0.8,1);
@@ -1363,13 +1386,23 @@ int fit()
 
 	
 	
-/*
+	cCF->cd();
 	cout<<"gauss with quadratic function correlation matrix"<<endl;
-	TFitResultPtr rGausQuadratic = hGeV->Fit(fitGaus, "SREM0");
+	TFitResultPtr rGausQuadratic = hGeV->Fit(fitGausQuadratic, "SREM0");
 	TMatrixDSym corrGaussQuadratic = rGausQuadratic->GetCorrelationMatrix();
 	corrGaussQuadratic.Print();
+	fitGaus->SetLineColor(kGreen+1);
 //	fitGaus->Draw("same");
-*/
+//	fitGausQuadratic->Draw("same");
+	
+	TLegend *leg1 = new TLegend(0.6,0.2,0.9,0.4);
+	leg1->AddEntry(hGeV, "CF", "lp");
+	leg1->SetBorderSize(0);
+	leg1->SetFillStyle(0);
+	leg1->AddEntry(fitGaus, "Bowler-Sinyukov ", "l");
+	leg1->AddEntry(fitGausQuadratic, "Bowler-Sinyukov + quad", "l");
+//	leg1->Draw();
+
 	return 0;
 }
 	
