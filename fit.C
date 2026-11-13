@@ -24,6 +24,21 @@ double coulombGausFit(const double *x, const double *pars)
 	return pars[2]*(1-pars[0]+pars[0]*kF*(1+gaus));//pars[0]-lambda, pars[1]-R, pars[2]-normalization
 }
 
+double coulombLevyFit(const double *x, const double *pars)
+{
+    double scale = 5.068;
+
+    double levy = TMath::Exp(
+        -TMath::Power(pars[1]*x[0]*scale, pars[3])
+    );
+
+    double kF = coulombCorrection->GetBinContent(
+        coulombCorrection->FindBin(x[0])
+    );
+
+    return pars[2]*(1-pars[0]+pars[0]*kF*(1+levy)); // pars[0]-lambda, pars[1]-R, pars[2]-normalization, pars[3]-alpha
+}
+
 
 double coulombQuadraticGausFit(const double *x, const double *pars)
 {
@@ -528,6 +543,9 @@ int fit()
 	
 //	TFile *f = new TFile("./jobs/wires/analysisPim_2sigma_wires_Buffer10_NoIsGoodEvent_nTracksGT1_-130VertexZ-110_maxDistTo0XYis5_notMdcEdge_noDoubleHits_vertexZ1mmRadius05mmChargedTracksMix_WireDistanceGT4NoSharedMetaAllLayers_beamTiltCorr_gen4_10k.root","read");
 
+//	TFile *f = new TFile("./jobs/wires/analysisPim_2sigma_wires_Buffer10_NoIsGoodEvent_nTracksGT1_-130VertexZ-110_maxDistTo0XYis5_notMdcEdge_noDoubleHits_vertexZ1mmRadius05mmChargedTracksMix_WireDistanceGT4NoSharedMetaAllLayers_beamTiltCorr_gen4FixedMagnetList_fullstat.root");
+	TFile *f = new TFile("./jobs/wires/analysisPim_2sigma_wires_Buffer10_NoIsGoodEvent_nTracksGT5_-130VertexZ-110_maxDistTo0XYis5_notMdcEdge_noDoubleHits_vertexZ1mmRadius05mmChargedTracksMix_WireDistanceGT4NoSharedMetaAllLayers_beamTiltCorr_gen4FixedMagnetList_fullstat.root");
+
 
 
 
@@ -765,6 +783,9 @@ int fit()
 
 //	TFile *f = new TFile("./jobs/smash/analysisSmashPim_wires_Buffer20_NoIsGoodEvent_nTracksGT5_-130VertexZ-110_maxDistTo0XYis5_VertexZ1mmChargedTracksMix_wireDistanceGT4NoSharedMetaAllLayers_50k_gen4.root","read");
 
+//	TFile *f = new TFile("./jobs/smash/analysisSmashPim_wires_Buffer20_NoIsGoodEvent_nTracksGT1_-130VertexZ-110_maxDistTo0XYis5_VertexZ1mmChargedTracksMix_wireDistanceGT4NoSharedMetaAllLayers_fullstat_gen4.root","read");
+//	TFile *f = new TFile("./jobs/smash/analysisSmashPim_wires_Buffer20_NoIsGoodEvent_nTracksGT5_-130VertexZ-110_maxDistTo0XYis5_VertexZ1mmChargedTracksMix_wireDistanceGT4NoSharedMetaAllLayers_fullstat_gen4.root","read");
+
 
 
 
@@ -902,11 +923,14 @@ int fit()
 //################# pure SMASH pi- #########################
 
 //	TFile *f = new TFile("./jobs/smash/pureSmash_pim_analysis4.5GeV_buffer20_nChargedTracksMix_nTracksGT1.root","read");
-//	TFile *f = new TFile("./jobs/smash/pureSmash_pim_analysis4.5GeV_buffer20_nChargedTracksMix_nTracksGT1.root","read");
 //	TFile *f = new TFile("./jobs/smash/pureSmash_pim_analysis4.5GeV_buffer20_nTracksMix_nTracksGT1.root","read");
+
+//	TFile *f = new TFile("./jobs/smash/pureSmash_pim_analysis4.5GeV_buffer20_nTracksMix_nTracksGT5.root","read");
+ //	TFile *f = new TFile("./jobs/smash/pureSmash_pim_analysis4.5GeV_buffer20_nChargedTracksMix_nTracksGT5.root","read");
 
 //################# pure SMASH pi+ #########################
 //	TFile *f = new TFile("./jobs/smash/pureSmash_pip_analysis4.5GeV_buffer20_nTracksMix_nTracksGT1.root","read");
+//	TFile *f = new TFile("./jobs/smash/pureSmash_pip_analysis4.5GeV_buffer20_nTracksMix_nTracksGT5.root","read");
 //	TFile *f = new TFile("./jobs/smash/pureSmash_pip_analysis4.5GeV_buffer20_chargedTracksMix_nTracksGT1.root","read");
 //	TFile *f = new TFile("./jobs/smash/pureSmash_pip_analysis4.5GeV_buffer20_chargedTracksMix_nTracksGT5.root","read");
 //	TFile *f = new TFile("./jobs/smash/pureSmash_pip_analysis4.5GeV_buffer20_chargedTracksMix_onlyPrimary_nTracksGT1.root","read");
@@ -927,8 +951,8 @@ int fit()
 //################### pure SMASH protons ##########################	
 
 //	TFile *f = new TFile("./jobs/smash/pureSmash_proton_analysis4.5GeV_buffer20_nTracksMix_nTracksGT1.root","read");
-	TFile *f = new TFile("./jobs/smash/pureSmash_proton_analysis4.5GeV_buffer20_nTracksMix_nTracksGT2.root","read");
-	
+//	TFile *f = new TFile("./jobs/smash/pureSmash_proton_analysis4.5GeV_buffer20_nTracksMix_nTracksGT2.root","read");
+//	TFile *f = new TFile("./jobs/smash/pureSmash_proton_analysis4.5GeV_buffer20_nTracksMix_nTracksGT5.root","read");
 	
 
 	
@@ -1093,19 +1117,33 @@ int fit()
 	
 	
 //	TF1 *hermite4Gaus = new TF1("fitGausHermite4", modifiedGausFitHermiteUpTo4, 0.04, 0.3, 4);
-	TF1 *hermite4Gaus = new TF1("fitGausHermite4", hermiteFitFrom3To4, 0.02, 0.3, 5);
+	TF1 *hermite4Gaus = new TF1("fitGausHermite4", modifiedGausFitHermiteUpTo4, 0.04, 0.3, 5);
 	
 	
 //	TF1 *hermite6Gaus = new TF1("fitGausHermite6", modifiedGausFitHermiteUpTo6, 0.04, 0.3, 5);
-	TF1 *hermite6Gaus = new TF1("fitGausHermite6", hermiteFitFrom3To6, 0.02, 0.3, 7);
+	TF1 *hermite6Gaus = new TF1("fitGausHermite6", modifiedGausFitHermiteUpTo6, 0.04, 0.3, 7);
 	TF1 *fitGaus = new TF1("fitGaus", coulombGausFit, 0.02, 0.3, 3);
 	TF1 *fitGausQuadratic = new TF1("fitGaus", coulombQuadraticGausFit, 0.02, 0.4, 6);
+	TF1 *fitLevy = new TF1("fitLevy", coulombLevyFit, 0.02, 0.3, 4);
 //	TF1 *fitGaus = new TF1("fitGaus", gausFit, 0.01, 0.15, 3);
 	
 //	TF1 *fitGaus = new TF1("fitGaus", coulombGausFit, 0.02, 0.35, 3);
 //	TF1 *fitExp = new TF1("fitExp", coulombLinearExpFit, 0.05, 0.8, 5);
 //	TF1 *fitExp = new TF1("fitExp", coulombQuadraticExpFit, 0.05, 0.8, 6);
 //	TF1 *fitExp = new TF1("fitExp", expFit, 0.01, 0.15, 3);
+	
+	fitLevy->SetParName(0, "lambda");
+	fitLevy->SetParName(1, "R");
+	fitLevy->SetParName(2, "norm");
+	fitLevy->SetParName(3, "alpha");
+	
+	fitLevy->SetParameters(0.5, 1, 1, 1.5);
+	
+	fitLevy->SetParLimits(0, 0, 1);
+	fitLevy->SetParLimits(1, 0.001, 15);
+	fitLevy->SetParLimits(2, 0.001, 10);
+	fitLevy->SetParLimits(3, 1, 2);
+	
 	
 	hermite6Gaus->SetParName(0, "lambda");
 	hermite6Gaus->SetParName(1, "R");
@@ -1223,6 +1261,24 @@ int fit()
 	cout<<"lambda_gaus= "<<fitGaus->GetParameter(0)<<" ("<<fitGaus->GetParError(0)<<")"<<endl;
 	
 	
+	cout<<endl<<endl<<"************ Levy ************"<<endl;
+	hGeV->Fit(fitLevy, "REM0", "");
+	double levyLow=0;
+	double levyTop=0;
+	fitLevy->GetRange(levyLow,levyTop);
+	TF1 *levyExtrapolated = new TF1("levyExtrapolated", coulombLevyFit, levyTop, levyTop+0.3, fitLevy->GetNpar());
+	for(int i=0; i<fitLevy->GetNpar(); i++)
+	{
+		levyExtrapolated->SetParameter(i, fitLevy->GetParameter(i));
+	}
+	cout<<endl<<endl<<"N_levy= "<<fitLevy->GetParameter(2)<<" ("<<fitLevy->GetParError(2)<<")"<<endl;
+	cout<<"R_levy= "<<fitLevy->GetParameter(1)<<" ("<<fitLevy->GetParError(1)<<")"<<endl;
+	cout<<"lambda_levy= "<<fitLevy->GetParameter(0)<<" ("<<fitLevy->GetParError(0)<<")"<<endl;
+	cout<<"alpha_levy= "<<fitLevy->GetParameter(3)<<" ("<<fitLevy->GetParError(3)<<")"<<endl;
+	
+	
+	
+	
 	
 	
 	hGeV->GetXaxis()->SetRangeUser(0.0,max({gausTop+0.4,hermite6GausTop+0.4}));
@@ -1249,7 +1305,7 @@ int fit()
 	
 	cout<<"gaus chi2/ndf "<<fitGaus->GetChisquare()/fitGaus->GetNDF()<<endl;
 	fitGaus->SetLineColor(kRed);
-//	fitGaus->Draw("same");
+	fitGaus->Draw("same");
 
 	gausExtrapolated->SetLineColor(fitGaus->GetLineColor());
 	gausExtrapolated->SetLineStyle(kDashed);
@@ -1272,6 +1328,14 @@ int fit()
 	hermite4GausExtrapolated->SetLineColor(hermite4Gaus->GetLineColor());
 	hermite4GausExtrapolated->SetLineStyle(kDashed);
 //	hermite4GausExtrapolated->Draw("same");
+
+	cout<<"Levy chi2/ndf "<<fitLevy->GetChisquare()/fitLevy->GetNDF()<<endl;
+	fitLevy->SetLineColor(kMagenta+1);
+	fitLevy->Draw("same");
+	
+	levyExtrapolated->SetLineColor(fitLevy->GetLineColor());
+	levyExtrapolated->SetLineStyle(kDashed);
+//	levyExtrapolated->Draw("same");
 	
 
 	cout<<endl<<endl<<endl;
@@ -1285,9 +1349,10 @@ int fit()
 	leg->SetFillStyle(0);
 //	leg->AddEntry(coulombCorrection, "Coulomb potential, 1 fm", "lp");
 	leg->AddEntry(fitGaus, "Bowler-Sinyukov ", "l");
-	leg->AddEntry(hermite4Gaus, "Bowler-Sinyukov + H_{3} + H_{4}", "l");
-	leg->AddEntry(hermite6Gaus, "Bowler-Sinyukov + H_{3} + ... + H_{6}", "l");
-//	leg->Draw();
+//	leg->AddEntry(hermite4Gaus, "Bowler-Sinyukov + H_{3} + H_{4}", "l");
+//	leg->AddEntry(hermite6Gaus, "Bowler-Sinyukov + H_{3} + ... + H_{6}", "l");
+	leg->AddEntry(fitLevy, "Levy fit");
+	leg->Draw();
 //	t->Draw();
 	
 	TLine *line = new TLine(0.02,1,0.8,1);
@@ -1307,7 +1372,7 @@ int fit()
 	output->Close();
 	
 	
-
+/*
 	TCanvas *cKtBin = new TCanvas("cKtBin","cKtBin",800,800);
 	cKtBin->Divide(2,3);
 	vector<int> colors = {kBlue+1, kRed, kMagenta+1, kGreen+1, kCyan+2};
@@ -1371,8 +1436,10 @@ int fit()
 		sigExpRapidityBin.at(i)->SetLineColor(colors.at(i));
 		sigExpRapidityBin.at(i)->Draw("");
 	}
+*/
 
 
+/*
 	cout<<"hermite 4 correlation matrix"<<endl;
 	TFitResultPtr r = hGeV->Fit(hermite4Gaus, "SREM0");
 	TMatrixDSym corr = r->GetCorrelationMatrix();
@@ -1402,7 +1469,7 @@ int fit()
 	leg1->AddEntry(fitGaus, "Bowler-Sinyukov ", "l");
 	leg1->AddEntry(fitGausQuadratic, "Bowler-Sinyukov + quad", "l");
 //	leg1->Draw();
-
+*/
 	return 0;
 }
 	

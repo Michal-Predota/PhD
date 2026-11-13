@@ -678,6 +678,14 @@ Protony z czystego SMASHa - sygnał wygląda zupełnie inaczej niż tło, tło w
 	Było to słuszne podejście, teraz mam pewność że te dwa protony w ogóle weszły w interakcje
 
 
+Jochen wysłał maila o zmianach w filelist do pp feb22, gdzieś w niektóre dni był zmieniony magnes, należy je wyjebać i mieć nowy filelist
+Sprawdzić pi-pi- CF na nTracksGT1, wireDistanceGT4, fullstat, wygląda tak jak zwykle te funkcje wyglądały więc chyba dużo to nie zmienia ale zostawiam nową listę plików do analizy
+
+Test fitu levy'ego, dla pliku: analysisPim_2sigma_wires_Buffer10_NoIsGoodEvent_nTracksGT5_-130VertexZ-110_maxDistTo0XYis5_notMdcEdge_noDoubleHits_vertexZ1mmRadius05mmChargedTracksMix_WireDistanceGT4NoSharedMetaAllLayers_beamTiltCorr_gen4_50k.root
+	levy i gaus dają dokładnie ten sam wynik (alpha=2)
+ 
+ 
+W double ratio Cauchy sprawdza się dużo lepiej od gaussa(dla pi-)
 
 
 

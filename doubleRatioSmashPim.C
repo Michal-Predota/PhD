@@ -147,8 +147,8 @@ int doubleRatioSmashPim()
 	
 	gStyle->SetOptStat(0000);
 	
-	TFile *f_exp = new TFile("./jobs/wires/analysisPim_2sigma_wires_Buffer10_NoIsGoodEvent_nTracksGT5_-130VertexZ-110_maxDistTo0XYis5_notMdcEdge_noDoubleHits_vertexZ1mmChargedTracksMix_WireDistanceGT4NoSharedMetaAllLayers_beamTiltCorr_gen4_50k.root","read");//experiment
-	TFile *f_sim = new TFile("./jobs/smash/analysisSmashPim_wires_Buffer20_NoIsGoodEvent_nTracksGT5_-130VertexZ-110_maxDistTo0XYis5_VertexZ1mmChargedTracksMix_wireDistanceGT4NoSharedMetaAllLayers_50k_gen4.root","read");//simulation
+	TFile *f_exp = new TFile("./jobs/wires/analysisPim_2sigma_wires_Buffer10_NoIsGoodEvent_nTracksGT1_-130VertexZ-110_maxDistTo0XYis5_notMdcEdge_noDoubleHits_vertexZ1mmRadius05mmChargedTracksMix_WireDistanceGT4NoSharedMetaAllLayers_beamTiltCorr_gen4FixedMagnetList_fullstat.root","read");//experiment
+	TFile *f_sim = new TFile("./jobs/smash/analysisSmashPim_wires_Buffer20_NoIsGoodEvent_nTracksGT1_-130VertexZ-110_maxDistTo0XYis5_VertexZ1mmChargedTracksMix_wireDistanceGT4NoSharedMetaAllLayers_fullstat_gen4.root","read");//simulation
 	TFile *output = new TFile("./outputs/analysisWiresHarshVertexCut_nTracksGT5_-1VertexZ3mmMix_sharedWiresLT1NoSharedMetaSignals.root", "recreate");
 	
 	char SigName[20];
@@ -607,7 +607,7 @@ int doubleRatioSmashPim()
 	
 	cout<<"gaus chi2/ndf "<<fitGaus->GetChisquare()/fitGaus->GetNDF()<<endl;
 	fitGaus->SetLineColor(kRed);
-//	fitGaus->Draw("same");
+	fitGaus->Draw("same");
 	
 	gausExtrapolated->SetLineColor(fitGaus->GetLineColor());
 	gausExtrapolated->SetLineStyle(kDashed);
@@ -629,7 +629,7 @@ int doubleRatioSmashPim()
 	
 	hermite4GausExtrapolated->SetLineColor(hermite4Gaus->GetLineColor());
 	hermite4GausExtrapolated->SetLineStyle(kDashed);
-//	fitExp->Draw("same");
+	fitExp->Draw("same");
 	
 	coulombCorrection->SetLineColor(kGreen+1);
 //	coulombCorrection->Draw("same");
@@ -640,12 +640,12 @@ int doubleRatioSmashPim()
 //	leg->AddEntry(coulombCorrection, name, "lp");
 //	leg->AddEntry(coulombCorrection, "Coulomb potential, 1 fm", "lp");
 	leg->AddEntry(fitGaus, "Bowler-Sinyukov", "l");
-	leg->AddEntry(hermite4Gaus, "Bowler-Sinyukov + H_{4}", "l");
-	leg->AddEntry(hermite6Gaus, "Bowler-Sinyukov + H_{4} + H_{6}", "l");
-//	leg->AddEntry(fitExp, "Exponential fit", "l");
+//	leg->AddEntry(hermite4Gaus, "Bowler-Sinyukov + H_{4}", "l");
+//	leg->AddEntry(hermite6Gaus, "Bowler-Sinyukov + H_{4} + H_{6}", "l");
+	leg->AddEntry(fitExp, "Exponential fit", "l");
 	leg->SetBorderSize(0);
 	leg->SetFillStyle(0);
-//	leg->Draw();
+	leg->Draw();
 //	t->Draw();
 	TLine *line = new TLine(0.02,1,0.8,1);
 	line->SetLineColor(kAzure-3);

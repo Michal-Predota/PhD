@@ -76,6 +76,8 @@ int compareFunctions()
 	TFile *pipSimnTracksGT1 = new TFile("./jobs/smash/analysisSmashPip_Buffer20_NoIsGoodEvent_nTracksGT1_-130VertexZ-100_maxDistTo0XYis5_VertexZ1mmChargedTracksMix_WireDistanceGT4NoSharedMetaAllLayers_50k_gen4.root ","read");
 	TFile *pipSimnTracksGT5 = new TFile("./jobs/smash/analysisSmashPip_Buffer20_NoIsGoodEvent_nTracksGT5_-130VertexZ-100_maxDistTo0XYis5_VertexZ1mmChargedTracksMix_WireDistanceGT4NoSharedMetaAllLayers_50k_gen4.root ","read");
 
+	TFile *smashPip = new TFile("./jobs/smash/pureSmash_pip_analysis4.5GeV_buffer20_chargedTracksMix_nTracksGT1.root","read");
+	TFile *smashP = new TFile("./jobs/smash/pureSmash_proton_analysis4.5GeV_buffer20_nTracksMix_nTracksGT2.root","read");
 
 
 //	vector<TFile *> files = {metaHit,vertexZ,avMom,avEne};
@@ -101,7 +103,7 @@ int compareFunctions()
 //	vector<TFile *> files = {pipAnalysisMetaMixnTracksGT1, pipAnalysisMetaMixnTracksGT5};
 //	vector<TFile *> files = {pipAnalysisChargedTracksMixnTracksGT1, pipAnalysisChargedTracksMixnTracksGT5};
 //	vector<TFile *> files = {pipAnalysisMetaMixnTracksGT5, pipAnalysisChargedTracksMixnTracksGT5};
-	vector<TFile *> files = {pipSimnTracksGT1, pipSimnTracksGT5};
+	vector<TFile *> files = {smashPip, smashP};
 	vector<TH1D *> signals = {};
 	vector<TH1D *> backgrounds = {};
 	vector<TH1D *> CF = {};
@@ -124,7 +126,7 @@ int compareFunctions()
 							  "nPip nPim", "total momentum","totalMomentum chargedTracks","totalKt totalRapidity","totalKt","totalRapidity","chargedTracks nTracksGT5",
 							   "nTracksMix nTracksGT5"};*/
 //	vector<char*> legNames = {"wireDistanceGT0", "wireDistanceGT1", "wireDistanceGT2", "wireDistanceGT3", "wireDistanceGT4", "wireDistanceGT5", "wireDistanceGT6"};
-	vector<char*> legNames = {"nTracksGT1", "nTracksGT5"};
+	vector<char*> legNames = {"#pi^{+} CF", "p CF"};
 //	vector<char*> legNames = {"meta hits", "charged tracks"};
 							   
 //	vector<char*> legNames = {"wire distance GT0","wire distance GT1","wire distance GT2","wire distance GT3","wire distance GT4"};
@@ -174,6 +176,11 @@ int compareFunctions()
 				{
 					sprintf(tmpSigName, "PipSig_%d%d",i,j);
 					sprintf(tmpBckgName, "PipBckg_%d%d",i,j);
+				}
+				else if(std::string(files.at(f)->GetName()).find("Proton")!=string::npos || std::string(files.at(f)->GetName()).find("proton")!=string::npos)
+				{
+					sprintf(tmpSigName, "ProtonSig_%d%d",i,j);
+					sprintf(tmpBckgName, "ProtonBckg_%d%d",i,j);
 				}
 				else
 				{
