@@ -5,6 +5,9 @@
 #include "TLegend.h"
 #include "TStyle.h"
 #include "TF1.h"
+#include "TPaveText.h"
+#include "TCanvas.h"
+#include "TLine.h"
 
 //TFile *coulomb = new TFile("./coulombs_LCMS_smallR.root","read");
 //TFile *coulomb = new TFile("./coulomb_1_2_fm.root","read");
@@ -544,7 +547,7 @@ int fit()
 //	TFile *f = new TFile("./jobs/wires/analysisPim_2sigma_wires_Buffer10_NoIsGoodEvent_nTracksGT1_-130VertexZ-110_maxDistTo0XYis5_notMdcEdge_noDoubleHits_vertexZ1mmRadius05mmChargedTracksMix_WireDistanceGT4NoSharedMetaAllLayers_beamTiltCorr_gen4_10k.root","read");
 
 //	TFile *f = new TFile("./jobs/wires/analysisPim_2sigma_wires_Buffer10_NoIsGoodEvent_nTracksGT1_-130VertexZ-110_maxDistTo0XYis5_notMdcEdge_noDoubleHits_vertexZ1mmRadius05mmChargedTracksMix_WireDistanceGT4NoSharedMetaAllLayers_beamTiltCorr_gen4FixedMagnetList_fullstat.root");
-	TFile *f = new TFile("./jobs/wires/analysisPim_2sigma_wires_Buffer10_NoIsGoodEvent_nTracksGT5_-130VertexZ-110_maxDistTo0XYis5_notMdcEdge_noDoubleHits_vertexZ1mmRadius05mmChargedTracksMix_WireDistanceGT4NoSharedMetaAllLayers_beamTiltCorr_gen4FixedMagnetList_fullstat.root");
+//	TFile *f = new TFile("./jobs/wires/analysisPim_2sigma_wires_Buffer10_NoIsGoodEvent_nTracksGT5_-130VertexZ-110_maxDistTo0XYis5_notMdcEdge_noDoubleHits_vertexZ1mmRadius05mmChargedTracksMix_WireDistanceGT4NoSharedMetaAllLayers_beamTiltCorr_gen4FixedMagnetList_fullstat.root");
 
 
 
@@ -951,7 +954,7 @@ int fit()
 //################### pure SMASH protons ##########################	
 
 //	TFile *f = new TFile("./jobs/smash/pureSmash_proton_analysis4.5GeV_buffer20_nTracksMix_nTracksGT1.root","read");
-//	TFile *f = new TFile("./jobs/smash/pureSmash_proton_analysis4.5GeV_buffer20_nTracksMix_nTracksGT2.root","read");
+	TFile *f = new TFile("./jobs/smash/pureSmash_proton_analysis4.5GeV_buffer20_nTracksMix_nTracksGT2.root","read");
 //	TFile *f = new TFile("./jobs/smash/pureSmash_proton_analysis4.5GeV_buffer20_nTracksMix_nTracksGT5.root","read");
 	
 
