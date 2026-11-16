@@ -925,7 +925,7 @@ int fit()
 	
 //################# pure SMASH pi- #########################
 
-//	TFile *f = new TFile("./jobs/smash/pureSmash_pim_analysis4.5GeV_buffer20_nChargedTracksMix_nTracksGT1.root","read");
+	TFile *f = new TFile("./jobs/smash/pureSmash_pim_analysis4.5GeV_buffer20_nChargedTracksMix_nTracksGT1.root","read");
 //	TFile *f = new TFile("./jobs/smash/pureSmash_pim_analysis4.5GeV_buffer20_nTracksMix_nTracksGT1.root","read");
 
 //	TFile *f = new TFile("./jobs/smash/pureSmash_pim_analysis4.5GeV_buffer20_nTracksMix_nTracksGT5.root","read");
@@ -954,7 +954,7 @@ int fit()
 //################### pure SMASH protons ##########################	
 
 //	TFile *f = new TFile("./jobs/smash/pureSmash_proton_analysis4.5GeV_buffer20_nTracksMix_nTracksGT1.root","read");
-	TFile *f = new TFile("./jobs/smash/pureSmash_proton_analysis4.5GeV_buffer20_nTracksMix_nTracksGT2.root","read");
+//	TFile *f = new TFile("./jobs/smash/pureSmash_proton_analysis4.5GeV_buffer20_nTracksMix_nTracksGT2.root","read");
 //	TFile *f = new TFile("./jobs/smash/pureSmash_proton_analysis4.5GeV_buffer20_nTracksMix_nTracksGT5.root","read");
 	
 
