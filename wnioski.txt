@@ -688,9 +688,11 @@ Test fitu levy'ego, dla pliku: analysisPim_2sigma_wires_Buffer10_NoIsGoodEvent_n
 W double ratio Cauchy sprawdza się dużo lepiej od gaussa(dla pi-)
 
 
+Co do systematyk: wire distance +/-1, sigma w beta momentum +/-1, vertexZ? Radius?
+VertexZ i Radius +/- 10%
 
-
-
+Wziąłem się w końcu za momentum resolution dla pi+, ogólnie nie jest płaskie tak jak dla pi-...
+Sprawdzić momentum resolution dla pi- przy nTracksGT1
 
 
 

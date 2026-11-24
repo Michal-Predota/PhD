@@ -15,11 +15,11 @@ int pureSmashFunctions()
 	using namespace std;
 	
 	
-//	TFile *f = new TFile("./jobs/smash/pureSmash_pim_analysis4.5GeV_buffer20_nChargedTracksMix_nTracksGT1.root","read");
+	TFile *f = new TFile("./jobs/smash/pureSmash_pim_analysis4.5GeV_buffer20_nChargedTracksMix_nTracksGT1.root","read");
 //	TFile *f = new TFile("./jobs/smash/pureSmash_pim_analysis4.5GeV_buffer20_nChargedTracksMix_nTracksGT5.root","read");
 
 //	TFile *f = new TFile("./jobs/smash/pureSmash_pip_analysis4.5GeV_buffer20_nTracksMix_nTracksGT1.root","read");
-	TFile *f = new TFile("./jobs/smash/pureSmash_pip_analysis4.5GeV_buffer20_nTracksMix_nTracksGT5.root","read");
+//	TFile *f = new TFile("./jobs/smash/pureSmash_pip_analysis4.5GeV_buffer20_nTracksMix_nTracksGT5.root","read");
 
 //	TFile *f = new TFile("./jobs/smash/pureSmash_proton_analysis4.5GeV_buffer20_nTracksMix_nTracksGT2.root","read");
 //	TFile *f = new TFile("./jobs/smash/pureSmash_proton_analysis4.5GeV_buffer20_nTracksMix_nTracksGT5.root","read");
@@ -161,19 +161,19 @@ int pureSmashFunctions()
 	if(isPim)
 	{
 		TCanvas *cMesonMeson = new TCanvas("cMesonMeson","cMesonMeson",800,800);
-		TH1D *mesonMesonSig = pairProductionTypeVsQinvSig->ProjectionX("mesonMesonSig",0,1);
+		TH1D *mesonMesonSig = pairProductionTypeVsQinvSig->ProjectionX("mesonMesonSig",1,1);
 		int mesonMesonSigEntries = mesonMesonSig->GetEntries();
 		TCanvas *cMesonN = new TCanvas("cMesonN","cMesonN",800,800);
-		TH1D *mesonNSig = pairProductionTypeVsQinvSig->ProjectionX("mesonNSig",1,2);
+		TH1D *mesonNSig = pairProductionTypeVsQinvSig->ProjectionX("mesonNSig",2,2);
 		int mesonNSigEntries = mesonNSig->GetEntries();
 		TCanvas *cMesonD = new TCanvas("cMesonD","cMesonD",800,800);
-		TH1D *mesonDSig = pairProductionTypeVsQinvSig->ProjectionX("mesonDSig",2,3);
+		TH1D *mesonDSig = pairProductionTypeVsQinvSig->ProjectionX("mesonDSig",3,3);
 		int mesonDSigEntries = mesonDSig->GetEntries();
 		TCanvas *cNN = new TCanvas("cNN","cNN",800,800);
-		TH1D *NNSig = pairProductionTypeVsQinvSig->ProjectionX("NNSig",3,4);
+		TH1D *NNSig = pairProductionTypeVsQinvSig->ProjectionX("NNSig",4,4);
 		int NNSigEntries = NNSig->GetEntries();
 		TCanvas *cND = new TCanvas("cND","cND",800,800);
-		TH1D *NDSig = pairProductionTypeVsQinvSig->ProjectionX("NDSig",4,5);
+		TH1D *NDSig = pairProductionTypeVsQinvSig->ProjectionX("NDSig",5,5);
 		int NDSigEntries = NDSig->GetEntries();
 		
 		int sum = mesonMesonSigEntries+mesonNSigEntries+mesonDSigEntries+NNSigEntries+NDSigEntries;
@@ -183,11 +183,11 @@ int pureSmashFunctions()
 		double NNPercentage = (double)NNSigEntries/sum;
 		double NDPercentage = (double)NDSigEntries/sum;
 
-		TH1D *mesonMesonBckg = pairProductionTypeVsQinvBckg->ProjectionX("mesonMesonBckg",0,1);
-		TH1D *mesonNBckg = pairProductionTypeVsQinvBckg->ProjectionX("mesonNBckg",1,2);
-		TH1D *mesonDBckg = pairProductionTypeVsQinvBckg->ProjectionX("mesonDBckg",2,3);
-		TH1D *NNBckg = pairProductionTypeVsQinvBckg->ProjectionX("NNBckg",3,4);
-		TH1D *NDBckg = pairProductionTypeVsQinvBckg->ProjectionX("NDBckg",4,5);
+		TH1D *mesonMesonBckg = pairProductionTypeVsQinvBckg->ProjectionX("mesonMesonBckg",1,1);
+		TH1D *mesonNBckg = pairProductionTypeVsQinvBckg->ProjectionX("mesonNBckg",2,2);
+		TH1D *mesonDBckg = pairProductionTypeVsQinvBckg->ProjectionX("mesonDBckg",3,3);
+		TH1D *NNBckg = pairProductionTypeVsQinvBckg->ProjectionX("NNBckg",4,4);
+		TH1D *NDBckg = pairProductionTypeVsQinvBckg->ProjectionX("NDBckg",5,5);
 
 		TCanvas *cSingleParticlePtY = new TCanvas("cSingleParticlePtY","cSingleParticlePtY",800,800);
 		TH2D *pTySingleParticle = (TH2D*)f->Get("pTySingleParticle");
@@ -266,13 +266,13 @@ int pureSmashFunctions()
 	else if(isPip)
 	{
 		TCanvas *cMesonD = new TCanvas("cMesonD","cMesonD",800,800);
-		TH1D *mesonDSig = pairProductionTypeVsQinvSig->ProjectionX("mesonDSig",0,1);
+		TH1D *mesonDSig = pairProductionTypeVsQinvSig->ProjectionX("mesonDSig",1,1);
 		int mesonDSigEntries = mesonDSig->GetEntries();
 		TCanvas *cND = new TCanvas("cND","cND",800,800);
-		TH1D *NDSig = pairProductionTypeVsQinvSig->ProjectionX("NDSig",1,2);
+		TH1D *NDSig = pairProductionTypeVsQinvSig->ProjectionX("NDSig",2,2);
 		int NDSigEntries = NDSig->GetEntries();
 		TCanvas *cDD = new TCanvas("cDD","cDD",800,800);
-		TH1D *DDSig = pairProductionTypeVsQinvSig->ProjectionX("DDSig",2,3);
+		TH1D *DDSig = pairProductionTypeVsQinvSig->ProjectionX("DDSig",3,3);
 		int DDSigEntries = DDSig->GetEntries();
 		
 		int sum = mesonDSigEntries+NDSigEntries+DDSigEntries;
@@ -280,9 +280,9 @@ int pureSmashFunctions()
 		double NDPercentage = (double)NDSigEntries/sum;
 		double DDPercentage = (double)DDSigEntries/sum;
 
-		TH1D *mesonDBckg = pairProductionTypeVsQinvBckg->ProjectionX("mesonDBckg",0,1);
-		TH1D *NDBckg = pairProductionTypeVsQinvBckg->ProjectionX("NDBckg",1,2);
-		TH1D *DDBckg = pairProductionTypeVsQinvBckg->ProjectionX("DDBckg",2,3);
+		TH1D *mesonDBckg = pairProductionTypeVsQinvBckg->ProjectionX("mesonDBckg",1,1);
+		TH1D *NDBckg = pairProductionTypeVsQinvBckg->ProjectionX("NDBckg",2,2);
+		TH1D *DDBckg = pairProductionTypeVsQinvBckg->ProjectionX("DDBckg",3,3);
 
 		TCanvas *cSingleParticlePtY = new TCanvas("cSingleParticlePtY","cSingleParticlePtY",800,800);
 		TH2D* pTySingleParticle = (TH2D*)f->Get("pTySingleParticle");
@@ -343,16 +343,16 @@ int pureSmashFunctions()
 	else if(isProton)
 	{
 		TCanvas *cNPrimary = new TCanvas("cNPrimary","cNPrimary",800,800);
-		TH1D *nPrimarySig = pairProductionTypeVsQinvSig->ProjectionX("nPrimarySig",0,1);
+		TH1D *nPrimarySig = pairProductionTypeVsQinvSig->ProjectionX("nPrimarySig",1,1);
 		int nPrimarySigEntries = nPrimarySig->GetEntries();
 		TCanvas *cDPrimary = new TCanvas("cDPrimary","cDPrimary",800,800);
-		TH1D *dPrimarySig = pairProductionTypeVsQinvSig->ProjectionX("dPrimarySig",1,2);
+		TH1D *dPrimarySig = pairProductionTypeVsQinvSig->ProjectionX("dPrimarySig",2,2);
 		int dPrimarySigEntries = dPrimarySig->GetEntries();
 		TCanvas *cND = new TCanvas("cND","cND",800,800);
-		TH1D *NDSig = pairProductionTypeVsQinvSig->ProjectionX("NDS",2,3);
+		TH1D *NDSig = pairProductionTypeVsQinvSig->ProjectionX("NDS",3,3);
 		int NDSigEntries = NDSig->GetEntries();
 		TCanvas *cDD = new TCanvas("cDD","cDD",800,800);
-		TH1D *DDSig = pairProductionTypeVsQinvSig->ProjectionX("DDsig",3,4);
+		TH1D *DDSig = pairProductionTypeVsQinvSig->ProjectionX("DDsig",4,4);
 		int DDSigEntries = DDSig->GetEntries();
 
 		int sum = nPrimarySigEntries+dPrimarySigEntries+NDSigEntries+DDSigEntries;
@@ -361,10 +361,10 @@ int pureSmashFunctions()
 		double NDPercentage = (double)NDSigEntries/sum;
 		double DDPercentage = (double)DDSigEntries/sum;
 
-		TH1D *nPrimaryBckg = pairProductionTypeVsQinvBckg->ProjectionX("nPrimaryBckg",0,1);
-		TH1D *dPrimaryBckg = pairProductionTypeVsQinvBckg->ProjectionX("dPrimaryBckg",1,2);
-		TH1D *NDBckg = pairProductionTypeVsQinvBckg->ProjectionX("NDBckg",2,3);
-		TH1D *DDBckg = pairProductionTypeVsQinvBckg->ProjectionX("DDBckg",3,4);
+		TH1D *nPrimaryBckg = pairProductionTypeVsQinvBckg->ProjectionX("nPrimaryBckg",1,1);
+		TH1D *dPrimaryBckg = pairProductionTypeVsQinvBckg->ProjectionX("dPrimaryBckg",2,2);
+		TH1D *NDBckg = pairProductionTypeVsQinvBckg->ProjectionX("NDBckg",3,3);
+		TH1D *DDBckg = pairProductionTypeVsQinvBckg->ProjectionX("DDBckg",4,4);
 
 		TCanvas *cSingleParticlePtY = new TCanvas("cSingleParticlePtY","cSingleParticlePtY",800,800);
 		TH2D* pTySingleParticle = (TH2D*)f->Get("pTySingleParticle");
@@ -386,12 +386,12 @@ int pureSmashFunctions()
 		DPrimaryPave->AddText(DPrimaryPaveText);
 
 		char NDPaveText[20];
-		sprintf(NDPaveText, "D-Primary: %.2f%%", NDPercentage*100);
+		sprintf(NDPaveText, "N-D: %.2f%%", NDPercentage*100);
 		TPaveText *NDPave = new TPaveText(0.2,0.7,0.4,0.9,"NDC");
 		NDPave->AddText(NDPaveText);
 
 		char DDPaveText[20];
-		sprintf(DDPaveText, "D-Primary: %.2f%%", DDPercentage*100);
+		sprintf(DDPaveText, "D-D: %.2f%%", DDPercentage*100);
 		TPaveText *DDPave = new TPaveText(0.2,0.7,0.4,0.9,"NDC");
 		DDPave->AddText(DDPaveText);
 
@@ -428,6 +428,24 @@ int pureSmashFunctions()
 		pairProductionCfPaves.push_back(DDPave);
 	}
 
+	TCanvas *cCFComparison = new TCanvas("cCFComparison", "cCFComparison", 800, 800);
+	vector<int> colors = {kBlue+1, kRed, kMagenta+1, kGreen+1, kCyan+2, kViolet+2};
+	TLegend *leg = new TLegend(0.6,0.2,0.9,0.4);
+	leg->SetBorderSize(0);
+	leg->SetFillStyle(0);
+	if(strcmp(particleName, "proton")==0)
+	{
+		leg->SetX1(0.4);
+		leg->SetY1(0.5);
+		leg->SetX2(0.7);
+		leg->SetY2(0.7);
+	}
+	if(strcmp(particleName, "pim")==0)
+	{
+		leg->SetX1(0.4);
+		leg->SetX2(0.7);
+	}
+
 	for(int i=0; i<pairProductionCfCanvases.size(); i++)
 	{
 		pairProductionCfCanvases[i]->cd();
@@ -438,6 +456,8 @@ int pureSmashFunctions()
 		sigProjections[i]->Divide(bckgProjections[i]);
 		sigProjections[i]->GetXaxis()->SetRangeUser(0,800);
 		sigProjections[i]->GetYaxis()->SetRangeUser(0.,2.);
+		if(strcmp(particleName, "proton")==0)
+			sigProjections[i]->GetYaxis()->SetRangeUser(0.,1.);
 		sigProjections[i]->SetLineWidth(2);
 		sigProjections[i]->SetMarkerStyle(8);
 		sigProjections[i]->SetMarkerColor(sigProjections[i]->GetLineColor());
@@ -450,7 +470,20 @@ int pureSmashFunctions()
 
 		sprintf(fileName, "./randomShit/%s%s%s.pdf", particleName, (pairProductionCfCanvases.at(i))->GetTitle(), numberOfTracks);
 		pairProductionCfCanvases.at(i)->SaveAs(fileName);
+
+		sigProjections[i]->SetLineColor(colors[i]);
+		sigProjections[i]->SetMarkerColor(colors[i]);
+		cCFComparison->cd();
+		if(i==0)
+			sigProjections[i]->Draw();
+		else	
+			sigProjections[i]->Draw("same");
+		
+		leg->AddEntry(sigProjections[i], pairProductionCfPaves[i]->GetLine(0)->GetTitle(), "lp");
 	}
+	leg->Draw();
+	sprintf(fileName, "./randomShit/%sCFComparison%s.pdf", particleName, numberOfTracks);
+	cCFComparison->SaveAs(fileName);
 
 	for(int i=0; i<pTyCanvases.size(); i++)
 	{

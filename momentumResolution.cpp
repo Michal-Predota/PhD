@@ -5,6 +5,7 @@
 #include "TLegend.h"
 #include "TStyle.h"
 #include "TF1.h"
+#include "TCanvas.h"
 
 
 double crystalBallSimple(double *x, double *pars)//doi.1603.08591v1
@@ -37,16 +38,20 @@ double polyMean(double *x, double *pars)
 double polySigma(double *x, double *pars)
 {
 	double a=pars[0], b=pars[1], c=pars[2], d=pars[3], e=pars[4], f=pars[5], g=pars[6], h=pars[7], X=x[0];
-	
-	return a*X*X*X*X*X*X*X + b*X*X*X*X*X*X + c*X*X*X*X*X + d*X*X*X*X + e*X*X*X + f*X*X + g*X + h;
+//	if(a*X*X*X*X*X*X*X + b*X*X*X*X*X*X + c*X*X*X*X*X + d*X*X*X*X + e*X*X*X + f*X*X + g*X + h>0)
+		return a*X*X*X*X*X*X*X + b*X*X*X*X*X*X + c*X*X*X*X*X + d*X*X*X*X + e*X*X*X + f*X*X + g*X + h;
+
 }
 
 int momentumResolution()
 {
+	using namespace std;
 	gStyle->SetOptStat(0000);
 	
-	TFile *file = new TFile("./jobs/smash/momentumResolution_NoIsGoodEvent_nTracksGT5_-140VertexZ-100_maxDistTo0XYis5_gen4_40k.root");
+//	TFile *file = new TFile("./jobs/smash/momentumResolution_NoIsGoodEvent_nTracksGT1_-140VertexZ-100_maxDistTo0XYis5_gen4_40k.root");
 //	TFile *file = new TFile("./jobs/smash/momentumResolution_NoIsGoodEvent_nTracksGT5_-140VertexZ-100_maxDistTo0XYis5_gen4_40k.root");
+//	TFile *file = new TFile("./jobs/smash/momentumResolution_pip_NoIsGoodEvent_nTracksGT1_-130VertexZ-110_maxDistTo0XYis5_gen4_40k.root");
+	TFile *file = new TFile("./jobs/smash/momentumResolution_pip_NoIsGoodEvent_nTracksGT5_-130VertexZ-110_maxDistTo0XYis5_gen4_40k.root");
 
 	TH2D *inverseMomentaDifferenceVsKineMom = (TH2D*) file->Get("inverseMomentaDifferenceVsKineMom");
 	TH2D *phiDifferenceVsKineMom = (TH2D*) file->Get("phiDifferenceVsKineMom");
@@ -104,7 +109,7 @@ int momentumResolution()
 		
 		sprintf(name, "projection_%d_%dMeV",lowEdge,highEdge);;
 		
-		projections.push_back(inverseMomentaDifferenceVsKineMom->ProjectionY(name,i,i+1));
+		projections.push_back(inverseMomentaDifferenceVsKineMom->ProjectionY(name,i,i));
 		projections.at(i-1)->SetNameTitle(name,name);
 		
 		double lowRange = projections.at(i-1)->GetMean()-3*projections.at(i-1)->GetRMS();
@@ -125,7 +130,7 @@ int momentumResolution()
 		double sigma = fitsGausInvMom.at(i-1)->GetParameter(2);
 		f->SetParameters(norm,mean,sigma,2,2);
 		f->SetParLimits(1, mean-sigma, mean+sigma);
-		f->SetParLimits(2, 0.1*sigma, 4*sigma);
+		f->SetParLimits(2, 0, 4*sigma);
 		f->SetParLimits(3, 0, 5);
 		f->SetParLimits(4, 0, 5);
 		fitsCBInvMom.push_back(f);
@@ -151,7 +156,7 @@ int momentumResolution()
 		//############## PHI ################//
 		sprintf(name, "projectionPhi_%d_%dMeV",lowEdge,highEdge);;
 		
-		projectionsPhi.push_back(phiDifferenceVsKineMom->ProjectionY(name,i,i+1));
+		projectionsPhi.push_back(phiDifferenceVsKineMom->ProjectionY(name,i,i));
 		projectionsPhi.at(i-1)->SetNameTitle(name,name);
 		
 		lowRange = projectionsPhi.at(i-1)->GetMean()-3*projectionsPhi.at(i-1)->GetRMS();
@@ -197,7 +202,7 @@ int momentumResolution()
 		//############## THETA ################//
 		sprintf(name, "projectionTheta_%d_%dMeV",lowEdge,highEdge);;
 		
-		projectionsTheta.push_back(thetaDifferenceVsKineMom->ProjectionY(name,i,i+1));
+		projectionsTheta.push_back(thetaDifferenceVsKineMom->ProjectionY(name,i,i));
 		projectionsTheta.at(i-1)->SetNameTitle(name,name);
 		
 		lowRange = projectionsTheta.at(i-1)->GetMean()-3*projectionsTheta.at(i-1)->GetRMS();
@@ -344,7 +349,7 @@ int momentumResolution()
 	TF1 *meanPolyTheta = new TF1("meanPolyTheta", polyMean, 50, 2000, 9);
 	TF1 *sigmaPolyTheta = new TF1("sigmaPolyTheta", polySigma, 50, 2000, 8);
 	TF1 *kLThetaPoly = new TF1("kLThetaPoly", polyMean, 50, 2000, 9);
-	TF1 *kHThetaPoly = new TF1("kHThetaPoly", polyMean, 50, 2000, 8);
+	TF1 *kHThetaPoly = new TF1("kHThetaPoly", polyMean, 50, 2000, 9);
 	
 	meansTheta->Fit(meanPolyTheta, "REM0");
 	sigmasTheta->Fit(sigmaPolyTheta, "REM0");
@@ -379,7 +384,7 @@ int momentumResolution()
 	kHThetaPoly->Draw("same");
 	
 	
-	TFile *output = new TFile("./smearingFunctions_nTracksGT5.root","recreate");
+	TFile *output = new TFile("./pipSmearingFunctions_nTracksGT5.root","recreate");
 	output->cd();
 	meanPoly->Write();
 	meanPolyPhi->Write();
@@ -401,7 +406,7 @@ int momentumResolution()
 
 	
 //	TFile *smearCF = new TFile("./jobs/urqmd/smearedFunction_nTracksGT5_noPairCuts_crystalBall_acceptance_recalculatedEnergy_FemtoCoulombWeight_SmearTimes100_Tlv.root","read");
-	TFile *smearCF = new TFile("./jobs/urqmd/smearedFunction_nTracksGT5_noPairCuts_crystalBall_acceptance_recalculatedEnergy_FemtoCoulombWeight_Tlv.root","read");
+//	TFile *smearCF = new TFile("./jobs/urqmd/smearedFunction_nTracksGT5_noPairCuts_crystalBall_acceptance_recalculatedEnergy_FemtoCoulombWeight_Tlv.root","read");
 //	TFile *smearCF = new TFile("./jobs/urqmd/smearedFunction_NoIsGoodEvent_nTracksGT5_-140VertexZ-100_maxDistTo0XYis5_noPairCuts_crystalBall_acceptance_recalculatedEnergy_NoWeight_Tlv.root","read");
 //	TFile *smearCF = new TFile("./jobs/urqmd/smearedFunction_NoIsGoodEvent_nTracksGT5_-140VertexZ-100_maxDistTo0XYis5_noPairCuts_crystalBall_acceptance_recalculatedEnergy_OnlyFemtoWeight_Tlv.root","read");
 //	TFile *smearCF = new TFile("./jobs/urqmd/smearedFunction_NoIsGoodEvent_nTracksGT5_-140VertexZ-100_maxDistTo0XYis5_noPairCuts_crystalBall_acceptance_recalculatedEnergy_CoulombWeight_Tlv.root","read");
@@ -411,6 +416,10 @@ int momentumResolution()
 //	TFile *smearCF = new TFile("./jobs/urqmd/smearedFunction_nTracksGT5_noPairCuts_crystalBall_acceptance_recalculatedEnergy_OnlyFemtoWeight_smearTimesFive_Tlv.root","read");
 //	TFile *smearCF = new TFile("./jobs/urqmd/smearedFunction_NoIsGoodEvent_nTracksGT5_-140VertexZ-100_maxDistTo0XYis5_noPairCuts_crystalBall_acceptance_recalculatedEnergy_FemtoCoulombWeight_Tlv.root","read");
 //	TFile *smearCF = new TFile("./jobs/urqmd/smearedFunction_NoIsGoodEvent_nTracksGT5_-140VertexZ-100_maxDistTo0XYis5_noPairCuts_crystalBall_recalculatedEnergy_acceptance_FemtoCoulombWeight_Tlv.root","read");
+
+//	TFile *smearCF = new TFile("./jobs/urqmd/smearedFunctionPip_nTracksGT1_noPairCuts_crystalBall_acceptance_recalculatedEnergy_FemtoCoulombWeigh_Tlv.root","read");
+//	TFile *smearCF = new TFile("./jobs/urqmd/smearedFunctionPip_nTracksGT1_noPairCuts_crystalBall_recalculatedEnergy_FemtoCoulombWeight_Tlv.root","read");
+	TFile *smearCF = new TFile("./jobs/urqmd/smearedFunctionPip_nTracksGT5_noPairCuts_crystalBall_momGT100LT1800_recalculatedEnergy_FemtoCoulombWeight_Tlv.root","read");
 
 
 //	TFile *smearCF = new TFile("./jobs/urqmd/smearedFunction_NoIsGoodEvent_nTracksGT5_-140VertexZ-100_maxDistTo0XYis5_noPairCuts_crystalBall_acceptance_FemtoCoulombWeight_Tlv.root","read");
@@ -423,7 +432,7 @@ int momentumResolution()
 //	TFile *smearCF = new TFile("./jobs/urqmd/smearedFunction_NoIsGoodEvent_nTracksGT5_-140VertexZ-100_maxDistTo0XYis5_noPairCuts_recalculatedEnergy_UrQMD.root","read");
 
 
-	TFile *mcCF = new TFile("./jobs/urqmd/mcFunction_nTracksGT5_noPairCuts_acceptance_FemtoCoulombWeight_Tlv.root","read");
+//	TFile *mcCF = new TFile("./jobs/urqmd/mcFunction_nTracksGT5_noPairCuts_acceptance_FemtoCoulombWeight_Tlv.root","read");
 //	TFile *mcCF = new TFile("./jobs/urqmd/mcFunction_NoIsGoodEvent_nTracksGT5_-140VertexZ-100_maxDistTo0XYis5_noPairCuts_acceptance_NoWeight_Tlv.root","read");
 //	TFile *mcCF = new TFile("./jobs/urqmd/mcFunction_NoIsGoodEvent_nTracksGT5_-140VertexZ-100_maxDistTo0XYis5_noPairCuts_acceptance_OnlyFemtoWeight_Tlv.root","read");
 //	TFile *mcCF = new TFile("./jobs/urqmd/mcFunction_NoIsGoodEvent_nTracksGT5_-140VertexZ-100_maxDistTo0XYis5_noPairCuts_acceptance_CoulombWeight_Tlv.root","read");
@@ -435,12 +444,16 @@ int momentumResolution()
 //	TFile *mcCF = new TFile("./jobs/urqmd/mcFunction_NoIsGoodEvent_nTracksGT5_-140VertexZ-100_maxDistTo0XYis5_noPairCuts_UrQMD.root","read");
 
 
+//	TFile *mcCF = new TFile("./jobs/urqmd/pip_mcFunction_nTracksGT1_noPairCuts_acceptance_FemtoCoulombWeight_Tlv.root","read");
+	TFile *mcCF = new TFile("./jobs/urqmd/pip_mcFunction_nTracksGT5_noPairCuts_momGT100LT1800_acceptance_FemtoCoulombWeight_Tlv.root","read");
 
-	TH1D *sigSmear = new TH1D("pim_Signal_smear","pim_Signal_smear",1500,0,1500);
-	TH1D *bckgSmear = new TH1D("pim_Background_smear","pim_Background_smear",1500,0,1500);
 
-	TH1D *sigMC = new TH1D("pim_Signal_mc","pim_Signal_mc",1500,0,1500);
-	TH1D *bckgMC = new TH1D("pim_Background_mc","pim_Background_mc",1500,0,1500);
+
+	TH1D *sigSmear = new TH1D("pip_Signal_smear","pip_Signal_smear",1500,0,1500);
+	TH1D *bckgSmear = new TH1D("pip_Background_smear","pip_Background_smear",1500,0,1500);
+
+	TH1D *sigMC = new TH1D("pip_Signal_mc","pip_Signal_mc",1500,0,1500);
+	TH1D *bckgMC = new TH1D("pip_Background_mc","pip_Background_mc",1500,0,1500);
 	
 	
 	char SigName[20];
@@ -467,8 +480,8 @@ int momentumResolution()
 		bckgKtBinSmear.push_back(new TH1D(BckgName, BckgName,1500,0,1500));
 		for(int j=1; j<10; j++)
 		{	
-			sprintf(SigName, "PimSig_%d%d",i,j);
-			sprintf(BckgName, "PimBckg_%d%d",i,j);
+			sprintf(SigName, "PipSig_%d%d",i,j);
+			sprintf(BckgName, "PipBckg_%d%d",i,j);
 			
 			TH1D* tempSig = (TH1D*)smearCF->Get(SigName);
 			TH1D* tempBckg = (TH1D*)smearCF->Get(BckgName);
@@ -496,8 +509,8 @@ int momentumResolution()
 		bckgKtBinMC.push_back(new TH1D(BckgName, BckgName,1500,0,1500));
 		for(int j=1; j<10; j++)
 		{	
-			sprintf(SigName, "PimSig_%d%d",i,j);
-			sprintf(BckgName, "PimBckg_%d%d",i,j);
+			sprintf(SigName, "PipSig_%d%d",i,j);
+			sprintf(BckgName, "PipBckg_%d%d",i,j);
 			
 			TH1D* tempSig = (TH1D*)mcCF->Get(SigName);
 			TH1D* tempBckg = (TH1D*)mcCF->Get(BckgName);
@@ -561,8 +574,8 @@ int momentumResolution()
 	sigSmear->SetNameTitle("CF Smear","CF Smear");
 	sigSmear->Draw();
 	
-	sigMCCopy->SetNameTitle("momentumResolutionCorrection_nTracksGT5","momentumResolutionCorrection_nTracksGT5");
-	sigMCCopy->SaveAs("./outputs/momentumResolutionCorrection_nTracksGT5.root");
+	sigMCCopy->SetNameTitle("pipMomentumResolutionCorrection_nTracksGT1","pipMomentumResolutionCorrection_nTracksGT1");
+	sigMCCopy->SaveAs("./outputs/pipMomentumResolutionCorrection_nTracksGT1.root");
 	
 	TCanvas *cSig = new TCanvas("cSig","cSig",800,800);
 	TCanvas *cBckg = new TCanvas("cBckg","cBckg",800,800);
