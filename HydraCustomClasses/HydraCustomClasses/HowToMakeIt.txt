@@ -1,0 +1,27 @@
+1) Create a dedicated folder for your .h and .cc files (here GPhotons)
+
+2) In that folder, along your .cc and .h files (see those in GPhotons as exacple) you need a LinkDef.h and Makefile:
+    2a) Linkdef (as name iplies) links the classes with Hydra's root. There you define what kind of objects you want to have by: #pragma link C++ class ObjectToDefine+;
+If you want to use some STL stuff (like vectors) you have to define them separatelly (that automatically defines std::Array as well, as it is inherited i think)
+    2b) Makefile defines a library name, what sourcefiles we want to include in it and handles the "standard root bullshit" required for that operation (by $HADDIR includes)
+
+3) When you're ready to compile do the following:
+    3a) Set your desired HYDRA version with your defall.sh of choice (your libraries are tied to it!)
+    3b) In the folder below a dedicated one (i.e. the folder this file is located) is a "global makefile". There you specify $MYHADDIR$, (which will be the location of calling this makefile) and module name to build (same asa from "inner makefile" lib name.
+    3c) execute: make clean build install
+
+4) If everything goes right (no errors) you should see 4 extra folders created - build, install, lib and macros:
+    4a) In the "extraFiles" folder you can find a rootlogon.C, which you have to paste into macros directory. There you specify which libraries you want to load, separated by spaces (line 31: TString additional_libs = "GPhotons"). Also - in lines 388+ there is a custom addon of mine, which checks the status of libraries and tries to load them manually (in case Hydra fails to do so) -> modify this accordingly.
+    4b) To the lib folder you have to paste a generater .so file (from build/lib) and .pcm file (from build/pc)
+
+5) Finally, you have to "enable" your custom haddir in your analysis:
+    5a) in your defall.sh of choice you have to specify MYHADDIR and ROOT_INCLUDE_PATH (as in example defall.sh in this folder)
+    5b) in your rootrc file (access it as ~/.rootrc) paste the following line (if they aren't already there):
+        Unix.*.Root.DynamicPath:	.:$(MYHADDIR)/lib:$(HADDIR)/lib:$(ROOTSYS)/lib:$(ROOTSYS)/lib
+        Unix.*.Root.MacroPath:  .:$(MYHADDIR)/macros:$(HADDIR)/macros
+        TFile.Recover: no
+    5c) Enable your custom defall, if everything goes right, while launching hydra at the end of DLL list (before RTBD containers) you should see the name of your library & path to it
+
+6) Now you can store your custom class object in TTrees! Yeeeey! Have fun with it :) 
+    6a) Keep in mind that if you want to read thos objects from the tree you have to read them as POINTERS (because ROOT is a dumb fuck). I.e. you store an object of a class Particle in a TTree tree, in order to read it later you have to create object Particle* p; and then do tree->SetBranchAdress("branchName",&p);
+
