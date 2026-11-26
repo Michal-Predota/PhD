@@ -693,6 +693,21 @@ VertexZ i Radius +/- 10%
 
 Wziąłem się w końcu za momentum resolution dla pi+, ogólnie nie jest płaskie tak jak dla pi-...
 Sprawdzić momentum resolution dla pi- przy nTracksGT1
+Jedna dodatkowa rzecz, dla pi+ nie sprawdzam "akceptancji", może trzeba ją dodać?
+
+Dodałem, mimo wszystko nadal nie jest tak płaskie jak w przypadku pi-...
+chociaż w sumie na obszarze 0-400 MeV jest praktycznie płaskie, tylko że nie jest idealnie na 1 tylko tak 0.95, to źle?
+
+
+
+
+
+
+
+
+
+
+
 
 
 

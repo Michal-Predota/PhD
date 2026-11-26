@@ -419,7 +419,8 @@ int momentumResolution()
 
 //	TFile *smearCF = new TFile("./jobs/urqmd/smearedFunctionPip_nTracksGT1_noPairCuts_crystalBall_acceptance_recalculatedEnergy_FemtoCoulombWeigh_Tlv.root","read");
 //	TFile *smearCF = new TFile("./jobs/urqmd/smearedFunctionPip_nTracksGT1_noPairCuts_crystalBall_recalculatedEnergy_FemtoCoulombWeight_Tlv.root","read");
-	TFile *smearCF = new TFile("./jobs/urqmd/smearedFunctionPip_nTracksGT5_noPairCuts_crystalBall_momGT100LT1800_recalculatedEnergy_FemtoCoulombWeight_Tlv.root","read");
+//	TFile *smearCF = new TFile("./jobs/urqmd/smearedFunctionPip_nTracksGT5_noPairCuts_crystalBall_momGT100LT1800_recalculatedEnergy_FemtoCoulombWeight_Tlv.root","read");
+	TFile *smearCF = new TFile("./jobs/urqmd/smearedFunctionPip_nTracksGT5_noPairCuts_crystalBall_momGT100LT1800_acceptance_recalculatedEnergy_FemtoCoulombWeight_Tlv.root","read");
 
 
 //	TFile *smearCF = new TFile("./jobs/urqmd/smearedFunction_NoIsGoodEvent_nTracksGT5_-140VertexZ-100_maxDistTo0XYis5_noPairCuts_crystalBall_acceptance_FemtoCoulombWeight_Tlv.root","read");
@@ -455,7 +456,25 @@ int momentumResolution()
 	TH1D *sigMC = new TH1D("pip_Signal_mc","pip_Signal_mc",1500,0,1500);
 	TH1D *bckgMC = new TH1D("pip_Background_mc","pip_Background_mc",1500,0,1500);
 	
+	TH2D *pTySmash = (TH2D*)file->Get("pTy");
+	TH2D *pTyUrQmd = (TH2D*)mcCF->Get("pTy");
 	
+	pTySmash->Scale(1/pTySmash->Integral());
+	pTyUrQmd->Scale(1/pTyUrQmd->Integral());
+	pTySmash->Divide(pTyUrQmd);
+	TH2D *acceptance = new TH2D("acceptanceWeights",";y;pT",1000,0,2,500,0,1000);
+	
+	for(int i=1; i<=pTySmash->GetNbinsX(); i++)
+	{
+		for(int j=1; j<=pTySmash->GetNbinsY(); j++)
+		{
+			double weight = pTySmash->GetBinContent(i, j)/(pTySmash->GetBinContent(i,j)+1);
+			acceptance->SetBinContent(i, j, weight);
+		}
+	}
+
+	acceptance->SaveAs("./acceptanceWeightsPipGT5.root");
+
 	char SigName[20];
 	char BckgName[20];
 	
